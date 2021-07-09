@@ -54,12 +54,7 @@ export default function CustomizedDialogs({addItem}) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
-      if(selected.id != (rows.length+1)){
-          update(prodoct);
-        }else{  // for add section
-          add(prodoct);
-        }
-        dispatch(editProd(prodoct));
+      
     setOpen(true);
   };
   const handleClose = () => {
