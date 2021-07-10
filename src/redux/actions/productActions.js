@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import { getAProductById, getAllProducts,deleteProductById, createAProduct } from "../../api/products";
 
 import { ActionTypes } from "../constants/action-type.js";
@@ -63,7 +63,7 @@ export const deleteProduct = (id) => async(dispatch) => {
 
 export const editProduct = (id) => async(dispatch) => {
 
-  let res = await getAProductById(id);
+  await getAProductById(id);
   dispatch(editProduct(id));
 
 }

@@ -1,5 +1,7 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles,makeStyles } from '@material-ui/core/styles';
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell';
+
 
 export const useStyles = makeStyles((theme) => ({
     inputs: {
@@ -8,6 +10,60 @@ export const useStyles = makeStyles((theme) => ({
         color:'black'
       },
     },
+      error: {
+          color:'red',
+          
+      },
+      root: {
+          height: "100vh",
+          
+        },
+        image: {
+          backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/000/396/067/original/people-shopping-with-credit-card-illustration-vector.jpg)",
+          backgroundRepeat: "no-repeat",
+          backgroundColor:
+            theme.palette.type === "light"
+              ? theme.palette.grey[50]
+              : theme.palette.grey[900],
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        },
+        paper: {
+          margin: theme.spacing(8,4),
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          
+         
+        },
+        avatar: {
+          margin: theme.spacing(1,1,2),
+          backgroundColor: theme.palette.secondary.main,
+        
+        },
+        form: {
+          width: "100%",
+          marginTop: theme.spacing(1),
+        },
+        submit: {
+          margin: theme.spacing(3, 0, 3),
+        },
+      remember: {
+        margin: theme.spacing(0, -1, 0),
+      },
+      table: {
+        minWidth: 700,
+      },
+      paperinTable: {
+        maxWidth:'60%',
+        margin: theme.spacing(3, 'auto', 3),
+      },
+      icone:{
+        color: "#e51f1f"
+      },
+    paperModal: {
+      width: 'auto'
+    }
   
 }));
 
@@ -18,4 +74,21 @@ export const defaultProps = {
     borderColor: 'text.primary',
   };
 
+
+  export const StyledTableCell = withStyles((theme) => ({
+    head: {
+      backgroundColor: '#b31515',
+      color: theme.palette.common.white,
+    },
+    body: {
+      fontSize: 14,
+    },
+  }))(TableCell);
   
+  export const StyledTableRow = withStyles((theme) => ({
+    root: {
+      '&:nth-of-type(odd)': {
+        backgroundColor: theme.palette.action.hover,
+      },
+    },
+  }))(TableRow);

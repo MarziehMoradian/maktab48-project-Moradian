@@ -1,19 +1,19 @@
-import { TextField, Grid, makeStyles, Paper, Button } from '@material-ui/core'
-import React,{useState,useEffect} from 'react'
+import { TextField, Grid, makeStyles, Button, InputLabel } from '@material-ui/core'
+import React,{useState} from 'react'
 import DropDown from './DropDown';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import { useDispatch, useSelector } from 'react-redux';
-import {getProducts, createNewProduct  } from '../redux/actions/productActions';
+import { createNewProduct  } from '../redux/actions/productActions';
 import ImageUpload from 'image-upload-react';
 
-const initialValues = {
-    id:0,
-    title:'',
-    category:'',
-    price:'',
-    describtion:'',
-    image:'',
-}
+// const initialValues = {
+//     id:0,
+//     title:'',
+//     category:'',
+//     price:'',
+//     describtion:'',
+//     image:'',
+// }
 
 const useStyle = makeStyles (theme => ({
     root:{
@@ -29,10 +29,20 @@ const useStyle = makeStyles (theme => ({
         padding: theme.spacing(3)
     },
     button: {
-        marginTop:'2.7rem'
+        // marginTop:'2.7rem',
+        margin: theme.spacing(3,20),
+        background:'#b31515',
+        color:'white',
+        width:'50%'
     },
     text:{
-        
+        border: '1px solid black',
+        height:'100px',
+        marginRight:'0.5rem'
+    },
+    lable: {
+        fontSize: '15px',
+        fontWeight: 'bold'
     }
 }))
 function Form({addItem}) {
@@ -41,10 +51,10 @@ function Form({addItem}) {
     const [description,setDescription] = useState("")
     const [category,setCategory] = useState("");
     const [price,setPrice] = useState("");
-    const [imageSrc, setImageSrc] = useState()
+    const [image, setImage] = useState()
  
     const handleImageSelect = (e) => {
-      setImageSrc(URL.createObjectURL(e.target.files[0]))
+      setImage(URL.createObjectURL(e.target.files[0]))
     }
     const dispatch = useDispatch();
     const products = useSelector((state) => state.allProducts.products);
@@ -57,7 +67,7 @@ function Form({addItem}) {
         // setName("");
         // setCategoury("");
         // setText("");
-        dispatch(createNewProduct({id, title,price,description,category, imageSrc}));
+        dispatch(createNewProduct({id, title,price,description,category, image}));
         // dispatch(getProducts());
         
         setTitle("");
@@ -69,26 +79,22 @@ function Form({addItem}) {
   
 
     return (
-        
+     
         <form  className={classes.root} onSubmit={handleSubmit}>
             <Grid container>
-              
-            
-                <br/>
-                
-                <Grid item xs={12}>
-                    <lable style={{padding: '0.5vw',fontSize: '20px',fontFamily:" 'Lato', sans-serif",fontFamily: "'Scheherazade', serif",fontWeight: 'bold'}}>نام کالا :</lable>
-                    <br/>
+                <Grid item xs={12} >
+                    <InputLabel >نام کالا :</InputLabel>
                     <TextField 
                         variant = "outlined"
                         value = {title}
                         onChange={(e) => setTitle(e.target.value)}
+                        size="small"
                     />
                 </Grid>
                 
               
                <Grid item xs={12}>
-               <lable style={{padding: '0.5vw',fontSize: '20px',fontFamily:" 'Lato', sans-serif",fontFamily: "'Scheherazade', serif",fontWeight: 'bold'}}>دسته بندی:</lable>
+               <InputLabel >دسته بندی:</InputLabel>
                     <DropDown
                         name="clothes"
                         value={category}
@@ -98,35 +104,38 @@ function Form({addItem}) {
                 </Grid>
 
                <Grid item xs={12}>
-                   <div>
-
-                    <lable style={{padding: '0.5vw',fontSize: '20px',fontFamily:" 'Lato', sans-serif",fontFamily: "'Scheherazade', serif",fontWeight: 'bold'}}>توضیحات:</lable>
-                   </div>
-                   <TextareaAutosize aria-label="" minRows={3} style={{width:'80%',height:'100px',marginRight:'0.5rem'}}  value={description} onChange={e => setDescription(e.target.value)} />;
+                 
+                    <InputLabel >توضیحات:</InputLabel>
+                    <br/>
+                    {/* <MUIRichTextEditor label="..." className={classes.text} defaultValue={description}  /> */}
+                    <TextareaAutosize style={{ width:'80%',height:'100px',marginRight:'0.5rem'}} value={description} onChange={(e)=>setDescription(e.target.value)} />
                 </Grid>
-
-                  <Grid item xs={8}>
-                    <lable style={{padding: '0.5vw',fontSize: '20px',fontFamily:" 'Lato', sans-serif",fontFamily: "'Scheherazade', serif",fontWeight: 'bold'}}>تصویر کالا :</lable>
+                <br/>
+                <Grid>   
+                    <InputLabel>تصویر کالا :</InputLabel>
                     <br/>
                     <ImageUpload 
-                    handleImageSelect={handleImageSelect}
-                    imageSrc={imageSrc}
-                    setImageSrc={setImageSrc}
-                    style={{
-                        width: 120,
-                        height: 120,
-                        background: 'blue',
-                        // marginLeft: "200%",
-                    }}
+                        handleImageSelect={handleImageSelect}
+                        imageSrc={image}
+                        setImageSrc={setImage}
+                        style={{
+                            background:'#03939d',
+                            height:'70px',
+                            width:'25rem',
+                        }}
+                        
+
                     />
                 </Grid>
-                <Grid item xs={4}>
-                  <Button variant="contained" color="primary" className={classes.button} style={{margin:'1rem 15rem',padding:'0.5rem 2rem'}} type="submit" >ذخیره</Button>
+               
+                <Grid item xs={6} >
+                  <Button variant="contained"  className={classes.button}  type="submit" >ذخیره</Button>
                 </Grid>
 
             </Grid>
             
         </form>
+      
         
     )
 }

@@ -9,6 +9,7 @@ export const login = async (email, password) => {
       email,
       password,
     }),
-  });
+  })
+ 
   return res;
 };

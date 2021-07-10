@@ -1,6 +1,5 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
@@ -8,8 +7,9 @@ import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
-import { Paper } from '@material-ui/core';
 import Form from './Form';
+import { useStyles } from '../assets';
+
 const styles = (theme) => ({
   root: {
     margin: 0,
@@ -20,7 +20,7 @@ const styles = (theme) => ({
     left: theme.spacing(1),
     top: theme.spacing(1),
     color: theme.palette.grey[500],
-  },
+  }
 });
 
 const DialogTitle = withStyles(styles)((props) => {
@@ -39,7 +39,9 @@ const DialogTitle = withStyles(styles)((props) => {
 
 const DialogContent = withStyles((theme) => ({
   root: {
-    padding: theme.spacing(2),
+    margin: theme.spacing(4),
+    
+    
   },
 }))(MuiDialogContent);
 
@@ -50,34 +52,23 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-export default function CustomizedDialogs({addItem}) {
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-      
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
-
+export default function CustomizedDialogs({open,handleClose}) {
+ 
+  const classess = useStyles()
+ 
   return (
     <div >
-      <Button variant="outlined" color="primary" onClick={handleClickOpen} style={{textAlign:'center'}}>
-        افزودن کالا
-      </Button>
-      <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open} style={{margin:' auto'}}>
-        <DialogTitle id="customized-dialog-title" onClose={handleClose}>
+    
+      <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open} >
+        <DialogTitle id="customized-dialog-title" onClose={handleClose} style={{background:'#b31515',color:'#c2c6bb'}}>
           افزودن کالا
         </DialogTitle>
-        <DialogContent dividers >
-            <Form addItem={addItem}/>
+        <DialogContent dividers  >
+          
+            <Form className={classess.paperModal} />
+           
         </DialogContent>
-        <DialogActions>
-          {/* <Button autoFocus onClick={handleClose} color="primary">
-            Close
-          </Button> */}
-        </DialogActions>
+       
       </Dialog>
     </div>
   );

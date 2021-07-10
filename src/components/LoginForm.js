@@ -1,75 +1,82 @@
 import React,{useState} from 'react';
-// import TextField from '@material-ui/core/TextField';
-import { useStyles, defaultProps } from '../assets';
+import { useStyles} from '../assets/index';
 import Button from '@material-ui/core/Button';
-// import Box from '@material-ui/core/Box';
-// import { borders } from '@material-ui/system';
-// import CssBaseline from '@material-ui/core/CssBaseline';
-// import Container from '@material-ui/core/Container';
-import { Grid, Paper, TextField} from '@material-ui/core';
+import Image from 'material-ui-image';
+import { Grid, TextField} from '@material-ui/core';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import { useForm, Controller } from 'react-hook-form';
-import { DevTool } from '@hookform/devtools';
+import { useForm } from 'react-hook-form';
 import { login } from '../api/Login';
+import { useHistory } from 'react-router';
+import { makeStyles } from '@material-ui/core';
 
 
-const Input = () => {
-    const [password,setPassword] = useState();
-    const [userName,setUserName] = useState();
+const useStyle = makeStyles ((theme) => ({
+      remember: {
+        margin: theme.spacing(0, -1, 1),
+      },
+      text: {
+        margin: theme.spacing(1, 0, 1),
+      }
+}))
+function LoginForm() {
 
-    const { register, handleSubmit, control, errors } = useForm({
-        mode: 'onChange',
-        reValidateMode: 'onChange',
-        defaultValues: {
-          userName: '',
-          password: '',
-          remember: false,
-        },
-      });
-
-    const handleChange = (e) => {
-        if(e.target.name === 'userName') {
-            setUserName(e.target.value);
-        }else{
-            setPassword(e.target.value)
-        }
-
-    }
+     //Hooks
+     const classes = useStyles()
+     const history = useHistory()
+     const [password,setPassword] = useState();
+     const [userName,setUserName] = useState();
+     const { register, handleSubmit, control, errors } = useForm({
+         mode: 'onChange',
+         reValidateMode: 'onChange',
+         defaultValues: {
+           userName: '',
+           password: '',
+           
+         },
+       });
  
+ 
+     //Functions For Handle Actions
+     const handleChange = (e) => {
+         if(e.target.name === 'userName') {
+             setUserName(e.target.value);
+         }else{
+             setPassword(e.target.value)
+         }
+ 
+     }
+     const onSubmit = (data )=>{
+         if((userName,password)) {
+             login(userName,password)
+             .then((res) => {               
+                 localStorage.setItem("token",res.data.token);
+                 if("token" === undefined || "token" === null || "token" === ""){
+                     window.location.reload();
+                                 
+                 }else{
+                     history.push('/adminPanel');
+                 }
+                 
+             })
+             .catch((err) => console.error(err))
+         }           
+     };
+    const classess = useStyle()
 
-    const onSubmit = data =>{
-        if((userName,password)) {
-            login(userName,password)
-            .then((res) => {
-                localStorage.setItem("token",res.data.token);
-                window.location.reload();
-            })
-            .catch((err) => console.error(err))
-        }
-    };
-
-    const classes = useStyles();
-    const  paperStyle={
-        padding: 20,
-        height: '70vh',
-        width:'30vw',
-        margin: '20px auto'
-    }
-    const btnStyle={margin:'8px 0'}
-    const linkStyle={textDecorationLine:'none'}
-
-    return ( 
-        <Grid>
-            <DevTool control={control} />
-            <Paper elevation={10} style={paperStyle}>
+    return (
+        <div className={classes.paper}>
                 <Grid align="center">
-                    <h1>صفحه ورود</h1>
-                    
+                    <Grid className={classes.avatar}>
+                        <Image src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Carrefour_Market_logo.svg" />
+                    </Grid>
+                    <Typography component="h1" variant="h5">ورود به پنل مدیریت </Typography>  
                 </Grid>
-                <form className={classes.inputs} noValidate autoComplete="off"  onSubmit={handleSubmit(onSubmit)}>
+
+
+                <form className={classes.form}  noValidate autoComplete="off"  onSubmit={handleSubmit(onSubmit)}>
                     <lable>نام کاربری </lable>
                     <TextField 
                         variant="outlined" 
@@ -77,7 +84,7 @@ const Input = () => {
                         size="small" 
                         fullWidth  
                         required 
-                        style={btnStyle}
+                        
                         inputRef={register({
                             required: 'نام کاربری خود را وارد کنید',
                             pattern: {
@@ -94,6 +101,7 @@ const Input = () => {
                     {errors.userName && (
                         <span className={classes.error}>{errors.userName.message}</span>
                     )}
+
                     <br/>
                     <br/>
 
@@ -111,59 +119,55 @@ const Input = () => {
                               value:/^[a-zA-Z0-9]{8,}$/,
                               message: 'رمز عبور خود را بصورت صحیح وارد کنید',
                             },
-                            minLength: {
-                                value: 8,
-                                message: 'رمز عبور باید بین 8 تا 12 کاراکتر باشد'
-                            }
+                            // minLength: {
+                            //     value: 8,
+                            //     message: 'رمز عبور باید بین 8 تا 12 کاراکتر باشد'
+                            // }
                           })}
                           onChange={handleChange}
                           value={password}
                           autoComplete='current-password'
                           error={!!errors.password}
                         />
+                        
                         {errors.password && (
                           <span className={classes.error}>{errors.password.message}</span>
                         )}
+
                         <br/>
                         <br/>
 
                     <FormControlLabel
-                            style={btnStyle}
-                            name="remember"
+                        className={classess.remember}
+                        name="remember"
                         control = {
                             <Checkbox
                                 name="checkedB"
                                 color="primary"
-                                inputRef={register()}
+                                
                             />
                         }
                         label="مرا بخاطر بسپار"
                     />
                 
-                    <Button type="submit" color="primary" fullWidth variant="contained" size="large" style={btnStyle}>ورود</Button>
-
-                    <Typography style={btnStyle} >
-                        <Link href="#" style={linkStyle}>
+                    <Button type="submit" color="primary" fullWidth variant="contained" size="large" className={classes.submit} >ورود</Button>
+                        <br/>
+                    <Typography item xs className={classess.text}  >
+                        <Link href="#" >
                             رمز عبور را فراموش کردم
                         </Link>
-                    </Typography >
-            
-                    <Typography style={btnStyle}>
+                    </Typography>
+                        
+                    <Typography item xs >
                         آیا حساب کاربری دارید؟
-                        <Link href="#" style={linkStyle} >
+                        <Link href="#" >
                             ثبت نام
                         </Link>
                     </Typography>
+
              </form>
-            </Paper>
-            
-        </Grid>
-
-
-
-
-   
-    );
+            </div>
+    )
 }
- 
-export default Input;
+
+export default LoginForm
