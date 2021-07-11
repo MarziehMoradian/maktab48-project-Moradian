@@ -49,7 +49,8 @@ const  AdminPanelPage = (props) => {
   const indexToTabName = {
     "ProductManagement":0
   }
-  const [selectedTab, setSelectedTab] =React.useState(indexToTabName[page]);
+  // const [selectedTab, setSelectedTab] =React.useState(indexToTabName[page]);
+  const [selectedTab, setSelectedTab] =React.useState(0);
    
   //Actions
   const handleChange = (event, newValue) => {

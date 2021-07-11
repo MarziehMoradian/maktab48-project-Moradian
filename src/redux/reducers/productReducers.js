@@ -23,7 +23,12 @@ export const productReducers = (state = initialState, { type, payload }) => {
         }
       case ActionTypes.CREATE_PRODUCT:
         return {...state, data:payload}
+
       
+      case ActionTypes.EDIT_SELECTED_PRODUCT:
+        return {payload,...state.products }
+
+
         default:
         return state;
     }

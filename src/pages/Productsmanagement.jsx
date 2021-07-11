@@ -1,10 +1,18 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import Dialog from '../components/Dialog';
 import Table from '../components/Table';
 import ButtonModal from '../components/ButtonModal';
+import { getProducts  } from '../redux/actions/productActions';
+import { useDispatch,useSelector } from 'react-redux';
 // import { useStyles } from '../assets';
 import { Box, makeStyles } from '@material-ui/core';
 function ProductTable() {
+
+  const products = useSelector((state) => state.allProducts.products);
+  const dispatch = useDispatch();
+   useEffect(() => {
+      dispatch(getProducts()); 
+    }, []);
     const [open, setOpen] = React.useState(false);
     const handleClickOpen = () => {
         
@@ -14,6 +22,8 @@ function ProductTable() {
       const handleClose = () => {
         setOpen(false);
       };
+
+    
      const useStyles = makeStyles((theme)=> ({
         btnAdd:{
             background:'#03939d',
@@ -43,7 +53,7 @@ function ProductTable() {
                 
                 <Dialog open={open} handleClose={handleClose}/>
                 <Table />
-                <ButtonModal onClick={handleClickOpen} className={classess.btnAdd}/>
+                <ButtonModal onClick={handleClickOpen} className={classess.btnAdd}  />
             </Box>
         </>
         

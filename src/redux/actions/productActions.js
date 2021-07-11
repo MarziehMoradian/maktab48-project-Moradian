@@ -1,5 +1,5 @@
 
-import { getAProductById, getAllProducts,deleteProductById, createAProduct } from "../../api/products";
+import { getAProductById, getAllProducts,deleteProductById, createAProduct, updateProduct } from "../../api/products";
 
 import { ActionTypes } from "../constants/action-type.js";
 
@@ -24,10 +24,10 @@ export const removeProduct = (id) => {
   }
 }
 
-export const editeProduct = (id) => {
+export const editeProduct = (product) => {
   return {
     type:ActionTypes.EDIT_SELECTED_PRODUCT,
-    payload:id,
+    payload:product,
   }
 }
 
@@ -51,7 +51,7 @@ export const getProducts = () => async (dispatch, getState) => {
 
 export const getAProduct = (id) => async (dispatch) => {
   let res = await getAProductById(id);
-  dispatch(selectedProduct(res.data));
+  dispatch(selectedProduct(res));
 };
 
 ///delete
@@ -61,12 +61,6 @@ export const deleteProduct = (id) => async(dispatch) => {
   dispatch(removeProduct(id))
 }
 
-export const editProduct = (id) => async(dispatch) => {
-
-  await getAProductById(id);
-  dispatch(editProduct(id));
-
-}
 
 export const createNewProduct = (data) => async (dispatch) => {
    await createAProduct(data);
