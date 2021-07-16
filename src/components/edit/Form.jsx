@@ -4,7 +4,6 @@ import DropDown from '../DropDown';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts,createNewProduct,editeProduct } from '../../redux/actions/productActions';
-import ImageUpload from 'image-upload-react';
 import {updateProduct} from '../../api/products'
 const useStyle = makeStyles (theme => ({
     root:{
@@ -38,11 +37,11 @@ const useStyle = makeStyles (theme => ({
 }))
 function Form({action}) {
     const classes = useStyle();
-    const [title,setTitle] = useState("");
-    const [description,setDescription] = useState("")
-    const [category,setCategory] = useState("");
+    const [title,setTitle] = useState(action.title);
+    const [description,setDescription] = useState(action.description)
+    const [category,setCategory] = useState(action.category);
     const [price,setPrice] = useState(action.price);
-    const [image, setImage] = useState("")
+    const [image, setImage] = useState(action.image)
  
     const handleImageSelect = (e) => {
       setImage(URL.createObjectURL(e.target.files[0]))

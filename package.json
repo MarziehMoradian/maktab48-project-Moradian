@@ -4,9 +4,11 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.4",
+    "@material-ui/data-grid": "^4.0.0-alpha.33",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/styles": "^4.11.4",
-    "@rpldy/uploady": "^0.13.2",
+    "@stripe/react-stripe-js": "^1.4.1",
+    "@stripe/stripe-js": "^1.16.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -22,9 +24,6 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^6.15.8",
-    "react-images-upload": "^1.2.8",
-    "react-images-uploading": "^3.1.2",
-    "react-multiple-image-input-gyu-dong": "0.0.7",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
@@ -33,7 +32,6 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-router": "^2.1.2",
     "redux-thunk": "^2.2.0",
-    "swipeable-views-react": "^0.6.6",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

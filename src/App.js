@@ -4,20 +4,23 @@ import AdminPanelPage from './pages/AdminPanelPage';
 import { Route, Switch} from "react-router-dom";
 import React from "react";
 import { ProtectedRoute } from "./ProtectedRoute";
-
-
-
+import Drawer from './components/Drawer';
+import MainPage from "./pages/MainPage";
+import CssBaseline from '@material-ui/core/CssBaseline';
 function App() {
   return (
     <React.Fragment>
-
- 
-      <Switch>
+    <CssBaseline/>
+       <MainPage/>
+        {/* <Drawer /> */}
+        
+        <Switch>
         <Route path="/login" exact component={Login}/>
     
          <ProtectedRoute path="/adminPanel/:page?" exact component={AdminPanelPage}/>
+        
       
-      </Switch> 
+      </Switch>  
      
     </React.Fragment>
   );

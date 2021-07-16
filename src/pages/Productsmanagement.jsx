@@ -1,11 +1,12 @@
 import React,{useEffect} from 'react';
 import Dialog from '../components/Dialog';
 import Table from '../components/Table';
+// import Table from '../components/TableProducts';
 import ButtonModal from '../components/ButtonModal';
 import { getProducts  } from '../redux/actions/productActions';
 import { useDispatch,useSelector } from 'react-redux';
 // import { useStyles } from '../assets';
-import { Box, makeStyles } from '@material-ui/core';
+import { Box, makeStyles, Paper } from '@material-ui/core';
 function ProductTable() {
 
   const products = useSelector((state) => state.allProducts.products);
@@ -47,7 +48,7 @@ function ProductTable() {
       const classess = useStyles()
 
     return (
-         <>
+         <Paper style={{width:'100%'}}>
             <h1 style={{textAlign:'center'}}>صفحه مدیریت کالا ها</h1>
             <Box className={classess.paperInAdminPanel}>
                 
@@ -55,7 +56,7 @@ function ProductTable() {
                 <Table />
                 <ButtonModal onClick={handleClickOpen} className={classess.btnAdd}  />
             </Box>
-        </>
+        </Paper>
         
     )
 }

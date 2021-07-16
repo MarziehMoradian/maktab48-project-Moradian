@@ -18,6 +18,7 @@ import { useStyles,StyledTableCell, StyledTableRow } from '../assets';
 import Dialog from './edit/Dialog';
 import {updateProduct} from '../api/products'
 import { useParams } from "react-router-dom";
+import Image from 'material-ui-image';
 export default function CustomizedTables() {
   const classes = useStyles();
   const products = useSelector((state) => state.allProducts.products);
@@ -95,7 +96,7 @@ export default function CustomizedTables() {
         {products?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item) => (
             <StyledTableRow key={item.id}>
               
-              <StyledTableCell align="right" component="th" scope="row"><Avatar  src={item.image}/></StyledTableCell>
+              <StyledTableCell align="right" component="th" scope="row"><Image src={item.image}/></StyledTableCell>
               <StyledTableCell  align="right" >{item.title}</StyledTableCell>
               <StyledTableCell   align="right" >{item.category}</StyledTableCell>
               <StyledTableCell align="right" component="th" scope="row" >

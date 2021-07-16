@@ -51,9 +51,24 @@ export const useStyles = makeStyles((theme) => ({
       remember: {
         margin: theme.spacing(0, -1, 0),
       },
-      table: {
-        minWidth: 700,
+         table: {
+        height:400,
+        width:'50%',
+        margin:'30px auto',
+   
+      color:'#05280e',
+      [theme.breakpoints.down('sm')]: {
+        width:'100%',
       },
+      [theme.breakpoints.between(375,768)]: {
+        width:'100%',
+      },
+     
+      [theme.breakpoints.between(768,1024)]: {
+        width:'75%',
+        // margin:'auto',
+      }
+    },
       paperinTable: {
         maxWidth:'60%',
         margin: theme.spacing(3, 'auto', 3),

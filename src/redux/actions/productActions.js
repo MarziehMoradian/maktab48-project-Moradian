@@ -37,6 +37,28 @@ export const  createProduct = (data) => {
     payload:data,
   }
 }
+export const addTocart = product => ({
+  type: "ADD_TO_CART",
+  product
+});
+
+ 
+export const incrementCart = _id => ({
+  type: "INCREMENT_CART",
+  _id
+});
+
+ 
+export const decrementCart = _id => ({
+  type: "DECREMENT_CART",
+  _id
+});
+
+ 
+export const removeFromCart = _id => ({
+  type: "REMOVE_CART",
+  _id
+});
 // export const getProducts = () => (dispatch, getState) => {
 //   getAllProducts().then((res) => {
 //     console.log(res.data);
@@ -65,4 +87,14 @@ export const deleteProduct = (id) => async(dispatch) => {
 export const createNewProduct = (data) => async (dispatch) => {
    await createAProduct(data);
    dispatch(createProduct(data))
+}
+
+export const update = (product) => async (dispatch) => {
+  await getAProductById(product);
+  dispatch(editeProduct(product))
+}
+
+export const setOrders = () => async(dispatch) =>{
+  let res = await getAProduct();
+  dispatch(addTocart(res))
 }

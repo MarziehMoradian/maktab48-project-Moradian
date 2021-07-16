@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createNewProduct  } from '../redux/actions/productActions';
 import ImageUpload from 'image-upload-react';
 import { useForm } from 'react-hook-form';
-import ImageUploader from 'react-images-upload';
+// import ImageUploader from 'react-images-upload';
 import 'image-upload-react/dist/index.css';
 
 // const initialValues = {
@@ -82,6 +82,8 @@ function Form({addItem}) {
         // setName("");
         // setCategoury("");
         // setText("");
+        
+        
         dispatch(createNewProduct({id, title,price,description,category, image}));
         // dispatch(getProducts());
         setTitle("");
