@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import {DataGrid} from '@material-ui/data-grid'
-import { getProducts, deleteProduct,getAProduct ,editeProduct ,update} from '../redux/actions/productActions';
+import { getProducts,update} from '../redux/actions/productActions';
 import { useDispatch, useSelector } from "react-redux";
 import { makeStyles } from '@material-ui/core/styles';
 import {updateProduct} from '../api/products'
+import { Button } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
     
   
@@ -38,50 +39,52 @@ function TableProducts() {
     const [price,setPrice] = React.useState("");
     const [numbers,setNumbers] = React.useState("")
   
-   const handleEdit = (item) => {
-     setEditable(true)
-    //  console.log(item);
-    //   if(item.field === "price"){
-    //       setPrice(item.formattedValue)
-    //   }else{
-    //     setPrice(item.row.price)
-    //   }
-    // if(item.field === "numbers") {
-    //    setNumbers(item.formattedValue)
-    // }else{
-    //   setNumbers(item.row.numbers)
-    // }
-    // //  setPrice()
+   const handleEdit = (product) => {
+     
+    setEditable(true)
+     setPrice(product.row.price);
+     setNumbers(product.row.numbers);
+
+     const productt = {
+      "id" : product.row.id,
+      "title":product.row.title,
+      "category":product.row.category,
+      "price":price,
+      "image":product.row.image,
+      "numbers":numbers,
+      "description":product.row.description
+     
+    }
+      dispatch(update(productt));
+      console.log(product);
+
    }
 
    
   const handleChange = (product) => {
-    const productt = {
-      "id" : product.id,
-      "price":price,
-      "numbers":numbers
-     
-    }
-    if(product.field === "price"){
-
-      setPrice(product.props.value);
-    }
-    if(product.field === "numbers") {
-      setNumbers(product.props.value)
-    }
     
-    // console.log(products);
-    updateProduct(productt)
-    //dispatch(update(productt));
+   
+      if(product.field ==="price"){
+        setPrice(product.props.value);
+        setNumbers(numbers)
+      }
+      if(product.field === "numbers") {
+          setNumbers(product.props.value)
+          setPrice(price)
+      }
+      
+
       console.log(product);
+  
+
     
   }
 
     const columns = [
    
-      {field: 'numbers' , headerName: ' موجودی ',width:150, editable: editable },
+      {field: 'numbers' , headerName: ' موجودی ',width:150, editable: editable},
       {field: 'price' , headerName: 'قیمت',width:150,  editable:editable},
-      {field: 'title' , headerName: 'نام کالا',width:150},
+      {field: 'title' , headerName: 'نام کالا',width:150,},
       
     ]
 
@@ -89,9 +92,11 @@ function TableProducts() {
         dispatch(getProducts()); 
         
       }, []);
-      
+      const [selectedRow, setSelectedRow] = useState({});
+    const [row, setRow] = useState({});
+    const [selectionModel, setSelectionModel] = React.useState([]);
     return (
-        <div className={classes.table} >
+        <div className={classes.table}  >
             <DataGrid
                 
                 rows={products}
@@ -102,11 +107,14 @@ function TableProducts() {
                 // getRowId = {(row) => console.log(row.id)}
                 onCellClick={(e) => handleEdit(e)}
                 onEditCellChange={(e) => handleChange(e)}
-              
-             
-                
+                checkboxSelection
+                disableSelectionOnClick
+               
                 
             />
+
+            <Button></Button>
+
         </div>
     )
 }

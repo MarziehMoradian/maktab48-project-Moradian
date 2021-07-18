@@ -9,25 +9,31 @@ import { useDispatch, useSelector } from "react-redux";
 function MainPage() {
     const dispatch = useDispatch();
     const products = useSelector((state) => state.allProducts.products);
-   const orders = useSelector((state) => state.allProducts.baskets);
+   const orders = useSelector((state) => state.allOrders.baskets);
     const [cart,setCart] = useState({})
     useEffect(() => {
         dispatch(getProducts()); 
-         dispatch(setOrders())
+        dispatch(setOrders())
     }, []);
+    useEffect(() => {
+        dispatch(setOrders())
+        dispatch(getProducts());
+    }, [cart]);
 
-    const handleAddToCard = (product,q) => {
-        const item=createOrder(product,q)
+    const handleAddToCard = (product) => {
+        // const item=createOrder(q,product)
         // setCart(item.cart)
-       dispatch(createAOrder(product))
-        setCart(product)
-        console.log(item,product);
+        const item = dispatch(createAOrder(product))
+     
+        
+        setCart(orders)
+        console.log(product,orders);
 
     }
     
     return (
         <div>
-            <Navbar totalItems={cart.total_Item}/>
+            <Navbar totalItems={cart.length}/>
             <Products products={products} onAddToCart={handleAddToCard}/>
         </div>
     )

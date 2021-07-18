@@ -11,13 +11,15 @@ function App() {
   return (
     <React.Fragment>
     <CssBaseline/>
-       <MainPage/>
+       {/* <MainPage/> */}
         {/* <Drawer /> */}
         
         <Switch>
-        <Route path="/login" exact component={Login}/>
+         <Route path="/login" exact component={Login}/>
     
+         <ProtectedRoute exact path="/adminPanel/:page?" component={AdminPanelPage} />
          <ProtectedRoute path="/adminPanel/:page?" exact component={AdminPanelPage}/>
+         
         
       
       </Switch>  

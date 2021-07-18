@@ -34,7 +34,7 @@ export const createAProduct = async (data) => {
  
   }
   export const updateProduct = async (product) => {
-     await axios.put(`http://localhost:5000/products/${product.id}`,product)
+     await axios.put(`http://localhost:5000/products/${product.id}`,{...product})
     .then((res) =>{return res.data}) 
     .catch((err)=> console.log(err))
   }

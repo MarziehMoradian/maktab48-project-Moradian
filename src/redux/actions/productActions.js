@@ -90,7 +90,7 @@ export const createNewProduct = (data) => async (dispatch) => {
 }
 
 export const update = (product) => async (dispatch) => {
-  await getAProductById(product);
+  await updateProduct(product);
   dispatch(editeProduct(product))
 }
 

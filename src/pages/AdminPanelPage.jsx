@@ -1,12 +1,14 @@
 import * as React from 'react';
 import ImageLogo from '../components/imgeLogo';
-import { isLoggedIn } from "./../utils/auth";
+import { isLoggedIn ,logout} from "./../utils/auth";
 import { makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Box from '@material-ui/core/Box';
 import TabComponent from '../components/Tabs';
 import ProductManagement from '../pages/Productsmanagement';
 import { Button } from '@material-ui/core';
+import PriceManagment from '../components/TableProducts';
+import OrderManagment from './OrderManagment';
 
 
 //Styles
@@ -47,21 +49,29 @@ const  AdminPanelPage = (props) => {
   const {page} = params;
   const classes =useStyles()
   const indexToTabName = {
-    "ProductManagement":0
+    ProductManagement:0,
+    PriceManagment:1,
+    OrderManagment:2,
   }
-  // const [selectedTab, setSelectedTab] =React.useState(indexToTabName[page]);
-  const [selectedTab, setSelectedTab] =React.useState(0);
+  const tabNameToIndex = {
+    0: "productManagment",
+    1:"PriceManagment",
+    2:"OrderManagment",
+  }
+  const [selectedTab, setSelectedTab] =React.useState(indexToTabName[page]);
+  // const [selectedTab, setSelectedTab] =React.useState(0);
    
   //Actions
   const handleChange = (event, newValue) => {
-      const i = indexToTabName[newValue]
-      // history.push(`adminPan/${i}/`)  
+     
+      history.push(`/adminPanel/${tabNameToIndex[newValue]}/`)  
       setSelectedTab(newValue);
-      console.log(i)
+      
     }
 
   const handleGoToLogin = () => {
     history.push("/login");
+    logout()
   };
 
 
@@ -81,6 +91,8 @@ const  AdminPanelPage = (props) => {
         </AppBar>
 
         {selectedTab === 0 && <ProductManagement/>}
+        {selectedTab === 1 && <PriceManagment/>}
+        {selectedTab === 2 && <OrderManagment/>}
 
       </Box>
         

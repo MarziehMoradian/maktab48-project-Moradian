@@ -32,7 +32,7 @@ export const productReducers = (state = initialState, action) => {
 
       
       case ActionTypes.EDIT_SELECTED_PRODUCT:
-        return {...state.selectedProduct,payload:state.selectedProduct(action.payload)  }
+        return {...state, products:[...state.products,action.payload]  }
       
         case "ADD_TO_CART":
           if (cartItems.filter(a => a.id === action.product.id).length > 0) {

@@ -21,8 +21,8 @@ function Product({product,onAddToCart}) {
                 <Typography dangerouslySetInnerHTML={{__html:product.description}} variant="body2" color="textSecondary"/>
                
             </CardContent>
-            <CardActions disableSpacing className={classes.CardActions} onClick={() => onAddToCart(product,1)}>
-                <IconButton aria-lable="Add to Cart" >
+            <CardActions disableSpacing className={classes.CardActions} >
+                <IconButton aria-lable="Add to Cart"onClick={() => onAddToCart(product.id,1)} >
                     <AddShoppingCartIcon/>
                 </IconButton>
 

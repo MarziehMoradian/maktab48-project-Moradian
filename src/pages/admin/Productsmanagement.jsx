@@ -1,9 +1,9 @@
 import React,{useEffect} from 'react';
-import Dialog from '../components/Dialog';
-import Table from '../components/Table';
+import Dialog from '../../components/Dialog';
+import Table from '../../components/Table';
 // import Table from '../components/TableProducts';
-import ButtonModal from '../components/ButtonModal';
-import { getProducts  } from '../redux/actions/productActions';
+import ButtonModal from '../../components/ButtonModal';
+import { getProducts  } from '../../redux/actions/productActions';
 import { useDispatch,useSelector } from 'react-redux';
 // import { useStyles } from '../assets';
 import { Box, makeStyles, Paper } from '@material-ui/core';
