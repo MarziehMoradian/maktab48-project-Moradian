@@ -1,13 +1,13 @@
 import * as React from 'react';
-import ImageLogo from '../components/imgeLogo';
-import { isLoggedIn ,logout} from "./../utils/auth";
+import ImageLogo from '../../components/imgeLogo';
+import { isLoggedIn ,logout} from "../../utils/auth";
 import { makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Box from '@material-ui/core/Box';
-import TabComponent from '../components/Tabs';
-import ProductManagement from '../pages/Productsmanagement';
+import TabComponent from '../../components/Tabs';
+import ProductManagement from '../admin/Productsmanagement';
 import { Button } from '@material-ui/core';
-import PriceManagment from '../components/TableProducts';
+import PriceManagment from './PriceManagement';
 import OrderManagment from './OrderManagment';
 
 

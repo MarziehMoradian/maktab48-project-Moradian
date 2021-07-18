@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
@@ -8,7 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
 import Form from './Form';
-import { useStyles } from '../../assets/index';
+import { useStyles } from '../../assets';
 
 const styles = (theme) => ({
   root: {
@@ -45,10 +45,14 @@ const DialogContent = withStyles((theme) => ({
   },
 }))(MuiDialogContent);
 
+// const DialogActions = withStyles((theme) => ({
+//   root: {
+//     margin: 0,
+//     padding: theme.spacing(1),
+//   },
+// }))(MuiDialogActions);
 
-export default function CustomizedDialogs({open,handleClose,data}) {
-
-
+export default function CustomizedDialogs({open,handleClose}) {
  
   const classess = useStyles()
  
@@ -61,7 +65,7 @@ export default function CustomizedDialogs({open,handleClose,data}) {
         </DialogTitle>
         <DialogContent dividers  >
           
-            <Form className={classess.paperModal} action={data} />
+            <Form className={classess.paperModal} />
            
         </DialogContent>
        

@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react'
-import OrdersTable from '../orderManagment/OrdersTable';
+import OrdersTable from './OrdersTable';
 import { useDispatch, useSelector } from "react-redux";
-import {setOrders,getDeliveryOrders} from '../redux/actions/orderAction'
+import {setOrders,getDeliveryOrders} from '../../redux/actions/orderAction'
 function DeliveryOrder() {
 
     const dispatch = useDispatch();

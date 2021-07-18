@@ -1,8 +1,6 @@
 import React,{useState} from 'react'
-import DeliveryOrder from '../../orderManagment/DeliveryOrder';
-import NotDeliveryTable from '../../orderManagment/NotDeliveryTable'
-import { useDispatch, useSelector } from "react-redux";
-import {setOrders,getAOrder} from '../../redux/actions/orderAction'
+import DeliveryOrder from '../../components/orderPageComponent/DeliveryOrder';
+import NotDeliveryTable from '../../components/orderPageComponent/NotDeliveryTable'
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";

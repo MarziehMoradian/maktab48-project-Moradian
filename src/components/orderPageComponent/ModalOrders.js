@@ -5,9 +5,8 @@ import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogActions from '@material-ui/core/DialogActions';
-import IconButton from '@material-ui/core/IconButton';
-import {getNotDeliveryOrders,delivery} from '../redux/actions/orderAction'
-import { useDispatch, useSelector } from "react-redux";
+import {delivery} from '../../redux/actions/orderAction'
+import { useDispatch } from "react-redux";
 import Typography from '@material-ui/core/Typography';
 import TableInModal from './TableInModal';
 const styles = (theme) => ({

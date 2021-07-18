@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import {DataGrid} from '@material-ui/data-grid'
-import { getProducts,update} from '../redux/actions/productActions';
+import { getProducts,update} from '../../redux/actions/productActions';
 import { useDispatch, useSelector } from "react-redux";
 import { makeStyles } from '@material-ui/core/styles';
-import {updateProduct} from '../api/products'
 import { Button } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
     
@@ -33,7 +32,6 @@ function TableProducts() {
     const classes = useStyles()
     const dispatch = useDispatch();
     const products = useSelector((state) => state.allProducts.products);
-    const [title ,setTitle] = React.useState()
     const [pageSize, setPageSize] = React.useState(5);
     const [editable , setEditable] = React.useState(false);
     const [price,setPrice] = React.useState("");

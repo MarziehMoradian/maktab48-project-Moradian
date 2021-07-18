@@ -1,10 +1,8 @@
 import React,{useState,useEffect} from 'react';
-import Products from '../components/products/Products';
-import Navbar from '../components/NavBar/Navbar';
-import { getProducts, getAProduct } from '../redux/actions/productActions';
- import {createAOrder,setOrders} from '../redux/actions/orderAction'
-import {addTocart} from '../redux/actions/productActions';
-import {createOrder} from '../api/basket'
+import Products from '../../components/mainPageComponents/products/Products';
+import Navbar from '../../components/mainPageComponents/NavBar/Navbar';
+import { getProducts, getAProduct } from '../../redux/actions/productActions';
+ import {createAOrder,setOrders} from '../../redux/actions/orderAction'
 import { useDispatch, useSelector } from "react-redux";
 function MainPage() {
     const dispatch = useDispatch();

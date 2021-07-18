@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { useStyles} from '../assets/index';
+import { useStyles} from '../../assets/index';
 import Button from '@material-ui/core/Button';
 import Image from 'material-ui-image';
 import { Grid, TextField} from '@material-ui/core';
@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import { useForm } from 'react-hook-form';
-import { login } from '../api/Login';
+import { login } from '../../api/Login';
 import { useHistory } from 'react-router';
 import { makeStyles } from '@material-ui/core';
 

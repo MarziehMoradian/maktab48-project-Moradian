@@ -1,7 +1,7 @@
 import React from 'react'
 import {AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography} from '@material-ui/core';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import logo from '../../assets/images/R.png';
+import logo from '../../../assets/images/R.png';
 import {useStyles} from './style'
 
 function NavBar({totalItems}) {

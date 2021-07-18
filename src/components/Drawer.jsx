@@ -23,7 +23,7 @@ import Badge from '@material-ui/core/Badge';
 import Avatar from '@material-ui/core/Avatar';
 import SettingsIcon from '@material-ui/icons/Settings';
 import Img from '../assets/images/1.png';
-import Table from './TableProducts'
+import Table from './pricePageComponent/TableProducts'
 const drawerWidth = 240;
 
 const StyledBadge = withStyles((theme) => ({

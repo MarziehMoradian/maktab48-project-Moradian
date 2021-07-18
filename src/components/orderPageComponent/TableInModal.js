@@ -1,8 +1,8 @@
 import React,{useState} from 'react'
 import {DataGrid} from '@material-ui/data-grid'
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 import { makeStyles } from '@material-ui/core/styles';
-import {setOrders,getAOrder} from '../redux/actions/orderAction'
+// import {setOrders,getAOrder} from '../../redux/actions/orderAction'
 
 const useStyles = makeStyles((theme) => ({
     
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 function TableInModal({orders}) {
     
-    const [pageSize, setPageSize] = useState(5);
+    // const [pageSize, setPageSize] = useState(5);
     const classes = useStyles()
 
      const columns = [

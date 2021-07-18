@@ -2,7 +2,7 @@ import React from 'react';
 import { useStyles } from '../assets/index';
 import { Grid, Paper} from '@material-ui/core';
 import CssBaseline from "@material-ui/core/CssBaseline";
-import LoginForm from '../components/LoginForm';
+import LoginForm from '../components/loginPageComponents/LoginForm';
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 
