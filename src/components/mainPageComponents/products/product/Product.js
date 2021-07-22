@@ -1,18 +1,22 @@
 import React from 'react'
 import {Card, CardMedia, CardActions, CardContent, Typography, IconButton} from '@material-ui/core';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import {useStyles} from './style'
-function Product({product,onAddToCart}) {
+import {useStyles} from './style';
+import formatCurrency from '../../../../utils/format';
+import { Link } from "react-router-dom";
+function Product({product,onAddToCart,onClick}) {
     const classes = useStyles();
     return (
-        
+        <div style={{backgroundColor:'#0c2b16'}}>
         <Card className={classes.root}>
             
             <CardMedia className={classes.media} image={product.image} title={product.title}/>
             <CardContent>
                 <div className={classes.cardContent}>
                     <Typography variant="h5" gutterBottom>
-                        {product.title}
+                        <Link to={`/product/${product.id}`} style={{textDecorationLine:'none',color:'#000'}}>
+                            {product.title}
+                        </Link>
                     </Typography>
                     <Typography variant="h5" gutterBottom>
                         {product.price}
@@ -22,13 +26,15 @@ function Product({product,onAddToCart}) {
                
             </CardContent>
             <CardActions disableSpacing className={classes.CardActions} >
-                <IconButton aria-lable="Add to Cart"onClick={() => onAddToCart(product.id,1)} >
+                <IconButton aria-lable="Add to Cart"onClick={() => onAddToCart(product,1)} >
                     <AddShoppingCartIcon/>
                 </IconButton>
 
             </CardActions>
             
         </Card>
+
+        </div>
     )
 }
 

@@ -86,19 +86,24 @@ export default function CustomizedTables() {
       <Table className={classes.table} aria-label="customized table">
       <TableHead>
           <StyledTableRow>
-            <StyledTableCell align="right">تصویر</StyledTableCell>
+            <StyledTableCell align="right" >تصویر</StyledTableCell>
             <StyledTableCell align="right">نام کالا</StyledTableCell>
             <StyledTableCell align="right">دسته بندی</StyledTableCell>
             <StyledTableCell align="right"></StyledTableCell>
           </StyledTableRow>
         </TableHead>
+      
+       
         <TableBody>
         {products?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item) => (
             <StyledTableRow key={item.id}>
               
-              <StyledTableCell align="right" component="th" scope="row"><Image src={item.image}/></StyledTableCell>
+              <StyledTableCell align="right" component="th" scope="row" style={{borderRadius: '10px'}}><Image src={item.image} /></StyledTableCell>
+             
               <StyledTableCell  align="right" >{item.title}</StyledTableCell>
+              
               <StyledTableCell   align="right" >{item.category}</StyledTableCell>
+              
               <StyledTableCell align="right" component="th" scope="row" >
                 <IconButton aria-label="delete" >
                     <DeleteIcon fontSize="default" style={{ color: red['A700'] }} onClick={(e)=>handleDelete(item.id)}/>
@@ -108,9 +113,12 @@ export default function CustomizedTables() {
                 </IconButton >
                 
                 </StyledTableCell>
+               
               
             </StyledTableRow>
-          ))} 
+            
+          ))}
+       
         </TableBody>
       </Table>
       <TablePagination

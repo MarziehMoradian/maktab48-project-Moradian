@@ -24,6 +24,13 @@ import Avatar from '@material-ui/core/Avatar';
 import SettingsIcon from '@material-ui/icons/Settings';
 import Img from '../assets/images/1.png';
 import Table from './pricePageComponent/TableProducts'
+import TabComponent from './Tabs';
+import { logout } from '../utils/auth';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
+
+
 const drawerWidth = 240;
 
 const StyledBadge = withStyles((theme) => ({
@@ -144,7 +151,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MiniDrawer() {
+export default function MiniDrawer(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -156,6 +163,35 @@ export default function MiniDrawer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const {match, history} = props;
+  const {params} = match;
+  const {page} = params;
+  
+  const indexToTabName = {
+    ProductManagement:0,
+    PriceManagment:1,
+    OrderManagment:2,
+  }
+  const tabNameToIndex = {
+    0: "productManagment",
+    1:"PriceManagment",
+    2:"OrderManagment",
+  }
+  const [selectedTab, setSelectedTab] =React.useState(indexToTabName[page]);
+  const handleChange = (event, newValue) => {
+     
+    history.push(`/adminPanel/${tabNameToIndex[newValue]}/`)  
+    setSelectedTab(newValue);
+    
+  }
+
+  const handleGoToLogin = () => {
+    history.push("/login");
+    logout()
+  };
+
+
 
   return (
     <div className={classes.root} dir="ltr" >
@@ -181,7 +217,7 @@ export default function MiniDrawer() {
           </IconButton>
         
             <Typography variant="h6" noWrap style={{color:'black'}}>
-             
+            
             </Typography>
           <NotificationsNoneIcon className={classes.icon} />
         
@@ -194,8 +230,10 @@ export default function MiniDrawer() {
             }}
           variant="dot"
           >
-          <Avatar alt="Remy Sharp" src="https://picsum.photos/200"  className={classes.avatar}/>
+            {/* <TabComponent selectedTab={setSelectedTab} onChange={handleChange}/> */}
+          {/* <Avatar alt="Remy Sharp" src="https://picsum.photos/200"  className={classes.avatar}/> */}
         </StyledBadge>
+        
         </Toolbar>
       </AppBar>
       <Drawer
@@ -216,23 +254,31 @@ export default function MiniDrawer() {
         <div className={classes.toolbar} style={{background:'#05280e',color:'white'}}>
           <IconButton onClick={handleDrawerClose} style={{color:'white'}}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          
+            
           </IconButton>
         </div>
        
         <List style={{background:'#05280e',color:'white'}}>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon style={{color:'white'}}>{index % 2 === 0 ? <InboxIcon  /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
        
-        <List style={{background:'#05280e',color:'white'}}>
-          {['All mail', 'Trash', 'Setting'].map((text, index) => (
+          
+          {['کالا ها', 'موجودی و قیمت', 'سفارش ها'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon style={{color:'white'}}>{index % 2 === 0 ? <InboxIcon /> : <SettingsIcon />}</ListItemIcon>
+              <ListItemIcon style={{color:'white'}}>
+              {/* <List > */}
+           <Tabs
+                    value={selectedTab}
+                    indicatorColor="primary"
+                    textColor="primary"
+                    onChange={handleChange}
+                    
+                >
+                   <ListItem><Tab label="کالا ها"  /></ListItem>
+                   <ListItem><Tab label="موجودی و قیمت ها" /></ListItem>
+                   <ListItem><Tab label="سفارش ها" /></ListItem>
+                </Tabs>
+        
+        {/* </List> */}
+              </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}

@@ -13,7 +13,7 @@ const useStyle = makeStyles ({
     },
   
 })
-function TabComponent({selectedTab,onChange}) {
+function TabComponent({selectedTab,onChange,className}) {
   
     const classes =useStyle()
   
@@ -25,11 +25,12 @@ function TabComponent({selectedTab,onChange}) {
                     indicatorColor="primary"
                     textColor="primary"
                     onChange={onChange}
+                    className={className}
                     
                 >
-                    <Tab label="کالا ها" className={classes.paper} />
-                    <Tab label="موجودی و قیمت ها" className={classes.paper}/>
-                    <Tab label="سفارش ها" className={classes.paper}/>
+                    <Tab label="کالا ها"  className={className} />
+                    <Tab label="موجودی و قیمت ها"  className={className}/>
+                    <Tab label="سفارش ها"  className={className}/>
                 </Tabs>
         
             

@@ -1,55 +1,25 @@
-import axios from 'axios';
+import axios from "axios";
 
-export const createOrder = async (orders) => {
-    await axios.post(`http://localhost:5000/orders`,{orders})
+export const addItem = async(product) => {
+   return await axios.post(`     
+    http://localhost:5000/basket`, {products:[product]})
 }
 
-export const getAllOrders = async () =>{
+// export const getProductsInBasket = async() => {
+//     let res = await axios.get('http://localhost:5000/basket')
+//     console.log(res);
+//     return res
+
+// }
+
+export const getProductsInBasket = async () =>{
     let res = await axios({
         method: 'get',
-        url: 'http://localhost:5000/orders',
+        url: 'http://localhost:5000/basket',
         headers: {"content-type" : "application/json" },
         
     })
     .catch((err) => console.log(err))
  
     return res
-}
-
-export const getAOrderById = async (id) => {
-    let res = await axios({
-      method: "get",
-      url: `http://localhost:5000/orders/${id}`,
-      headers: { "content-type": "application/json" },
-    }).catch((err) => console.log(err));
-    return res;
-  };
- 
-  export const getNotDeliveryOrder = async ()=>{
-    let res = await axios({
-        method: "get",
-        url: "http://localhost:5000/orders?condition=false",
-        headers:{ "content-type": "application/json" },
-    }).catch((err) => console.log(err));
-    console.log(res);
-    return res;
-}
-
-export const getDeliveryOrder= async ()=>{
-    let res = await axios({
-        method: "get",
-        url: "http://localhost:5000/orders?condition=true",
-        headers:{ "content-type": "application/json" },
-    }).catch((err) => console.log(err));
-    console.log(res);
-    return res;
-}
-
-export const deliveredOrder = async (deliveredOrder) =>{
-    const res = await axios
-    .put(`http://localhost:5000/orders/${deliveredOrder.id}`, deliveredOrder)
-    .then((res) => {
-      return res.data;
-    })
-    .catch((err) => console.log(err));
-}
+ }

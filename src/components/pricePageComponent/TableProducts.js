@@ -82,19 +82,22 @@ function TableProducts() {
    
       {field: 'numbers' , headerName: ' موجودی ',width:150, editable: editable},
       {field: 'price' , headerName: 'قیمت',width:150,  editable:editable},
-      {field: 'title' , headerName: 'نام کالا',width:150,},
+      {field: 'title' , headerName: 'نام کالا',width:150}
       
     ]
+    // columns={[{ field: 'username' }, { field: 'age' }]}
+
 
     useEffect(() => {
-        dispatch(getProducts()); 
+        dispatch(getProducts());
+        // console.log(products); 
         
       }, []);
-      const [selectedRow, setSelectedRow] = useState({});
-    const [row, setRow] = useState({});
-    const [selectionModel, setSelectionModel] = React.useState([]);
+      //const [selectedRow, setSelectedRow] = useState({});
+    ///const [row, setRow] = useState({});
+    //const [selectionModel, setSelectionModel] = React.useState([]);
     return (
-        <div className={classes.table}  >
+        <div className={classes.table} dir="ltr" >
             <DataGrid
                 
                 rows={products}
@@ -105,8 +108,7 @@ function TableProducts() {
                 // getRowId = {(row) => console.log(row.id)}
                 onCellClick={(e) => handleEdit(e)}
                 onEditCellChange={(e) => handleChange(e)}
-                checkboxSelection
-                disableSelectionOnClick
+            
                
                 
             />

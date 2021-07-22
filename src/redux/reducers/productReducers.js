@@ -33,60 +33,8 @@ export const productReducers = (state = initialState, action) => {
       
       case ActionTypes.EDIT_SELECTED_PRODUCT:
         return {...state, products:[...state.products,action.payload]  }
-      
-        case "ADD_TO_CART":
-          if (cartItems.filter(a => a.id === action.product.id).length > 0) {
-            cartItems.map((a) => {
-              if (a.id === action.product.id) {
-                a.count++;
-              }
-              return (a);
-            });
-          } else {
-            const newModel = {
-              id: action.product.id,
-              productName: action.product.title,
-              price: action.product.price,
-              count: 1
-            };
-            cartItems.push(...state,newModel);
-          }
-          return Object.assign({}, ...state, {
-            shoppingCart: cartItems
-        });
-    
-        
-    case "REMOVE_CART":
-      const filterList = cartItems.filter(a => a.id !== action.id);
-      return Object.assign({}, state, {
-        shoppingCart: filterList
-      });
-
- 
- 
-    case "INCREMENT_CART":
-      cartItems.map(a => {
-        if (a.id === action.id) {
-          a.count++;
-        }
-        return a;
-      });
-
- 
-      return Object.assign({}, state, {
-        shoppingCart: cartItems
-      });
-    case "DECREMENT_CART":
-      cartItems.map(a => {
-        if (a.id === action.id) {
-          if (a.count > 1) {
-            a.count--;
-          }
-        }
-        return a;
-      });
 
         default:
-        return state;
+          return state;
     }
   };

@@ -96,7 +96,7 @@ export const defaultProps = {
       color: theme.palette.common.white,
     },
     body: {
-      fontSize: 14,
+      fontSize: 18,
     },
   }))(TableCell);
   
@@ -104,6 +104,7 @@ export const defaultProps = {
     root: {
       '&:nth-of-type(odd)': {
         backgroundColor: theme.palette.action.hover,
+        
       },
     },
   }))(TableRow);
