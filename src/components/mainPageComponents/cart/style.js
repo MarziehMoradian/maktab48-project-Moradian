@@ -7,8 +7,10 @@ export const useStyles = makeStyles((theme) => ({
     },
     emptyButton: {
         minWidth:'150px',
+        
         [theme.breakpoints.down('xs')]: {
             marginBottom: '5px',
+            marginRight:'5px',
         },
         [theme.breakpoints.up('xs')]: {
             marginRight: '20px'
@@ -16,15 +18,16 @@ export const useStyles = makeStyles((theme) => ({
 
     },
     checkoutButton: {
-        minWidth:'150px'
+        minWidth:'150px',
+        marginRight:'5px'
     },
     link: {
         textDecoration: 'none',
     },
     cardDetails : {
-         display:'felx',
-         marginTop:'10px',
-         width:'100%',
-         justifyContent:'space-between'
+        display:'flex',
+        marginTop:'10px',
+        width:'100%',
+        justifyContent:'space-between'
     }
 }))

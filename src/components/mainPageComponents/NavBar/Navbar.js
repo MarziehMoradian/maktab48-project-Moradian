@@ -3,9 +3,11 @@ import {AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography} from '@m
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import logo from '../../../assets/images/R (5).png';
 import {useStyles} from './style'
+import { Link, useLocation } from 'react-router-dom';
 
 function NavBar({totalItems,onClick}) {
     const classes = useStyles()
+    const location = useLocation()
     return (
         <>
             <AppBar position="fixed" className={classes.appBar} color="inherit">
@@ -15,14 +17,15 @@ function NavBar({totalItems,onClick}) {
                         فروشگاه گل و گیاه 
                     </Typography>
                     <div className={classes.grow}/>
-                    <div className={classes.button}>
+                   {location.pathname === '/' ? <div className={classes.button}>
+                        
                         <IconButton >
-                            <Badge badgeContent={totalItems} color="secondary" >
+                            <Badge component={Link} to="/basket" badgeContent={totalItems} color="secondary" >
                                 <ShoppingCartIcon onClick={onClick}/>
                             </Badge>
                         </IconButton>
 
-                    </div>
+                    </div>: null}
                 </Toolbar>
             </AppBar>
             

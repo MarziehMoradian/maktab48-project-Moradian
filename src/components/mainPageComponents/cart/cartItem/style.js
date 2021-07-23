@@ -13,7 +13,8 @@ export const useStyles= makeStyles(()=>({
     },
     buttons: {
         display:'flex',
-        alignItems:'center'
+        alignItems:'center',
+        
     }
 
 }))

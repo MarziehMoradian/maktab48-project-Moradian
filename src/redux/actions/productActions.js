@@ -74,6 +74,7 @@ export const getProducts = () => async (dispatch, getState) => {
 export const getAProduct = (id) => async (dispatch) => {
   let res = await getAProductById(id);
   dispatch(selectedProduct(res.data));
+  console.log(res.data);
 };
 
 ///delete

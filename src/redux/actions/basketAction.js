@@ -1,12 +1,19 @@
 import { ActionTypes } from "../constants/action-type";
 import { addItem, getProductsInBasket } from "../../api/basket";
+// import { loadState } from "./../Store/localStorage";
+// const persistedState = loadState("shoppingCart");
 
-export const addToCart = (item) => {
-    return{
-        type:ActionTypes.ADD_TO_CART,
-        payload:item
-    }
-}
+ 
+// const defaultState = {
+//   shoppingCart: persistedState
+// };
+
+// export const addToCart = (item) => {
+//     return{
+//         type:ActionTypes.ADD_TO_CART,
+//         payload:item
+//     }
+// }
 
 export const setBasket = (product) => {
     return {
@@ -15,14 +22,44 @@ export const setBasket = (product) => {
     }
 }
 
-export const addItems = (item) => async(dispatch) => {
-  await addItem(item);
-  dispatch(addToCart(item))
-//   console.log(item);
-}
+// export const addItems = (item) => async(dispatch) => {
+//   await addItem(item);
+//   dispatch(addToCart(item))
+// //   console.log(item);
+// }
 
 export const getItems = () => async(dispatch) => {
     let res = await getProductsInBasket();
     // console.log(res.data);
     dispatch(setBasket(res.data))
 }
+
+export const setCartProducts = product => ({
+    type: "ADD_TO_CART",
+    product
+  });
+  
+   
+  export const incrementCart = _id => ({
+    type: "INCREMENT_CART",
+    _id
+  });
+  
+   
+  export const decrementCart = _id => ({
+    type: "DECREMENT_CART",
+    _id
+  });
+  
+   
+  export const removeFromCart = _id => ({
+    type: "REMOVE_CART",
+    _id
+  });
+
+
+  /************************************************************ */
+  export const addToCart = (product) => async(dispatch) => {
+    await addItem(product)
+  dispatch(setCartProducts(product));
+};
