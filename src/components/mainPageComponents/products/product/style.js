@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 
-export const useStyles = makeStyles(()=> ({
+export const useStyles = makeStyles((theme)=> ({
     root:{
         maxWidth:'100%',
         // '&:hover':{
@@ -25,6 +25,7 @@ export const useStyles = makeStyles(()=> ({
         display:'flex',
         justifyContent:'space-between',
         
-    }
+    },
+    
 
 }));

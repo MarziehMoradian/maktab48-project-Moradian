@@ -29,9 +29,9 @@ function Product({product,onAddToCart,onClick}) {
                
             </CardContent>
             <CardActions disableSpacing className={classes.CardActions} >
-                <IconButton aria-lable="Add to Cart"onClick={() => onAddToCart(product.id)} >
+                {/* <IconButton aria-lable="Add to Cart"onClick={() => onAddToCart(product.id)} >
                     <AddShoppingCartIcon/>
-                </IconButton>
+                </IconButton> */}
 
             </CardActions>
             

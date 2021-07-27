@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useEffect, useState} from 'react'
 import { getAProduct } from '../../../redux/actions/productActions'
 import { useDispatch,useSelector } from 'react-redux'
 import { useParams } from 'react-router';
@@ -21,12 +21,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProductDetail = () => {
+const ProductDetail = ({onClick,onAdd}) => {
     const { productId } = useParams();
     const dispatch = useDispatch();
     const selectedProduct = useSelector(
       (state) => state.allProducts.selectedProduct
     );
+    const [value,setValue] = useState(1)
     useEffect(() => {
         dispatch(getAProduct(productId));
       }, []);
@@ -53,8 +54,8 @@ const ProductDetail = () => {
             </div>
             <Typography variant="body1" className="desc">{selectedProduct.description}</Typography>
               <div className="row">
-                <TextField type="number" size="small" variant="outlined" className="card desc" style={{width:'70px'}}/>
-                <Button  variant="contained" color="primary" className="cart">اضافه کردن به سبد خرید</Button>
+                <TextField type="number" size="small" variant="outlined" className="card desc" style={{width:'70px'}} value={value} onChange={(e)=> setValue(e.target.value <= 0 ? 0 :e.target.value ) }/>
+                <Button  variant="contained" color="primary" className="cart" onClick={() => onClick(selectedProduct.id,value)}>اضافه کردن به سبد خرید</Button>
             </div>
           </div>
 

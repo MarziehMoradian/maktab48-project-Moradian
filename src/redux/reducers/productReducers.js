@@ -1,19 +1,19 @@
 import { ActionTypes } from "../constants/action-type";
-import { loadState } from "../store/localStorage";
-const persistedState = loadState("shoppingCart");
+
 
 
 const initialState = {
     products: [],
     selectedProduct: {},
     data: {},
-    shoppingCart: persistedState
+  
+  
     
 };
 
 
 export const productReducers = (state = initialState, action) => {
-  const cartItems = [...state.shoppingCart]; 
+  
   switch (action.type) {
       case ActionTypes.SET_PRODUCTS:
         return { ...state, products: action.payload };
@@ -33,7 +33,13 @@ export const productReducers = (state = initialState, action) => {
       
       case ActionTypes.EDIT_SELECTED_PRODUCT:
         return {...state, products:[...state.products,action.payload]  }
-
+        case ActionTypes.SET_PRODUCTS_BY_CATEGORY:
+      return {
+        ...state,
+        productsByCategory: state.products.filter(
+          (item) => item.category === action.payload
+        ),
+      };
         default:
           return state;
     }

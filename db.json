@@ -3,8 +3,8 @@
     {
       "id": 1,
       "title": "گل آپارتمانی شماره 1 ",
-      "category": "گل آپارتمانی",
-      "price": "185,000",
+      "category": "گل های آپارتمانی",
+      "price": 150000,
       "image": "http://www.upsara.com/images/b568758_.jpg",
       "numbers": "2",
       "description": "گیاه مقاوم در برابر سرما"
@@ -12,8 +12,8 @@
     {
       "id": 2,
       "title": "گل آپارتمانی شماره 2 ",
-      "category": "گل آپارتمانی",
-      "price": "2,000,000",
+      "category": "گل های آپارتمانی",
+      "price": 200000,
       "image": "http://www.upsara.com/images/f955920_.jpg",
       "numbers": "10",
       "description": "گیاه مقاوم در برابر سرما"
@@ -21,8 +21,8 @@
     {
       "id": 3,
       "title": "گل آپارتمانی شماره 3 ",
-      "category": "گل آپارتمانی",
-      "price": "750,000",
+      "category": "گل های آپارتمانی",
+      "price": 750000,
       "image": "http://www.upsara.com/images/o808623_.jpg",
       "numbers": "6",
       "description": "گیاه مقاوم در برابر سرما"
@@ -30,8 +30,8 @@
     {
       "id": 4,
       "title": "گل آپارتمانی شماره 4 ",
-      "category": "گل آپارتمانی",
-      "price": "145,000",
+      "category": "گل های آپارتمانی",
+      "price": 145000,
       "image": "http://www.upsara.com/images/d942523_.jpg",
       "numbers": "3",
       "description": "گیاه مقاوم در برابر سرما"
@@ -40,7 +40,7 @@
       "id": 6,
       "title": "گل آپارتمانی شماره 6 ",
       "category": "گل های آپارتمانی",
-      "price": "453,000",
+      "price": 453000,
       "image": "http://www.upsara.com/images/b776035_.jpg",
       "numbers": "8",
       "description": "گیاه مقاوم در برابر سرما"
@@ -49,7 +49,7 @@
       "id": 7,
       "title": "گل آپارتمانی شماره 7 ",
       "category": "گل های آپارتمانی",
-      "price": "453,000",
+      "price": 453000,
       "image": "http://www.upsara.com/images/z806032_.jpg",
       "numbers": "2",
       "description": "گیاه مقاوم در برابر سرما"
@@ -58,7 +58,7 @@
       "id": 8,
       "title": "گل آپارتمانی شماره 8 ",
       "category": "گل های آپارتمانی",
-      "price": "200,000",
+      "price": 200000,
       "image": "http://www.upsara.com/images/o978797_.jpg",
       "numbers": 27,
       "description": "گیاه مقاوم در برابر سرما"
@@ -67,7 +67,7 @@
       "id": 9,
       "title": "گل آپارتمانی شماره 9 ",
       "category": "گل های آپارتمانی",
-      "price": "200,000",
+      "price": 200000,
       "image": "http://www.upsara.com/images/e188296_.jpg",
       "numbers": 15,
       "description": "گیاه مقاوم در برابر سرما"
@@ -76,7 +76,7 @@
       "id": 10,
       "title": "گل آپارتمانی شماره 10 ",
       "category": "گل های آپارتمانی",
-      "price": "200,000",
+      "price": 200000,
       "image": "http://www.upsara.com/images/k873828_.jpg",
       "numbers": 10,
       "description": "گیاه مقاوم در برابر سرما"
@@ -84,8 +84,8 @@
     {
       "id": 11,
       "title": "گل آپارتمانی شماره 11 ",
-      "category": "گل زینتی",
-      "price": "627,000",
+      "category": "گل های زینتی",
+      "price": 627000,
       "image": "http://www.upsara.com/images/j624911_.jpg",
       "numbers": 5,
       "description": "گیاه مقاوم در برابر سرما"
@@ -94,7 +94,7 @@
       "id": 13,
       "title": "گل آپارتمانی شماره 13 ",
       "category": "گل های آپارتمانی",
-      "price": "397,000",
+      "price": 397000,
       "image": "http://www.upsara.com/images/a912333_.jpg",
       "numbers": 83,
       "description": "گیاه مقاوم در برابر سرما"
@@ -103,7 +103,7 @@
       "id": 14,
       "title": "گل آپارتمانی شماره 14 ",
       "category": "گل های آپارتمانی",
-      "price": "326,000",
+      "price": 326000,
       "image": "http://www.upsara.com/images/i046522_.jpg",
       "numbers": 10,
       "description": "گیاه مقاوم در برابر سرما"
@@ -112,7 +112,7 @@
       "id": 15,
       "title": "گل آپارتمانی شماره 15 ",
       "category": "گل های آپارتمانی",
-      "price": "324,000",
+      "price": 324000,
       "image": "http://www.upsara.com/images/l857679_.jpg",
       "numbers": 2,
       "description": "گیاه مقاوم در برابر سرما"
@@ -121,7 +121,7 @@
       "id": 16,
       "title": "گل آپارتمانی شماره 16 ",
       "category": "گل های زینتی",
-      "price": "324,000",
+      "price": 324000,
       "image": "http://www.upsara.com/images/r354707_.jpg",
       "numbers": 1,
       "description": "گیاه مقاوم در برابر سرما"
@@ -130,7 +130,7 @@
       "id": 17,
       "title": "گل آپارتمانی شماره 17 ",
       "category": "گل های زینتی",
-      "price": "374,000",
+      "price": 374000,
       "image": "http://www.upsara.com/images/a992671_.jpg",
       "numbers": 2,
       "description": "گیاه مقاوم در برابر سرما"
@@ -139,7 +139,7 @@
       "id": 18,
       "title": "گل آپارتمانی شماره 18 ",
       "category": "گل های زینتی",
-      "price": "274,000",
+      "price": 274000,
       "image": "http://www.upsara.com/images/q287899_.jpg",
       "numbers": 31,
       "description": "گیاه مقاوم در برابر سرما"
@@ -148,7 +148,7 @@
       "id": 19,
       "title": "گل آپارتمانی شماره 19 ",
       "category": "گل های زینتی",
-      "price": "250,000",
+      "price": 250000,
       "image": "http://www.upsara.com/images/e388945_.jpg",
       "numbers": 27,
       "description": "گیاه مقاوم در برابر سرما"
@@ -157,7 +157,7 @@
       "id": 20,
       "title": "گل آپارتمانی شماره 20 ",
       "category": "گل های آپارتمانی",
-      "price": "290,000",
+      "price": 256000,
       "image": "http://www.upsara.com/images/n700101_.jpg",
       "numbers": 13,
       "description": "گیاه مقاوم در برابر سرما"
@@ -166,7 +166,7 @@
       "id": 21,
       "title": "گل آپارتمانی شماره 21 ",
       "category": "گل های زینتی",
-      "price": "250,000",
+      "price": 238000,
       "image": "http://www.upsara.com/images/w998527_.jpg",
       "numbers": 11,
       "description": "گیاه مقاوم در برابر سرما"
@@ -175,7 +175,7 @@
       "id": 22,
       "title": "گل آپارتمانی شماره 22 ",
       "category": "گل های زینتی",
-      "price": "340,000",
+      "price": 120000,
       "image": "http://www.upsara.com/images/o224334_.jpg",
       "numbers": 33,
       "description": "گیاه مقاوم در برابر سرما"
@@ -184,7 +184,7 @@
       "id": 23,
       "title": "سه گلدان کاکتوس شماره 23 ",
       "category": " کاکتوس",
-      "price": "50,000",
+      "price": 50000,
       "image": "https://8pic.ir/uploads/R-2-.jpg",
       "numbers": 1,
       "description": "گیاه مقاوم در برابر سرما"
@@ -193,7 +193,25 @@
       "id": 24,
       "title": "گل آپارتمانی شماره 24 ",
       "category": " کاکتوس",
-      "price": "150,000",
+      "price": 150000,
+      "image": "https://8pic.ir/uploads/OIP-12-.jpg",
+      "numbers": 20,
+      "description": "گیاه مقاوم در برابر سرما"
+    },
+    {
+      "id": 26,
+      "title": "گل آپارتمانی شماره 24 ",
+      "category": " کاکتوس",
+      "price": 10000,
+      "image": "https://8pic.ir/uploads/OIP-12-.jpg",
+      "numbers": 20,
+      "description": "گیاه مقاوم در برابر سرما"
+    },
+    {
+      "id": 24,
+      "title": "گل آپارتمانی شماره 24 ",
+      "category": " کاکتوس",
+      "price": 150000,
       "image": "https://8pic.ir/uploads/OIP-12-.jpg",
       "numbers": 20,
       "description": "گیاه مقاوم در برابر سرما"
@@ -201,8 +219,8 @@
     {
       "id": 71,
       "title": "گل آپارتمانی شماره 26",
-      "price": "50,000",
-      "category": "کاکتوس",
+      "price": 50000,
+      "category": " کاکتوس",
       "image": "blob:http://localhost:3000/96f0c66e-d0af-4815-aea5-93e1bde345b0",
       "numbers": 3,
       "description": "گیاه مقاوم در برابر سرما"

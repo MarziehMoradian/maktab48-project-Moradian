@@ -1,92 +1,106 @@
 import React,{useState,useEffect} from 'react';
-import Products from '../../components/mainPageComponents/products/Products';
+// import Products from '../../components/mainPageComponents/products/Products';
 import Navbar from '../../components/mainPageComponents/NavBar/Navbar';
-import { getProducts, getAProduct } from '../../redux/actions/productActions';
-import { addToCart,} from '../../redux/actions/basketAction';
+// import { getProducts, getAProduct } from '../../redux/actions/productActions';
+import { addToCart,deleteFromCart,setCarts} from '../../redux/actions/basketAction';
 import { useDispatch, useSelector } from "react-redux";
-import DetailProduct from '../../components/mainPageComponents/cart/Cart';
+// import DetailProduct from '../../components/mainPageComponents/cart/Cart';
 import Cart from '../../components/mainPageComponents/cart/Cart';
-import { connect } from 'react-redux';
-import { useHistory } from 'react-router';
-import { Link } from 'react-router-dom';
+// import { useHistory } from 'react-router';
+// import { Link } from 'react-router-dom';
 import { Route, Switch} from "react-router-dom";
 import ProductDetail from '../../components/mainPageComponents/products/ProductDetail';
-import {removeFromCart} from '../../redux/actions/basketAction';
-import { useParams } from 'react-router';
-function MainPage({shoppingCart}) {
+// import {removeFromCart} from '../../redux/actions/basketAction';
+import { connect } from 'react-redux';
+import ProductPage from './ProductPage';
+import CategoryList from './CategoryList';
+import { getAProduct } from '../../redux/actions/productActions';
+// import { useParams } from 'react-router';
+import SuccessfulPayment from './SuccessfulPayment';
+import FailedPayment from './FailedPayment'
+function MainPage() {
     const dispatch = useDispatch();
-    const history = useHistory()
-    const products = useSelector((state) => state.allProducts.products);
-    const productss = useSelector(state => state.allProducts.selectedProduct)
-    const basket = useSelector((state) => state.basket.cartProducts);
-//    const orders = useSelector((state) => state.basket.);
+    // const products = useSelector((state) => state.allProducts.products);
+    const selectedProduct = useSelector(state => state.allProducts.selectedProduct);
+    const basket = useSelector(state => state.baskets.cardProducts)
+    
     const [cart,setCart] = useState([])
-    const [open,setOpen] = useState(false)
-     const { category } = useParams([]);
+    let [value, setValue] = useState()
+
+
+    // useEffect(() => {
+    //     dispatch(getAProduct()); 
+        
+    // },[]);
+//    console.log(products);
+
+    // useEffect(() => {
+    //     dispatch(setCarts())
+    //     //dispatch(addToCart([...basket, selectedProduct]));
+    // }, [])
+
    
-    let filterCategory = []
-    
-    useEffect(() => {
-        dispatch(getProducts()); 
-        // console.log(title);
-        // dispatch(getProductsInBasket())
-    }, []);
 
-    // products.map((product,index) => {
-       
-    //         if(product.category == category){
-    //             filterCategory.push(product);
-    //           }
-    //           console.log(product.category);
-
+    const handleAddToCard = (pro,v) => {   
+        console.log(basket);
+        v = parseInt(v)
+        dispatch(getAProduct(pro))
+        dispatch(addToCart([...basket,selectedProduct]));
         
-    //   })
-
-
-    const handleAddToCard = (product) => {   
-        // dispatch(addTocart(product))
-        // dispatch(addItem ())
-          dispatch(getAProduct(product))
-          dispatch(addToCart(product))
-        setCart([...cart,productss])
+            setCart([...cart,basket])
+           
+            
+                //console.log(dispatch(getAProduct(pro)));
+            setValue(v)
+        
+        
        
-        console.log(cart);
+        
     }
 
-    const handleOpen = () => {
-        history.push('/basket')
+  
+    const handleAddToCart = (v) => {
+       dispatch(deleteFromCart(v)) 
     }
     
-    // const handleShowDetails = () => {
-    //     history.push('/details')
-    // }
     const handleDelete = (id) => {
-      const item = dispatch(getAProduct(id))
-       setCart (cart.filter(i =>  i.id !== item))
-        
+        dispatch(deleteFromCart(id));
+        dispatch(setCarts())
+        console.log(cart); 
+    }
+    const handleAddValue = () => {
+        value= parseInt(value)
+        setValue(value + 1)
+    }
+    
+    const handleDecValue = () => {
+        value= parseInt(value)
+        setValue(value - 1)
+        if(value <= 0){
+            setValue(0)
+        }
     }
 
     return (
         <div >
-            <Navbar totalItems={cart.length} onClick={handleOpen}/>
-            <Switch>
-                <Route path="/products/:category" exact render={props => <Products products={products} filterCategory={filterCategory} onAddToCart={handleAddToCard} categoryName={category}/>} />
-                <Route path="/product/:productId" exact component={ProductDetail} />
-                <Route path="/basket" exact render={props => <Cart  cart={cart} onDelete={handleDelete}/>} />
+
+          
+            <Navbar totalItems={basket.length} />
+             <Switch>
+                <Route path="/" exact component={ProductPage} />
+                <Route path="/SuccessfulPayment" exact component={SuccessfulPayment} />
+                <Route path="/FailedPayment" exact component={FailedPayment} />
+                <Route path="/product/category/:category" exact component={CategoryList} />
+                <Route path="/product/:productId" exact render={props => <ProductDetail onClick={handleAddToCard} onAdd={handleAddToCart}/>}/>
+                <Route path="/basket" exact render={props => <Cart  cart={basket} onDelete={handleDelete} value={value} addValue={handleAddValue} decValue={handleDecValue}/>} />
                 
-                </Switch>
-             {/* <Products products={products} onAddToCart={handleAddToCard} /> */}
-         
-                {/* <Cart cart={cart} open={open}/> */}
+                </Switch> 
+             {/* <Products products={products} onAddToCart={handleAddToCard}/> */}
             
              
         </div>
     )
 }
 
-// export default connect()(MainPage)
-export default connect(state => {
-    return {
-      shoppingCart: state.cart
-    };
-  })(MainPage);
+export default MainPage
+// export default MainPage

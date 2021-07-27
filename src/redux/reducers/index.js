@@ -8,20 +8,28 @@ import storage from "redux-persist/lib/storage";
 const persistConfig = {
     key:'root',
     storage,
-    whiteList: ['basket']
+    whitelist: ['baskets']
 }
- export const rootReducer = combineReducers({
-  
-    allProducts: productReducers,
-    allOrders:orderReducers,
-    basket:basketReducers,
+// const basketPersistConfig = {
+//     key: 'basket',
+//     storage: storage,
+//    whitelist: ['basket']
+//   }
+  export const reducers = combineReducers({
+         allProducts: productReducers,
+         allOrders:orderReducers,
+         baskets:basketReducers,
+     
+     })
+     // const persistedReducer = persistReducer(persistConfig,reducers)
+     
+      // export default persistedReducer
+      // export const reducers = combineReducers({
+       
+      //    allProducts: productReducers,
+      //    allOrders:orderReducers,
+      //    baskets:basketReducers,
+     
+      // })
 
- })
-export const reducers = combineReducers({
-    allProducts: productReducers,
-    allOrders:orderReducers,
-    basket:basketReducers,
-
-})
-
-export default persistReducer(persistConfig,reducers)
+      export default persistReducer(persistConfig , reducers);

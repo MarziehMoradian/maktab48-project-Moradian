@@ -12,12 +12,14 @@ function NavBar({totalItems,onClick}) {
         <>
             <AppBar position="fixed" className={classes.appBar} color="inherit">
                 <Toolbar>
+                    <Link to="/" style={{textDecorationLine:'none',color:'black'}}>
                     <Typography variant="h6" className={classes.title}>
                         <img src={logo} alt="Commerce.js" height="80px" className={classes.image}/>
                         فروشگاه گل و گیاه 
                     </Typography>
+                    </Link>
                     <div className={classes.grow}/>
-                   {location.pathname === '/' ? <div className={classes.button}>
+                   <div className={classes.button}>
                         
                         <IconButton >
                             <Badge component={Link} to="/basket" badgeContent={totalItems} color="secondary" >
@@ -25,7 +27,7 @@ function NavBar({totalItems,onClick}) {
                             </Badge>
                         </IconButton>
 
-                    </div>: null}
+                    </div>
                 </Toolbar>
             </AppBar>
             
