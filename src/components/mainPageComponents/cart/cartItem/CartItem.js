@@ -21,10 +21,10 @@ const CartItem = ({item,handleDelete,value,addValue,decValue}) => {
             <CardActions className={classes.cartActions}>
                 <div className={classes.buttons}>
                     {/* <Button type='button' size="small" onClick={addValue}>+</Button> */}
-                    <Typography>{value}</Typography>
+                    <Typography>{value[(value.length)-1]}</Typography>
                     {/* <Button type='button' size="small" onClick={decValue}>-</Button> */}
                 </div>
-                <Button variant="contained" type="button" color="secondary" onClick={() => handleDelete(item.id)}>Remove</Button>
+                <Button variant="contained" type="button" color="secondary" onClick={() => handleDelete(item.id)}>حذف</Button>
             </CardActions>
         </Card>
     )

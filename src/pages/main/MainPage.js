@@ -25,7 +25,7 @@ function MainPage() {
     const basket = useSelector(state => state.baskets.cardProducts)
     
     const [cart,setCart] = useState([])
-    let [value, setValue] = useState()
+    let [value, setValue] = useState([])
 
 
     // useEffect(() => {
@@ -44,15 +44,16 @@ function MainPage() {
     const handleAddToCard = (pro,v) => {   
         console.log(basket);
         v = parseInt(v)
+        value.push(v)
         dispatch(getAProduct(pro))
         // basket.filter(item => item.if)
         dispatch(addToCart([...basket,selectedProduct]));
         
             setCart([...cart,basket])
+            // setValue(v)
            
             
-                //console.log(dispatch(getAProduct(pro)));
-            setValue(v)
+        console.log(value);
         
         
        

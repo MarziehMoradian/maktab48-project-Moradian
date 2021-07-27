@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container,Typography, Button,Grid } from '@material-ui/core';
+import { Container,Typography, Button,Grid, Box } from '@material-ui/core';
 import CartItem from './cartItem/CartItem';
 import { useStyles } from './Style';
 import { Link } from 'react-router-dom';
@@ -8,6 +8,7 @@ const Cart = ({cart,onDelete,value,addValue,decValue}) => {
     const classes = useStyles();
     const isEmpty = !cart?.length ;
     let sum = 0
+    let v= 0
     const EmptyCard = () => (
         <div >
         <Typography variant="subtitle1">سبد خرید شما خالیست  </Typography>
@@ -47,15 +48,23 @@ const Cart = ({cart,onDelete,value,addValue,decValue}) => {
         </>    
     )
     // console.log(cart);
-    let productSum = cart?.map((item) => sum = sum + item.price * value)
+    let productSum = cart?.map((item) =>{
+
+        sum = sum + item.price * parseInt(value[parseInt(v)])
+        v=v+1
+    }
+       
+     )
 
     // if(!cart?.length) return 'Loading... '
     return (
-        <Container>
-            <div className={classes.toolbar} />
-            <Typography className={classes.title} variant="h3" gutterBottom>سبد خرید</Typography>
-            {isEmpty ? <EmptyCard /> : <FilledCard value={value} addValue={addValue} decValue={decValue} productSum={productSum}/>}
-        </Container>
+        
+            <Container >
+                <div className={classes.toolbar} />
+                <Typography className={classes.title} variant="h3" gutterBottom>سبد خرید</Typography>
+                {isEmpty ? <EmptyCard /> : <FilledCard value={value} addValue={addValue} decValue={decValue} productSum={productSum}/>}
+            </Container>
+       
     )
 }
 

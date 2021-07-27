@@ -29,7 +29,7 @@ const ProductDetail = ({onClick}) => {
     );
     const basket = useSelector(state => state.baskets.cardProducts)
 
-    const [value,setValue] = useState(1)
+    const [value,setValue] = useState([])
     useEffect(() => {
         dispatch(getAProduct(productId));
       }, []);
@@ -57,7 +57,7 @@ const ProductDetail = ({onClick}) => {
             <Typography variant="body1" className="desc">{selectedProduct.description}</Typography>
               <div className="row">
                 <TextField type="number" size="small" variant="outlined" className="card desc" style={{width:'70px'}} value={value} onChange={(e)=> setValue(e.target.value <= 0 ? 0 :e.target.value ) }/>
-                <Button  variant="contained" color="primary" className="cart" onClick={() => onClick(selectedProduct.id,value)}>اضافه کردن به سبد خرید</Button>
+                <Button  variant="contained" color="primary" className="cart" onClick={() => onClick(selectedProduct.id,value[(value.length)-1])}>اضافه کردن به سبد خرید</Button>
             </div>
           </div>
 
