@@ -21,12 +21,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProductDetail = ({onClick,onAdd}) => {
+const ProductDetail = ({onClick}) => {
     const { productId } = useParams();
     const dispatch = useDispatch();
     const selectedProduct = useSelector(
       (state) => state.allProducts.selectedProduct
     );
+    const basket = useSelector(state => state.baskets.cardProducts)
+
     const [value,setValue] = useState(1)
     useEffect(() => {
         dispatch(getAProduct(productId));
@@ -39,7 +41,7 @@ const ProductDetail = ({onClick,onAdd}) => {
     return (
       
      <div className="container">
-      <NavBar/>
+      {/* <NavBar/> */}
         <div className="details">
           <div className="big-img">
             <Image src={selectedProduct.image}  className="img"/>

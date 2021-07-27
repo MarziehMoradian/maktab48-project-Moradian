@@ -32,7 +32,7 @@ const Cart = ({cart,onDelete,value,addValue,decValue}) => {
                 ))}
             <div className={classes.cardDetails}>
                 <Typography variant="h4">
-                مبلغ کل:{productSum}
+                مبلغ کل:{sum}
                     <div>
                         {/* <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary">خالی کردن سبد خرید</Button> */}
 
@@ -47,7 +47,7 @@ const Cart = ({cart,onDelete,value,addValue,decValue}) => {
         </>    
     )
     // console.log(cart);
-    let productSum = cart?.map((item) => sum + item.price * value)
+    let productSum = cart?.map((item) => sum = sum + item.price * value)
 
     // if(!cart?.length) return 'Loading... '
     return (

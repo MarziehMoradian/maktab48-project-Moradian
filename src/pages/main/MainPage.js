@@ -45,6 +45,7 @@ function MainPage() {
         console.log(basket);
         v = parseInt(v)
         dispatch(getAProduct(pro))
+        // basket.filter(item => item.if)
         dispatch(addToCart([...basket,selectedProduct]));
         
             setCart([...cart,basket])
@@ -59,9 +60,7 @@ function MainPage() {
     }
 
   
-    const handleAddToCart = (v) => {
-       dispatch(deleteFromCart(v)) 
-    }
+   
     
     const handleDelete = (id) => {
         dispatch(deleteFromCart(id));
@@ -85,13 +84,13 @@ function MainPage() {
         <div >
 
           
-            <Navbar totalItems={basket.length} />
+            <Navbar totalItems={((basket.length))} />
              <Switch>
                 <Route path="/" exact component={ProductPage} />
                 <Route path="/SuccessfulPayment" exact component={SuccessfulPayment} />
                 <Route path="/FailedPayment" exact component={FailedPayment} />
                 <Route path="/product/category/:category" exact component={CategoryList} />
-                <Route path="/product/:productId" exact render={props => <ProductDetail onClick={handleAddToCard} onAdd={handleAddToCart}/>}/>
+                <Route path="/product/:productId" exact render={props => <ProductDetail onClick={handleAddToCard} />}/>
                 <Route path="/basket" exact render={props => <Cart  cart={basket} onDelete={handleDelete} value={value} addValue={handleAddValue} decValue={handleDecValue}/>} />
                 
                 </Switch> 
