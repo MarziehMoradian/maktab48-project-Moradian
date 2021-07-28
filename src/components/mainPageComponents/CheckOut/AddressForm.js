@@ -52,9 +52,9 @@ const AddressForm = ({next}) => {
                     <br/>
                     <br/>
                     <br/>
-                    <div style={{display:'flex' , justifyContent:'space-between'}}>
-                        <Button variant="outlined" component={Link} to ="/basket">Back to go</Button>
-                        <Button type="submit" variant="outlined" color="primary">Next</Button>
+                    <div style={{display:'flex' , justifyContent:'center'}}>
+                        <Button type="submit" variant="contained" component={Link} to="/Payment"  style={{backgroundColor:'#185435',width:'50%',color:'white'}} >پرداخت</Button>
+                        {/* <Button variant="outlined" component={Link} to ="/basket">بازگشت</Button> */}
                     </div>
                 </form>
             </FormProvider>
