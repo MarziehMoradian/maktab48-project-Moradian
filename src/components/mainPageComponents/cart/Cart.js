@@ -37,7 +37,7 @@ const Cart = ({cart,onDelete,value,addValue,decValue}) => {
                     <div>
                         {/* <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary">خالی کردن سبد خرید</Button> */}
 
-                        <Button className={classes.checkoutButton} size="large" type="button" variant="contained" color="primary">نهایی کردن خرید</Button>
+                        <Button component={Link} to="/basket/checkOut" className={classes.checkoutButton} size="large" type="button" variant="contained" color="primary" >نهایی کردن خرید</Button>
                     </div>
 
                 </Typography>

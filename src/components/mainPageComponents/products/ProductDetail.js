@@ -29,7 +29,7 @@ const ProductDetail = ({onClick}) => {
     );
     const basket = useSelector(state => state.baskets.cardProducts)
 
-    const [value,setValue] = useState([])
+    const [value,setValue] = useState([1])
     useEffect(() => {
         dispatch(getAProduct(productId));
       }, []);

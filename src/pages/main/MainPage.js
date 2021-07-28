@@ -18,6 +18,7 @@ import { getAProduct } from '../../redux/actions/productActions';
 // import { useParams } from 'react-router';
 import SuccessfulPayment from './SuccessfulPayment';
 import FailedPayment from './FailedPayment'
+import CheckoutForm from '../../components/mainPageComponents/CheckOut/ChackoutForm'
 function MainPage() {
     const dispatch = useDispatch();
     // const products = useSelector((state) => state.allProducts.products);
@@ -85,7 +86,7 @@ function MainPage() {
         <div >
 
           
-            <Navbar totalItems={((basket.length))} />
+            <Navbar totalItems={cart.length} />
              <Switch>
                 <Route path="/" exact component={ProductPage} />
                 <Route path="/SuccessfulPayment" exact component={SuccessfulPayment} />
@@ -93,6 +94,7 @@ function MainPage() {
                 <Route path="/product/category/:category" exact component={CategoryList} />
                 <Route path="/product/:productId" exact render={props => <ProductDetail onClick={handleAddToCard} />}/>
                 <Route path="/basket" exact render={props => <Cart  cart={basket} onDelete={handleDelete} value={value} addValue={handleAddValue} decValue={handleDecValue}/>} />
+                <Route path="/basket/checkOut" exact component={CheckoutForm} />
                 
                 </Switch> 
              {/* <Products products={products} onAddToCart={handleAddToCard}/> */}
