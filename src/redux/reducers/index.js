@@ -4,6 +4,7 @@ import {orderReducers} from './orderReducers'
 import  {basketReducers}  from "./basketReducers";
 import persistReducer from "redux-persist/es/persistReducer";
 import storage from "redux-persist/lib/storage";
+import { userInfoReducer } from "./UserInfoReducer";
 
 const persistConfig = {
     key:'root',
@@ -19,6 +20,7 @@ const persistConfig = {
          allProducts: productReducers,
          allOrders:orderReducers,
          baskets:basketReducers,
+         users:userInfoReducer,
      
      })
      // const persistedReducer = persistReducer(persistConfig,reducers)
