@@ -6,19 +6,31 @@ import Review from './Review';
 import Img from '../../../assets/images/OIP.jpg';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
+import { Paper } from '@material-ui/core';
+import { useStyles } from './style';
 const PaymentForm = ({backStep}) => {
     const stripePromise = loadStripe('...');
     const history = useHistory()
+    const classes = useStyles()
     return (
         <>
-            <Review/>
-            <Divider/>
-            <Typography variant="h6" gutterBottom style={{margin: '20px 0'}}>Payment</Typography>
-            <img src={Img} />
-                        <div style={{display:'flex',justifyContent:'space-between'}}>
-                            <Button type="submit" variant="outlined"  color="primary" component={Link} to="/Payment/SuccsessPayment" >پرداخت</Button>
-                            <Button variant="outlined" component={Link} to="/Payment/FailedPayment" >انصراف</Button>
-                        </div>
+            <div className={classes.toolbar}/>
+            <main className={classes.layout}>
+                <Paper className={classes.paper}>
+                <Typography variant="h4" gutterBottom style={{margin: '20px 0',textAlign:'center'}}>درگاه پرداخت</Typography>
+{/*                
+                <Divider/> */}
+
+                <img src={Img} style={{margin:'0 30px',width:'90%'}}/>
+                <br/>
+                <br/>
+                <br/>
+                            <div style={{display:'flex',justifyContent:'space-around'}}>
+                                <Button type="submit" variant="contained"   component={Link} to="/Payment/SuccsessPayment" style={{width:'50%',backgroundColor:'green',color:'white'}} >پرداخت</Button>
+                                <Button variant="contained" component={Link} to="/Payment/FailedPayment" style={{width:'20%',backgroundColor:'#f28408',color:'white'}}>انصراف</Button>
+                            </div>
+                </Paper>
+            </main>
         </>
     )
 }
