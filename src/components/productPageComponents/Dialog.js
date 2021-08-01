@@ -3,12 +3,12 @@ import { withStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
-import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
 import Form from './Form';
 import { useStyles } from '../../assets';
+
 
 const styles = (theme) => ({
   root: {
@@ -52,7 +52,7 @@ const DialogContent = withStyles((theme) => ({
 //   },
 // }))(MuiDialogActions);
 
-export default function CustomizedDialogs({open,handleClose}) {
+export default function CustomizedDialogs({open,handleClose,component}) {
  
   const classess = useStyles()
  
@@ -60,12 +60,12 @@ export default function CustomizedDialogs({open,handleClose}) {
     <div >
     
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open} >
-        <DialogTitle id="customized-dialog-title" onClose={handleClose} style={{background:'#b31515',color:'#c2c6bb'}}>
+        <DialogTitle id="customized-dialog-title" onClose={handleClose} style={{background:'#0f6c40',color:'#c2c6bb'}}>
           افزودن کالا
         </DialogTitle>
-        <DialogContent dividers  >
+        <DialogContent >
           
-            <Form className={classess.paperModal} />
+            <Form  />
            
         </DialogContent>
        

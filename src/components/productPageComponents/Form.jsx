@@ -20,7 +20,7 @@ import 'image-upload-react/dist/index.css';
 
 const useStyle = makeStyles (theme => ({
     root:{
-        
+        // backgroundImage:"url(https://i.pinimg.com/originals/7c/bf/68/7cbf6836c753a3152c420b81c32a1586.jpg)",
         '& .MuiFormControl-root':{
             width:'80%',
             margin: theme.spacing(1),
@@ -28,15 +28,29 @@ const useStyle = makeStyles (theme => ({
         }
     },
     pageContent: {
-        margin: theme.spacing(5),
-        padding: theme.spacing(3)
+        // margin: theme.spacing(5),
+        // padding: theme.spacing(3)
     },
     button: {
         // marginTop:'2.7rem',
         margin: theme.spacing(3,20),
-        background:'#b31515',
+        background:'#0f6c40',
         color:'white',
-        width:'50%'
+        width:'30%',
+        // padding:'10px 30px',
+        [theme.breakpoints.only(325)]:{
+     
+            margin: theme.spacing(2,0),
+          },
+        
+        [theme.breakpoints.up('xs')]:{
+     
+            // margin:'auto',
+            margin: theme.spacing(2,10),
+
+
+          },
+        
     },
     text:{
         border: '1px solid black',
@@ -192,11 +206,11 @@ function Form({addItem}) {
 
                     /> */}
                      <img src={image}/>
-                    <h1>select image</h1>
-                    <input type="file" name="myImage" onChange={onImageChange}/>
+                    <h3>select image</h3>
+                    <input type="file" name="myImage" onChange={onImageChange} style={{width: '90px'}}/>
                 </Grid>
-               
-                <Grid item xs={6} >
+              
+                <Grid item xs={12} lg={12} sm={12}>
                   <Button variant="contained"  className={classes.button}  type="submit" >ذخیره</Button>
                 </Grid>
 

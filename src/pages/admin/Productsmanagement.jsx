@@ -6,7 +6,8 @@ import ButtonModal from '../../components/productPageComponents/ButtonModal';
 import { getProducts  } from '../../redux/actions/productActions';
 import { useDispatch,useSelector } from 'react-redux';
 // import { useStyles } from '../assets';
-import { Box, makeStyles, Paper } from '@material-ui/core';
+import {  makeStyles } from '@material-ui/core';
+import Form from '../../components/productPageComponents/Form';
 function ProductTable() {
 
   const products = useSelector((state) => state.allProducts.products);
@@ -56,7 +57,7 @@ function ProductTable() {
       <>
             <h1 style={{textAlign:'center',marginTop:'20px'}}>صفحه مدیریت کالا ها</h1>
          <div style={{display:'flex',justifyContent: 'space-around'}}>
-                <Dialog open={open} handleClose={handleClose}/>
+                <Dialog open={open} handleClose={handleClose} />
                 <Table />
                 <ButtonModal onClick={handleClickOpen} className={classess.btnAdd}  />
       
