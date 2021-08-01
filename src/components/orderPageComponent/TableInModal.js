@@ -1,56 +1,149 @@
-import React,{useState} from 'react'
-import {DataGrid} from '@material-ui/data-grid'
-// import { useDispatch, useSelector } from "react-redux";
-import { makeStyles } from '@material-ui/core/styles';
-// import {setOrders,getAOrder} from '../../redux/actions/orderAction'
+// import React,{useState} from 'react'
+// import {DataGrid} from '@material-ui/data-grid'
+// // import { useDispatch, useSelector } from "react-redux";
+// import { makeStyles } from '@material-ui/core/styles';
+// // import {setOrders,getAOrder} from '../../redux/actions/orderAction'
 
-const useStyles = makeStyles((theme) => ({
+// const useStyles = makeStyles((theme) => ({
     
   
-    table: {
-        height:400,
-        width:'100%',
-        margin:'30px auto',
+//     table: {
+//         height:400,
+//         width:'100%',
+//         margin:'30px auto',
    
-      color:'#05280e',
-      [theme.breakpoints.down('sm')]: {
-        width:'100%',
-      },
-      [theme.breakpoints.between(375,768)]: {
-        width:'100%',
-      },
+//       color:'#05280e',
+//       [theme.breakpoints.down('sm')]: {
+//         width:'100%',
+//       },
+//       [theme.breakpoints.between(375,768)]: {
+//         width:'100%',
+//       },
      
-      [theme.breakpoints.between(768,1024)]: {
-        width:'75%',
-        // margin:'auto',
-      }
-    }
-}))
-function TableInModal({orders}) {
+//       [theme.breakpoints.between(768,1024)]: {
+//         width:'75%',
+//         // margin:'auto',
+//       }
+//     }
+// }))
+// function TableInModal({orders}) {
     
-    // const [pageSize, setPageSize] = useState(5);
-    const classes = useStyles()
+//     // const [pageSize, setPageSize] = useState(5);
+//     const classes = useStyles()
 
-     const columns = [
-   
-      {field: 'title' , headerName: ' نام کالا ', width:150},
-      {field: 'price' , headerName: 'قیمت ', width:150 },
-      {field: 'number' , headerName: 'تعداد ',width:100},
-     
-      
-    ]
+//      const columns = [
+//       {field: 'title' , headerName: ' نام کالا '},
+//       {field: 'price' , headerName: 'قیمت ' },
+//       {field: 'number' , headerName: 'تعداد '} 
+//     ]
 
-    return (
+//     return (
        
-        <div className={classes.table}  dir>
-           <DataGrid
-                rows={orders}
-                columns={columns}
-                
-              
-            />
-        </div>
-    )
-}
+//         <div className={classes.table}  dir="rtl">
+//            <DataGrid
+//                 rows={orders}
+//                 columns={columns}
+//                 autoPageSize
+//             />
+//         </div>
+//     )
+// }
 
-export default TableInModal
+// export default TableInModal
+
+
+
+import React, { useEffect, useState } from 'react';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TablePagination from '@material-ui/core/TablePagination';
+import { getProducts, deleteProduct,editeProduct } from '../../redux/actions/productActions';
+import { useDispatch, useSelector } from "react-redux";
+import DeleteIcon from '@material-ui/icons/Delete';
+import IconButton from '@material-ui/core/IconButton';
+import red from '@material-ui/core/colors/red';
+import lightBlue from '@material-ui/core/colors/lightBlue';
+import EditIcon from '@material-ui/icons/Edit';
+import { useStyles,StyledTableCell, StyledTableRow } from '../../assets';
+import Dialog from '../../components/productPageComponents/edit/Dialog';
+import {updateProduct} from '../../api/products'
+import Image from 'material-ui-image';
+export default function TableInModal({orders}) {
+  const classes = useStyles();
+  const products = useSelector((state) => state.allProducts.products);
+  
+  const [data,setData] = useState()
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [open, setOpen] = useState(false);
+  // const { productId } = useParams();
+
+  
+ 
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+  
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(event.target.value);
+    setPage(0);
+  };
+  
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+
+  // const classess = useStyles()
+
+  return (
+    <>
+    
+    <TableContainer >
+     <Dialog open={open} handleClose={handleClose} data={data} />
+      
+      <Table  aria-label="customized table">
+      <TableHead>
+          <StyledTableRow>
+            <StyledTableCell  align="right">نام کالا</StyledTableCell>
+            <StyledTableCell align="right">قیمت</StyledTableCell>
+            <StyledTableCell align="right">تعداد</StyledTableCell>
+           
+          </StyledTableRow>
+        </TableHead>
+      
+       
+        <TableBody>
+        {orders?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item) => (
+            <StyledTableRow key={item.id}>
+             
+              <StyledTableCell style={{fontSize: '15px'}} align="right" >{item.title}</StyledTableCell>
+              
+              <StyledTableCell style={{fontSize: '15px'}}  align="right" >{item.price}</StyledTableCell>
+              <StyledTableCell  style={{fontSize: '15px'}} align="right">{item.number}</StyledTableCell>
+               
+              
+            </StyledTableRow>
+            
+          ))}
+       
+        </TableBody>
+      </Table>
+      <TablePagination
+        dir="ltr"
+        rowsPerPageOptions={[5, 10, 25]}
+        component="div"
+        count={products?.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onChangePage={handleChangePage}
+        onChangeRowsPerPage={handleChangeRowsPerPage}
+        labelRowsPerPage=" تعداد سطر های هر صفحه"
+      />
+    
+    </TableContainer>
+    </>
+  )
+}

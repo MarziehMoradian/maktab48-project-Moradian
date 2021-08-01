@@ -1,19 +1,13 @@
-import React, { useEffect, useState } from 'react';
-// import {DataGrid} from '@material-ui/data-grid'
-// import { useDispatch, useSelector } from "react-redux";
-import { makeStyles } from '@material-ui/core/styles';
-import {getNotDeliveryOrders,getDeliveryOrders} from '../../redux/actions/orderAction'
-import Paper from "@material-ui/core/Paper";
+import React, { useState } from 'react';
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TablePagination from "@material-ui/core/TablePagination";
-import TableRow from "@material-ui/core/TableRow";
 import ModalOrders from './ModalOrders'
 import { Button } from '@material-ui/core';
-
+import { StyledTableCell, StyledTableRow } from '../../assets';
+import { makeStyles } from '@material-ui/core';
   
 const useStyles = makeStyles((theme) => ({
     
@@ -44,22 +38,7 @@ const  OrdersTable = ({orders}) => {
   // const dispatch = useDispatch();
   // const selectedOrder = useSelector((state) => state.allOrders.selectedOrder)
   
-    const columns = [
-      { id: "name", label: "نام کاربر", minWidth: 150 },
-      { id: "sum", label: "مجموع مبلغ", minWidth: 80 },
-      {
-        id: "orderTime",
-        label: "تاریخ سفارش",
-        minWidth: 150,
-        align: "right",
-      },
-      {
-        id: "buttons",
-        label: "",
-        minWidth: 150,
-        align: "right",
-      },
-    ]
+    
 
 
   
@@ -93,46 +72,30 @@ const  OrdersTable = ({orders}) => {
       
     return (
    
-        <div className={classes.table}>
-        <Paper className={classes.root}>
-          <TableContainer >
-            <Table stickyHeader aria-label="sticky table">
+        <div >
+        {/* // <Paper className={classes.root}> */}
+         <TableContainer className={classes.table}>
+            <Table  aria-label="customized table">
               <TableHead >
-                <TableRow style={{backgroundColor:'#10522f'}} >
-                  {columns.map((column) => (
-                    <TableCell
-                      key={column.id}
-                      align={column.align}
-                      style={{ minWidth: column.minWidth }}
-                      className={classes.tabelCell}
-                    >
-                      <h4>{column.label}</h4>
-                    </TableCell>
-                  ))}
-                </TableRow>
-              </TableHead>
+              <StyledTableRow>
+                
+                <StyledTableCell align="right">نام کاربر</StyledTableCell>
+                <StyledTableCell align="right">مبلغ کل</StyledTableCell>
+                <StyledTableCell align="right">زمان ثبت سفارش</StyledTableCell>
+                <StyledTableCell align="right"></StyledTableCell>
+              </StyledTableRow>
+            </TableHead>
               <TableBody>
                 {orders?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((order) => {
                     return (
-                      <TableRow
-                        hover
-                        role="checkbox"
-                        tabIndex={-1}
-                        key={order.code}
-                      >
-                        <TableCell align={columns[0].align}>
-                          {order.name}
-                        </TableCell>
-                        <TableCell align={columns[1].align}>
-                          {order.sum}
-                        </TableCell>
-                        <TableCell align={columns[2].align}>
-                          {order.orderTime}
-                        </TableCell>
-                        <TableCell align={columns[3].align}>
-                          <Button onClick={(e) => handleOpen(order)}>بررسی سفارش</Button>
-                        </TableCell>
-                      </TableRow>
+                      <StyledTableRow key={order.id}>
+                        <StyledTableCell align="right" >{order.name}</StyledTableCell>
+                        <StyledTableCell align="right">{order.sum}</StyledTableCell>
+                        <StyledTableCell align="right">{order.orderTime}</StyledTableCell>
+                        <StyledTableCell align="right" >
+                          <Button onClick={(e) => handleOpen(order)} variant="text" >بررسی سفارش</Button>
+                        </StyledTableCell>
+                      </StyledTableRow>
                     );
                   })}
               </TableBody>
@@ -150,7 +113,7 @@ const  OrdersTable = ({orders}) => {
           />
           </TableContainer>
          
-        </Paper>
+        
         {openModal && (
           <ModalOrders
             open={openModal}

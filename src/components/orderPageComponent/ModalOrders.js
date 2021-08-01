@@ -9,6 +9,9 @@ import {delivery} from '../../redux/actions/orderAction'
 import { useDispatch } from "react-redux";
 import Typography from '@material-ui/core/Typography';
 import TableInModal from './TableInModal';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+import { Grid } from '@material-ui/core';
 const styles = (theme) => ({
   root: {
     margin: 0,
@@ -16,29 +19,29 @@ const styles = (theme) => ({
   },
   closeButton: {
     position: 'absolute',
-    right: theme.spacing(1),
+    left: theme.spacing(1),
     top: theme.spacing(1),
     color: theme.palette.grey[500],
-  },
+  }
 });
 
 const DialogTitle = withStyles(styles)((props) => {
   const { children, classes, onClose, ...other } = props;
   return (
-    <MuiDialogTitle disableTypography className={classes.root} {...other} > 
+    <MuiDialogTitle disableTypography className={classes.root} {...other}>
       <Typography variant="h6">{children}</Typography>
-      {/* {onClose ? (
-        // <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}  >
-        //   <CloseIcon />
-        // </IconButton>
-      ) : null} */}
+      {onClose ? (
+        <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
+          <CloseIcon  />
+        </IconButton>
+      ) : null}
     </MuiDialogTitle>
   );
 });
 
 const DialogContent = withStyles((theme) => ({
   root: {
-    padding: theme.spacing(2),
+    margin: theme.spacing(1),
   },
 }))(MuiDialogContent);
 
@@ -49,7 +52,7 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-export default function CustomizedDialogs({open,handleClose,order}) {
+export default function ModalOrders({open,handleClose,order}) {
   const dispatch = useDispatch();
   const [option, setOption] = useState(true);
 
@@ -65,18 +68,18 @@ export default function CustomizedDialogs({open,handleClose,order}) {
      console.log(dispatch(delivery({...order,condition:true})));
     handleClose()
   }
-
+ 
   return (
-    <div style={{width:'100%'}}>
+    <div >
       {/* <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         
       </Button> */}
-      <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open} style={{width:'100%'}}>
-        <DialogTitle id="customized-dialog-title" onClose={handleClose}>
+          <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open} >
+            <DialogTitle id="customized-dialog-title" onClose={handleClose} style={{background:'#0f6c40',color:'#c2c6bb'}}> 
             نمایش سفارش
         </DialogTitle>
-        <DialogContent dividers>
-          <Typography gutterBottom>
+        <DialogContent >
+           <Typography gutterBottom>
              نام مشتری: {order.name}
           </Typography>
           <Typography gutterBottom>
@@ -94,9 +97,10 @@ export default function CustomizedDialogs({open,handleClose,order}) {
           <Typography gutterBottom>
               مبلغ کل: {order.sum}
           </Typography>
-           <br/>
-           <br/>
+           {/* <Grid> */}
+
            <TableInModal orders={order.orderedProducts}/>
+            {/* </Grid> */}
         </DialogContent>
         <DialogActions>
         {option && (

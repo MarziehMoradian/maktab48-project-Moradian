@@ -24,7 +24,7 @@ function OrderManagment() {
 
     return (
       
-        <div >
+        <div style={{textAlign:'center',marginTop:'10px'}}>
         <h1 >مدیریت موجودی و قیمت</h1>
         <FormControl component="fieldset" >
           <FormLabel component="legend"></FormLabel>

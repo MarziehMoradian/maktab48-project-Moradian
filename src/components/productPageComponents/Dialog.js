@@ -54,7 +54,7 @@ const DialogContent = withStyles((theme) => ({
 
 export default function CustomizedDialogs({open,handleClose,component}) {
  
-  const classess = useStyles()
+ 
  
   return (
     <div >

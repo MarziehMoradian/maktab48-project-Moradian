@@ -71,14 +71,16 @@ export const useStyles = makeStyles((theme) => ({
     },
       paperinTable: {
         maxWidth:'60%',
-        margin: theme.spacing(3, 'auto', 3),
+        margin: theme.spacing(1, 'auto', 1),
       },
       icone:{
         color: "#e51f1f"
       },
     paperModal: {
       width: 'auto'
-    }
+    },
+  
+
   
 }));
 
@@ -95,10 +97,10 @@ export const defaultProps = {
       backgroundColor: '#48a27a',
       color: theme.palette.common.white,
       fontWeight:'bold',
-      fontSize: 20,
+      fontSize: 18,
     },
     body: {
-      fontSize: 18,
+      fontSize: 16,
      
     },
   }))(TableCell);

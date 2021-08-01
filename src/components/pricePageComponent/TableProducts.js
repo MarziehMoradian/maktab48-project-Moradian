@@ -97,7 +97,7 @@ function TableProducts() {
     ///const [row, setRow] = useState({});
     //const [selectionModel, setSelectionModel] = React.useState([]);
     return (
-        <div className={classes.table} dir="ltr" >
+        <div className={classes.table} >
             <DataGrid
                 
                 rows={products}
