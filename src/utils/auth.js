@@ -10,10 +10,7 @@ export const isLoggedIn = () => {
   };
   
   export const logout = () => {
-    /*
-     * Clear localStorage
-     */
-  
+
     localStorage.clear();
     window.location.reload();
   };
