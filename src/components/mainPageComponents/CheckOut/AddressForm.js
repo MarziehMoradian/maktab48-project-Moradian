@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Typography from '@material-ui/core/Typography';
 import WarningIcon from '@material-ui/icons/Warning';
+import {setUserInfo} from '../../../redux/actions/UserAction'
 
 jMoment.loadPersian({ dialect: "persian-modern", usePersianDigits: true });
 

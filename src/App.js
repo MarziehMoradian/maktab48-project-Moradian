@@ -17,17 +17,16 @@ function App() {
   return (
     <React.Fragment>
     <CssBaseline/>
-       <MainPage/>
+       {/* <MainPage/> */}
         <Router>
         {/* <Headers/> */}
          <Switch>
-         {/* <Route path="/" exact render={props => <Products products={products} />} /> */}
-         {/* <Route path="/" exact component= {MainPage} /> */}
-          {/*<Route path="/product/:productId" exact component={ProductDetail} />
-         <Route path="/product/basket" exact component={Card} /> */}
-         {/* <Route path="/login" exact component={Login}/>
-         <ProtectedRoute exact path="/adminPanel/:page?" component={AdminPanelPage} />
-        <ProtectedRoute path="/adminPanel/:page?" exact component={AdminPanelPage}/>  */}
+{/*         
+         <Route path="/" exact component= {MainPage} />
+        
+         <Route path="/login" exact component={Login}/>*/}
+         <ProtectedRoute exact path="/adminPanel/:page?" component={Headers} /> 
+        {/* <ProtectedRoute path="/adminPanel/:page?" exact component={AdminPanelPage}/> */}
       </Switch> 
       </Router>
      

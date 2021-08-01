@@ -8,7 +8,7 @@ import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 function OrderManagment() {
 
-    const [deliveredList, setDeliveredList] = useState(true); // false for NotDelivered , true for Delivered
+    const [deliveredList, setDeliveredList] = useState(true); 
     const [value, setValue] = useState("notDelivered");
   
     const handleChange = (event) => {
