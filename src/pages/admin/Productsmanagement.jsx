@@ -27,13 +27,18 @@ function ProductTable() {
     
      const useStyles = makeStyles((theme)=> ({
         btnAdd:{
-            background:'#03939d',
+            background:'#48a27a',
             color:'#fcfdfd',
             border:'none',
             padding:'7px 18px',
             fontSize:'18px',
-            margin:theme.spacing(4)
-        
+            margin:theme.spacing(7,4),
+            [theme.breakpoints.down('xs')]:{
+               
+                // height: '30px',
+                fontSize: '10px',
+                fontWeight: 'bold'
+            },
           
           },
           
@@ -48,15 +53,15 @@ function ProductTable() {
       const classess = useStyles()
 
     return (
-         <Paper style={{width:'100%'}}>
-            <h1 style={{textAlign:'center'}}>صفحه مدیریت کالا ها</h1>
-            <Box className={classess.paperInAdminPanel}>
-                
+      <>
+            <h1 style={{textAlign:'center',marginTop:'20px'}}>صفحه مدیریت کالا ها</h1>
+         <div style={{display:'flex',justifyContent: 'space-around'}}>
                 <Dialog open={open} handleClose={handleClose}/>
                 <Table />
                 <ButtonModal onClick={handleClickOpen} className={classess.btnAdd}  />
-            </Box>
-        </Paper>
+      
+        </div>
+        </>
         
     )
 }

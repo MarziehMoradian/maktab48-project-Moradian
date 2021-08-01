@@ -92,18 +92,21 @@ export const defaultProps = {
 
   export const StyledTableCell = withStyles((theme) => ({
     head: {
-      backgroundColor: '#b31515',
+      backgroundColor: '#48a27a',
       color: theme.palette.common.white,
+      fontWeight:'bold',
+      fontSize: 20,
     },
     body: {
       fontSize: 18,
+     
     },
   }))(TableCell);
   
   export const StyledTableRow = withStyles((theme) => ({
     root: {
       '&:nth-of-type(odd)': {
-        backgroundColor: theme.palette.action.hover,
+        backgroundColor: '#eff6f4',
         
       },
     },

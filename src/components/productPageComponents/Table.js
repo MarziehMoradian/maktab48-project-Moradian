@@ -4,10 +4,8 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
-import Paper from '@material-ui/core/Paper';
 import TablePagination from '@material-ui/core/TablePagination';
-import { getProducts, deleteProduct,getAProduct ,editeProduct } from '../../redux/actions/productActions';
-import Avatar from '@material-ui/core/Avatar';
+import { getProducts, deleteProduct,editeProduct } from '../../redux/actions/productActions';
 import { useDispatch, useSelector } from "react-redux";
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
@@ -17,7 +15,6 @@ import EditIcon from '@material-ui/icons/Edit';
 import { useStyles,StyledTableCell, StyledTableRow } from '../../assets';
 import Dialog from '../../components/productPageComponents/edit/Dialog';
 import {updateProduct} from '../../api/products'
-import { useParams } from "react-router-dom";
 import Image from 'material-ui-image';
 export default function CustomizedTables() {
   const classes = useStyles();
@@ -80,7 +77,7 @@ export default function CustomizedTables() {
   return (
     <>
     
-    <TableContainer component={Paper} className={classes.paperinTable}>
+    <TableContainer className={classes.paperinTable}>
      <Dialog open={open} handleClose={handleClose} data={data} />
       
       <Table className={classes.table} aria-label="customized table">
