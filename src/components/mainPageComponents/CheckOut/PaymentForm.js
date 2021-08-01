@@ -26,8 +26,8 @@ const PaymentForm = ({backStep}) => {
                 <br/>
                 <br/>
                             <div style={{display:'flex',justifyContent:'space-around'}}>
-                                <Button type="submit" variant="contained"   component={Link} to="/Payment/SuccsessPayment" style={{width:'50%',backgroundColor:'green',color:'white'}} >پرداخت</Button>
-                                <Button variant="contained" component={Link} to="/Payment/FailedPayment" style={{width:'20%',backgroundColor:'#f28408',color:'white'}}>انصراف</Button>
+                                <Button type="submit" variant="contained"   component={Link} to="/Payment/SuccsessPayment" style={{width:'50%',backgroundColor:'#0d5b36',color:'white'}} >پرداخت</Button>
+                                <Button variant="contained" component={Link} to="/Payment/FailedPayment" style={{width:'20%',backgroundColor:'#df1c12',color:'white'}}>انصراف</Button>
                             </div>
                 </Paper>
             </main>

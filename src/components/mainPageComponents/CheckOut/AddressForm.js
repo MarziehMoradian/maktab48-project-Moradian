@@ -1,181 +1,58 @@
-import React, { useState } from "react";
-import TextField from "@material-ui/core/TextField";
-// import { useFormStyle } from "../style/form";
-import { useForm } from "react-hook-form";
-import moment from "moment";
-import jMoment from "moment-jalaali";
-import JalaliUtils from "@date-io/jalaali";
-import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
-import { useDispatch, useSelector } from "react-redux";
-// import { setUserInfo } from "../redux/actions/userAction";
-import { useHistory } from "react-router-dom";
-import Typography from '@material-ui/core/Typography';
-import WarningIcon from '@material-ui/icons/Warning';
-import {setUserInfo} from '../../../redux/actions/UserAction'
+import React,{useState} from 'react'
+import { useForm, FormProvider } from 'react-hook-form';
+import CustomTextField from './CustomTextField';
+import { Link } from 'react-router-dom';
+import {DatePicker, DateTimePicker, DateRangePicker, DateTimeRangePicker} from "react-advance-jalaali-datepicker";
+import { Select, MenuItem, Button, Grid, Typography, Input, TextField, InputLabel, Divider } from '@material-ui/core'
+const AddressForm = ({next}) => {
+    const method = useForm()
+   
+  const  DatePickerInput= (props) =>  {
+    return (
+       <Grid item xs={12} sm={12} >
+        <TextField   {...props}  fullWidth size="small" />
+        </Grid>
+    )
+}
 
-jMoment.loadPersian({ dialect: "persian-modern", usePersianDigits: true });
+    return (
+        <div>
+            
+            <FormProvider {...method}>
+                <form onSubmit={method.handleSubmit((data)=> next({...data}))}>
+                    <Grid container spacing={3}>
+                        <InputLabel>نام:</InputLabel>
+                        <CustomTextField required name="firstName" />
+                        <InputLabel>نام خانوادگی:</InputLabel>
+                        <CustomTextField required name="LastName"  />
+                        <InputLabel>آدرس:</InputLabel>
+                        <CustomTextField required name="address"  />
+                        <InputLabel>شماره تلفن:</InputLabel>
+                        <CustomTextField required name="phoneNumber" />
+                        <br/>
+                        <InputLabel>  تاریخ تحویل محصول یا محصولات خود را مشخص کنید:  </InputLabel>
 
-const AddressForm = () => {
-  const [selectedDate, handleDateChange] = useState(moment());
-  const m = moment();
-  const history = useHistory();
+                        <DatePicker
+                        inputComponent={DatePickerInput}
+                        placeholder="انتخاب تاریخ"
+                        format="jYYYY/jMM/jDD"
+                        // onChange={this.change}
+                        id="datePicker"
+                        preSelected="1400/05/15"
+                        />
+                      </Grid>
+                      <br/>
+                      <br/>
+                      <br/>
+                      <div style={{display:'flex' , justifyContent:'center'}}>
+                        <Button type="submit" style={{width:'100%',backgroundColor:'#0d5b36',color:'white',fontSize:'20px',fontWeight:'bold'}} component={Link} to="/payment" variant="contained" >پرداخت</Button>
+                        
 
-  const dispatch = useDispatch();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-//   const classes = useStyles();
-   const classes = "";
-  const onSubmit = (data) => {
-    let user = data;
-    dispatch(
-      setUserInfo({
-        name: user.firstName + " " + user.lastName,
-        address: user.address,
-        phoneNumber: user.phoneNumber,
-        deliveryTime: selectedDate.format("jYYYY/jMM/jDD"),
-        orderTime: moment(m).locale("fa").format("YYYY/MM/DD"),
-      })
-    );
-    history.replace("/fake.shaparak");
-  };
-  return (
-    <div>
-      <div className={classes.title}>
-        <Typography variant="h4" className={classes.text}>
-          نهایی کردن سبد خرید
-        </Typography>
-        {/* <h1>
-          </h1> */}
-      </div>
-      <div>
-        <form className={classes.root} onSubmit={handleSubmit(onSubmit)}>
-          <div className={classes.fild}>
-            <TextField
-              label="نام"
-              {...register(
-                "firstName",
-                { required: true, maxLength: 80 },
-                {
-                  validate: {
-                    emptyFild: (value) => value !== "",
-                  },
-                }
-              )}
-            />
-            {errors.firstName && errors.firstName.type && (
-              <p className={classes.error}>
-                <WarningIcon className={classes.icon}/>
-                نام خود را وارد کنید
-                </p>
-            )}
-          </div>
-          <div className={classes.fild}>
-            <TextField
-              label="نام خانوادگی"
-              {...register(
-                "lastName",
-                { required: true, maxLength: 80 },
-                {
-                  validate: {
-                    emptyFild: (value) => value !== "",
-                  },
-                }
-              )}
-            />
-            {errors.lastName && errors.lastName.type && (
-              <p className={classes.error}>
-                <WarningIcon className={classes.icon}/>
-                نام خانوادگی خود را وارد کنید
-                </p>
-            )}
-          </div>
-          <div className={classes.fild}>
-            <TextField
-              label="آدرس"
-              {...register(
-                "address",
-                { required: true },
-                {
-                  validate: {
-                    emptyFild: (value) => value !== "",
-                  },
-                }
-              )}
-            />
-            {errors.address && errors.address.type && (
-              <p className={classes.error}>
-                <WarningIcon className={classes.icon}/>
-                آدرس خود را وارد کنید
-                </p>
-            )}
-          </div>
-          <div className={classes.fild}>
-            <TextField
-              type="tel"
-              label="تلفن همراه"
-              {...register(
-                "phoneNumber",
-                {
-                  required: true,
-                  maxLength: 14,
-                  minLength: 11,
-                  pattern: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/g,
-                },
-                {
-                  validate: {
-                    emptyFild: (value) => value !== "",
-                  },
-                }
-              )}
-            />
-            {errors.phoneNumber && errors.phoneNumber.type === "required" && (
-              <p className={classes.error}>
-                <WarningIcon className={classes.icon}/>
-                شماره همراه خود را وارد کنید
-                </p>
-            )}
-            {errors.phoneNumber && errors.phoneNumber.type === "pattern" && (
-              <p className={classes.error}>
-                <WarningIcon className={classes.icon}/>
-                شماره همراه وارد شده اشتباه است
-                </p>
-            )}
-            {errors.phoneNumber && errors.phoneNumber.type === "minLength" && (
-              <p className={classes.error}>
-                <WarningIcon className={classes.icon}/>
-                شماره همراه وارد شده اشتباه است
-                </p>
-            )}
-            {errors.phoneNumber && errors.phoneNumber.type === "maxLength" && (
-              <p className={classes.error}>
-                <WarningIcon className={classes.icon}/>
-                شماره همراه وارد شده اشتباه است
-                </p>
-            )}
-          </div>
-          <div className={classes.fild}>
-            <MuiPickersUtilsProvider utils={JalaliUtils} locale="fa">
-              <DatePicker
-                clearable
-                okLabel="تأیید"
-                cancelLabel="لغو"
-                clearLabel="پاک کردن"
-                label="تاریخ"
-                labelFunc={(date) => (date ? date.format("jYYYY/jMM/jDD") : "")}
-                value={selectedDate}
-                onChange={handleDateChange}
-              />
-            </MuiPickersUtilsProvider>
-          </div>
-          <div className={classes.fild}>
-          <TextField type="submit" value="ثبت و ادامه" variant="outlined" className={classes.submitBtn} />
-          </div>
-        </form>
-      </div>
-    </div>
-  );
-};
-export default AddressForm;
+                      </div>
+                   
+                </form>
+            </FormProvider>
+        </div>
+    )
+}
+export default AddressForm
