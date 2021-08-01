@@ -21,9 +21,23 @@ const useStyle = makeStyles (theme => ({
     button: {
         // marginTop:'2.7rem',
         margin: theme.spacing(3,20),
-        background:'#b31515',
+        background:'#0f6c40',
         color:'white',
-        width:'50%'
+        width:'50%',
+        // padding:'10px 30px',
+        [theme.breakpoints.only(325)]:{
+     
+            margin: theme.spacing(2,0),
+          },
+        
+        [theme.breakpoints.up('xs')]:{
+     
+            // margin:'auto',
+            margin: theme.spacing(2,10),
+
+
+          },
+        
     },
     text:{
         border: '1px solid black',
@@ -40,14 +54,14 @@ function Form({action}) {
     const [title,setTitle] = useState(action.title);
     const [description,setDescription] = useState(action.description)
     const [category,setCategory] = useState(action.category);
-    const [price,setPrice] = useState(action.price);
+    // const [price,setPrice] = useState(action.price);
     const [image, setImage] = useState(action.image)
  
-    const handleImageSelect = (e) => {
-      setImage(URL.createObjectURL(e.target.files[0]))
-    }
+    // const handleImageSelect = (e) => {
+    //   setImage(URL.createObjectURL(e.target.files[0]))
+    // }
     const dispatch = useDispatch();
-    const products = useSelector((state) => state.allProducts.products);
+    // const products = useSelector((state) => state.allProducts.products);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -129,7 +143,7 @@ function Form({action}) {
                         
 
                     /> */}
-                     <img src={image} alt=""/>
+                     <img src={image} alt="" style={{width:'200px',height:'200px'}}/>
                     <h1>select image</h1>
                     <input type="file" name="myImage" onChange={onImageChange}/>
 

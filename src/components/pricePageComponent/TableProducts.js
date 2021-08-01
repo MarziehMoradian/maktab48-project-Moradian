@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     
   
     table: {
-        height:400,
+        height: 400,
         width:'50%',
         margin:'30px auto',
    
@@ -80,10 +80,9 @@ function TableProducts() {
 
     const columns = [
    
-      {field: 'numbers' , headerName: ' موجودی ',width:150, editable: editable},
+      {field: 'title' , headerName: 'نام کالا',width:150},
       {field: 'price' , headerName: 'قیمت',width:150,  editable:editable},
-      {field: 'title' , headerName: 'نام کالا',width:150}
-      
+      {field: 'numbers' , headerName: 'موجودی',width:150, editable: editable} 
     ]
     // columns={[{ field: 'username' }, { field: 'age' }]}
 
@@ -97,23 +96,18 @@ function TableProducts() {
     ///const [row, setRow] = useState({});
     //const [selectionModel, setSelectionModel] = React.useState([]);
     return (
-        <div className={classes.table} >
+         <div dir="rtl" >
             <DataGrid
-                
+                className={classes.table}
                 rows={products}
                 columns={columns}
                 pageSize={pageSize}
                 rowsPerPageOptions={[5, 10, 20]}
-                // checkboxSelection 
-                // getRowId = {(row) => console.log(row.id)}
                 onCellClick={(e) => handleEdit(e)}
-                onEditCellChange={(e) => handleChange(e)}
-            
-               
-                
+                onEditCellChange={(e) => handleChange(e)}  
             />
 
-            <Button></Button>
+           
 
         </div>
     )

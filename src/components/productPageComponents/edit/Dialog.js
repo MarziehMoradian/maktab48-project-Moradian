@@ -39,7 +39,7 @@ const DialogTitle = withStyles(styles)((props) => {
 
 const DialogContent = withStyles((theme) => ({
   root: {
-    margin: theme.spacing(4),
+    margin: theme.spacing(5),
     
     
   },
@@ -55,11 +55,11 @@ export default function CustomizedDialogs({open,handleClose,data}) {
   return (
     <div >
     
-      <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open} >
-        <DialogTitle id="customized-dialog-title" onClose={handleClose} style={{background:'#b31515',color:'#c2c6bb'}}>
+    <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open} >
+        <DialogTitle id="customized-dialog-title" onClose={handleClose} style={{background:'#0f6c40',color:'#c2c6bb'}}>
           افزودن کالا
         </DialogTitle>
-        <DialogContent dividers  >
+        <DialogContent >
           
             <Form className={classess.paperModal} action={data} />
            

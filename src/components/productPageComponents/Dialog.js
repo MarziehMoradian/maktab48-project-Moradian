@@ -39,7 +39,7 @@ const DialogTitle = withStyles(styles)((props) => {
 
 const DialogContent = withStyles((theme) => ({
   root: {
-    margin: theme.spacing(4),
+    margin: theme.spacing(5),
     
     
   },
