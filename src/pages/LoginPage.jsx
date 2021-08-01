@@ -9,7 +9,7 @@ import { makeStyles } from '@material-ui/core';
 const useStyle = makeStyles ((theme)=> ({
     link:{
         position:'absolute',
-        //  backgroundColor:'#c32b34',
+         backgroundColor:'#24e486',
         color:'#5c5c5c',
         margin: theme.spacing(1, 3, 3),
         fontSize: '18px',
@@ -25,7 +25,7 @@ const Input = () => {
     return ( 
     <>
       
-        <Button variant="text" color="inherit"  className={classess.link} >بازگشت به صفحه اصلی</Button>
+        <Button variant="contained"  className={classess.link} >بازگشت به صفحه اصلی</Button>
         <Grid container component="main" className={classes.root}>
             <CssBaseline />
            

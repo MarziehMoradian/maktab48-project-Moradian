@@ -11,7 +11,7 @@ import { useForm } from 'react-hook-form';
 import { login } from '../../api/Login';
 import { useHistory } from 'react-router';
 import { makeStyles } from '@material-ui/core';
-
+import img from '../../assets/images/R (5).png'
 
 const useStyle = makeStyles ((theme) => ({
       remember: {
@@ -69,10 +69,10 @@ function LoginForm() {
     return (
         <div className={classes.paper}>
                 <Grid align="center">
-                    <Grid className={classes.avatar}>
-                        <Image src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Carrefour_Market_logo.svg" />
-                    </Grid>
-                    <Typography component="h1" variant="h5">ورود به پنل مدیریت </Typography>  
+                    {/* <Grid className={classes.avatar}> */}
+                        <img src={img} height="200px" />
+                    {/* </Grid> */}
+                    <Typography component="h1" variant="h5" >ورود به پنل مدیریت </Typography>  
                 </Grid>
 
 

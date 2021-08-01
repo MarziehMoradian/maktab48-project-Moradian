@@ -19,7 +19,7 @@ export const useStyles = makeStyles((theme) => ({
           
         },
         image: {
-          backgroundImage: "url(https://static.vecteezy.com/system/resources/previews/000/396/067/original/people-shopping-with-credit-card-illustration-vector.jpg)",
+          backgroundImage: "url(http://www.yourhomeandgarden.co.nz/wp-content/uploads/2019/05/IndoorHouseTrees_1.jpg)",
           backgroundRepeat: "no-repeat",
           backgroundColor:
             theme.palette.type === "light"
@@ -27,6 +27,11 @@ export const useStyles = makeStyles((theme) => ({
               : theme.palette.grey[900],
           backgroundSize: "cover",
           backgroundPosition: "center",
+          [theme.breakpoints.between(768,1000)]:{
+              
+              
+          },
+        
         },
         paper: {
           margin: theme.spacing(8,4),
