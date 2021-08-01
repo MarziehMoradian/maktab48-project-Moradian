@@ -11,24 +11,15 @@ import MainPage from "./pages/main/MainPage";
 import Headers from "./components/Headers";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { BrowserRouter as Router } from "react-router-dom";
+import AdminPage from "./pages/admin/AdminPage";
 
 function App() {
 
   return (
     <React.Fragment>
     <CssBaseline/>
-       {/* <MainPage/> */}
-        <Router>
-        {/* <Headers/> */}
-         <Switch>
-        
-         <Route path="/" exact component= {MainPage} />
-        
-         <Route path="/login" exact component={Login}/>
-         <ProtectedRoute exact path="/adminPanel/:page?" component={Headers} /> 
-        {/* <ProtectedRoute path="/adminPanel/:page?" exact component={AdminPanelPage}/> */}
-      </Switch> 
-      </Router>
+       <MainPage/>
+       <AdminPage/>
      
     </React.Fragment>
   );

@@ -10,7 +10,7 @@ const ProductPage = () => {
     const dispatch = useDispatch();
     const products = useSelector((state) => state.allProducts.products);
 
-    const [cart,setCart] = useState([])
+ 
 
     let plant_1 = []
     let plant_2 = []
