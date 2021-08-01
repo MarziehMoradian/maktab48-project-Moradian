@@ -1,9 +1,10 @@
 import React from 'react'
-import {AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography} from '@material-ui/core';
+import {AppBar, Toolbar, IconButton, Badge, Button, Typography} from '@material-ui/core';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import logo from '../../../assets/images/R (5).png';
 import {useStyles} from './style'
 import { Link, useLocation } from 'react-router-dom';
+import {isLoggedIn,logout} from '../../../utils/auth'
 
 function NavBar({totalItems,onClick}) {
     const classes = useStyles()
@@ -21,6 +22,7 @@ function NavBar({totalItems,onClick}) {
                     <div className={classes.grow}/>
                    <div className={classes.button}>
                         
+                        <Button variant="text" style={{fontSize:'18px',fontWeight:'bold'}} component={Link} to={isLoggedIn() ? "/adminPanel" : '/login'}>مدیریت</Button>
                         <IconButton >
                             <Badge component={Link} to="/basket" badgeContent={totalItems} color="secondary" >
                                 <ShoppingCartIcon onClick={onClick}/>
