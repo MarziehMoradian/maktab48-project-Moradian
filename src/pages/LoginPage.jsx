@@ -1,10 +1,11 @@
 import React from 'react';
 import { useStyles } from '../assets/index';
-import { Grid, Paper} from '@material-ui/core';
+import { Grid,  Paper} from '@material-ui/core';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import LoginForm from '../components/loginPageComponents/LoginForm';
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
+import {Link} from 'react-router-dom'
 
 const useStyle = makeStyles ((theme)=> ({
     link:{
@@ -25,7 +26,7 @@ const Input = () => {
     return ( 
     <>
       
-        <Button variant="contained"  className={classess.link} >بازگشت به صفحه اصلی</Button>
+        <Button variant="contained"  className={classess.link} component={Link} to="/">بازگشت به صفحه اصلی</Button>
         <Grid container component="main" className={classes.root}>
             <CssBaseline />
            
