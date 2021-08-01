@@ -21,10 +21,10 @@ function App() {
         <Router>
         {/* <Headers/> */}
          <Switch>
-{/*         
+        
          <Route path="/" exact component= {MainPage} />
         
-         <Route path="/login" exact component={Login}/>*/}
+         <Route path="/login" exact component={Login}/>
          <ProtectedRoute exact path="/adminPanel/:page?" component={Headers} /> 
         {/* <ProtectedRoute path="/adminPanel/:page?" exact component={AdminPanelPage}/> */}
       </Switch> 
