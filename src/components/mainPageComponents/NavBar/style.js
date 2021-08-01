@@ -31,6 +31,14 @@ export const useStyles = makeStyles((theme) => ({
     grow:  {
         flexGrow: 1,
     },
+    button:{
+        fontSize: '18px',
+        [theme.breakpoints.between(300,425)]: {
+            display:'flex',
+            flexWrap: 'nowrap',
+            // flexDirection: 'row'
+        },
+    },
     search: {
         position: 'relative',
         borderRadius:theme.shape.borderRadius,

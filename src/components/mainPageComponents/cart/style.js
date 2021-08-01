@@ -2,8 +2,14 @@ import { makeStyles } from "@material-ui/core";
 
 export const useStyles = makeStyles((theme) => ({
     toolbar: theme.mixins.toolbar,
+    
     title: {
-        marginTop: '2%'
+        marginTop: '2%',
+        
+        [theme.breakpoints.between(300,428)]: {
+            
+           marginTop:'20px'
+        },
     },
     emptyButton: {
         minWidth:'150px',
@@ -23,6 +29,8 @@ export const useStyles = makeStyles((theme) => ({
     },
     link: {
         textDecoration: 'none',
+        backgroundColor:'#0d5b36',
+        color:'white'
     },
     cardDetails : {
         display:'flex',

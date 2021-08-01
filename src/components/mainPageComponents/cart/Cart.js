@@ -10,9 +10,9 @@ const Cart = ({cart,onDelete,value,addValue,decValue}) => {
     let sum = 0
     let v= 0
     const EmptyCard = () => (
-        <div >
-        <Typography variant="subtitle1">سبد خرید شما خالیست  </Typography>
-            <Link to="/" className={classes.link}>اضافه کردن محصول</Link>
+        <div  >
+        <Typography  variant="h6">سبد خرید شما خالیست  </Typography>
+            <Button component={Link} to="/" className={classes.link} variant="contained">اضافه کردن محصول</Button>
        </div>
     );
 

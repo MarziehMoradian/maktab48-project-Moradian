@@ -22,7 +22,7 @@ function NavBar({totalItems,onClick}) {
                     <div className={classes.grow}/>
                    <div className={classes.button}>
                         
-                        <Button variant="text" style={{fontSize:'18px',fontWeight:'bold'}} component={Link} to={isLoggedIn() ? "/adminPanel" : '/login'}>مدیریت</Button>
+                        <Button variant="text"  component={Link} to={isLoggedIn() ? "/adminPanel" : '/login'}>مدیریت</Button>
                         <IconButton >
                             <Badge component={Link} to="/basket" badgeContent={totalItems} color="secondary" >
                                 <ShoppingCartIcon onClick={onClick}/>
