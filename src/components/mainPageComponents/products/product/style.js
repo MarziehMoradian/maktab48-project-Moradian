@@ -4,16 +4,19 @@ import { makeStyles } from "@material-ui/core/styles";
 export const useStyles = makeStyles((theme)=> ({
     root:{
         maxWidth:'100%',
-        // '&:hover':{
-        //     border:'2px solid #38634b'
-        // },
-        borderRadius:'30px',
+        '&:hover':{
+            boxShadow:'5px 5px 5px 5px lightgray',
+        
+        },
+      
+        // border:'1px solid black'
+        
     
         
     },
     media:{
         height:'360px',
-        
+        objectFit:'fill',
         paddingTop:'56.25%',
       
     },
@@ -23,7 +26,11 @@ export const useStyles = makeStyles((theme)=> ({
     },
     cardContent: {
         display:'flex',
-        justifyContent:'space-between',
+        justifyContent:'center',
+        flexDirection:'column',
+        alignItems:'center',
+        color:'#04140d'
+
         
     },
     

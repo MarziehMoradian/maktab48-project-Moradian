@@ -54,7 +54,7 @@ function ProductTable() {
       const classess = useStyles()
 
     return (
-      <>
+      <div style={{textAlign:'center',marginTop:'120px'}}>
             <h1 style={{textAlign:'center',marginTop:'20px'}}>صفحه مدیریت کالا ها</h1>
          <div style={{display:'flex',justifyContent: 'space-around'}}>
                 <Dialog open={open} handleClose={handleClose} />
@@ -62,7 +62,7 @@ function ProductTable() {
                 <ButtonModal onClick={handleClickOpen} className={classess.btnAdd}  />
       
         </div>
-        </>
+        </div>
         
     )
 }

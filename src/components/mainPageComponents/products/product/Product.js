@@ -4,30 +4,32 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import {useStyles} from './style';
 import { useParams } from 'react-router';
 import { Link } from "react-router-dom";
+import Image from 'material-ui-image';
 function Product({product,onAddToCart,onClick}) {
     const classes = useStyles();
     
     
 
     return (
-        <div style={{backgroundColor:'#0c2b16'}}>
-        <Card className={classes.root}>
+        <div >
+        <div className={classes.root}>
             
-            <CardMedia className={classes.media} image={product.image} title={product.title}/>
-            <CardContent>
-                <div className={classes.cardContent}>
+            {/* <CardMedia className={classes.media} image={product.image} title={product.title}/> */}
+                    <Image src={product.image} alt={product.title}  title={product.title} style={{objectFit: 'fill'}}/>
+            <div>
+                <CardContent className={classes.cardContent}>
                     <Typography variant="h5" gutterBottom>
-                        <Link to={`/product/${product.id}`} style={{textDecorationLine:'none',color:'#000'}}>
+                        <Link to={`/product/${product.id}`} style={{textDecorationLine:'none',color:'#04140d'}}>
                             {product.title}
                         </Link>
                     </Typography>
                     <Typography variant="h5" gutterBottom>
-                        {product.price}
+                        {product.price}تومان
                     </Typography>
-                </div>
-                <Typography dangerouslySetInnerHTML={{__html:product.description}} variant="body2" color="textSecondary"/>
+                </CardContent>
+                {/* <Typography dangerouslySetInnerHTML={{__html:product.description}} variant="body2" color="textSecondary"/> */}
                
-            </CardContent>
+            </div>
             <CardActions disableSpacing className={classes.CardActions} >
                 {/* <IconButton aria-lable="Add to Cart"onClick={() => onAddToCart(product.id)} >
                     <AddShoppingCartIcon/>
@@ -35,7 +37,7 @@ function Product({product,onAddToCart,onClick}) {
 
             </CardActions>
             
-        </Card>
+        </div>
 
         </div>
     )

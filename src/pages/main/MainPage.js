@@ -19,7 +19,8 @@ import SuccessPayment from '../../components/mainPageComponents/CheckOut/Success
 import FailedPayment from '../../components/mainPageComponents/CheckOut/FailedPayment'
 import CheckoutForm from '../../components/mainPageComponents/CheckOut/ChackoutForm'
 import PaymentForm from '../../components/mainPageComponents/CheckOut/PaymentForm';
-
+import Headers from '../../components/Headers'
+import NavBar from '../../components/mainPageComponents/NavBar/Navbar';
 function MainPage() {
     const dispatch = useDispatch();
     // const products = useSelector((state) => state.allProducts.products);
@@ -87,10 +88,12 @@ function MainPage() {
         <div >
 
           
-           
-            <Navbar totalItems={cart.length} />
+           <NavBar totalItems={cart.length}/>
+           <div style={{marginTop:'100pxs'}}>
+            {/* <Headers totalItems={cart.length} /> */}
+            </div>
              <Switch>
-                <Route path="/" exact component={ProductPage} />
+                <Route path="/product" exact component={ProductPage} />
                 <Route path="/Payment" exact component={PaymentForm} />
                 <Route path="/Payment/FailedPayment" exact component={FailedPayment} />
                 <Route path="/Payment/SuccsessPayment" exact component={SuccessPayment} />

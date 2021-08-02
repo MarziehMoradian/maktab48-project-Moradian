@@ -5,13 +5,20 @@ import { addToCart,} from '../../redux/actions/basketAction';
 import { useDispatch, useSelector } from "react-redux";
 // import DetailProduct from '../../components/mainPageComponents/cart/Cart';
 import Carousels from '../../components/Carousel';
+import Image from 'material-ui-image';
+
+import img2 from '../../assets/images/5.jpg';
+import img3 from '../../assets/images/6.jpg';
+import img4 from '../../assets/images/4.jpg';
+
+import { Grid, Paper, Typography } from '@material-ui/core';
 
 const ProductPage = () => {
 
     const dispatch = useDispatch();
     const products = useSelector((state) => state.allProducts.products);
 
- 
+
 
     let plant_1 = []
     let plant_2 = []
@@ -43,15 +50,15 @@ const ProductPage = () => {
 
     return (
         <div>
-          <Carousels/>
-            
-
-            <div>
+          <Grid>
+         
+          
+            <Grid >
 
               <Products  products={plant_1} onAddToCart={handleAddToCard} categoryName="گل های آپارتمانی" num={4}/>
                
                  
-            </div>
+            </Grid>
             <div>
         
                 <Products  products={plant_2} onAddToCart={handleAddToCard}  categoryName="گل های زینتی" num={4}/>
@@ -64,6 +71,7 @@ const ProductPage = () => {
                  
                
               
+       </Grid>
        </div>
     )
 }

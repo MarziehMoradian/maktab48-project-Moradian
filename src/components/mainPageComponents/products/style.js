@@ -14,10 +14,12 @@ export const useStyles = makeStyles((theme) => ({
         flexGrow:1,
     },
     type:{
+        fontSize:'30px',
+        fontWeight: 'bold',
         [theme.breakpoints.down('sm')]: {
             fontSize: '30px',
             fontWeight: 'bold',
-            marginTop: '25px'
+            marginBottom: '50%'
           },
           [theme.breakpoints.between(375,768)]: {
             

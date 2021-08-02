@@ -127,7 +127,7 @@ const  AdminPanelPage = (props) => {
     
     < >
     <CssBaseline/>
-       <AppBar  className={classes.appBar} position="static">
+       {/* <AppBar  className={classes.appBar} position="static">
          
          <img src={Img} alt='' className={classes.img}/>
          <Toolbar >
@@ -139,7 +139,7 @@ const  AdminPanelPage = (props) => {
            
            )}
           </Toolbar>
-        </AppBar>
+        </AppBar> */}
         {isLoggedIn() && (
               <>
               <TabComponent selectedTab={setSelectedTab} onChange={handleChange} className={classes.tabs}/></>

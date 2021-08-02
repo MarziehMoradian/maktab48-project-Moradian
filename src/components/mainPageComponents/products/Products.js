@@ -1,9 +1,10 @@
 import React from 'react';
-import { Grid, Typography} from '@material-ui/core';
+import { Button, Grid, Typography} from '@material-ui/core';
 import Product from './product/Product'
 import {useStyles} from './style';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router';
+import { IoIosArrowBack } from "react-icons/io";
 const Products = ({products,onAddToCart,onClick,categoryName,num}) => {
        
         const classes = useStyles()
@@ -12,22 +13,23 @@ const Products = ({products,onAddToCart,onClick,categoryName,num}) => {
     return(
     <main className={classes.content}>
         <div className={classes.toolbar}/>
-        <div style={{display:"flex",justifyContent:'space-between'}}>
+        <div >
+        <div style={{display:"flex",justifyContent:'space-between',alignItems:'stretch'}}>
             <Link to={`/product/category/${categoryName}`} style={{textDecorationLine:'none',color:'#000'}}>
-                <Typography variant="h2" className={classes.type}>{categoryName}</Typography>
+                <Button variant="text" className={classes.type}>{categoryName}<IoIosArrowBack/></Button>
             </Link>
-            {location.pathname !== `/product/category/${categoryName}` ? (
+            {/* {location.pathname !== `/product/category/${categoryName}` ? (
 
-            <Link to={`/product/category/${categoryName}`} style={{textDecorationLine:'none',color:'#000',marginTop:'30px'}}>
-                <Typography variant="h6" >بیشتر</Typography>
+            <Link to={`/product/category/${categoryName}`} style={{textDecorationLine:'none',color:'#000'}}>
+                <Button variant="outlined" style={{backgroundColor:'inherit'}} >مشاهده همه<IoIosArrowBack/> </Button>
             </Link>
             ):(
                null
-            )}
+            )} */}
         </div>
         
        
-        <Grid container justify="center" spacing={4}>      
+        <Grid container justify="start" spacing={4} style={{border:'2px solid red',}}>      
          
             {products?.map( (product,index) => {
                 
@@ -48,7 +50,7 @@ const Products = ({products,onAddToCart,onClick,categoryName,num}) => {
             )}
             
         </Grid>
-       
+       </div>
     </main>
     )
 }
