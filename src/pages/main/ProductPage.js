@@ -4,6 +4,7 @@ import { getProducts, getAProduct } from '../../redux/actions/productActions';
 import { addToCart,} from '../../redux/actions/basketAction';
 import { useDispatch, useSelector } from "react-redux";
 // import DetailProduct from '../../components/mainPageComponents/cart/Cart';
+import Carousels from '../../components/Carousel';
 
 const ProductPage = () => {
 
@@ -42,7 +43,7 @@ const ProductPage = () => {
 
     return (
         <div>
-
+          <Carousels/>
             
 
             <div>

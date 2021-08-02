@@ -55,3 +55,56 @@
     outline: none;
     color:white
 }
+.carousel{
+    display: flex;
+    justify-content: center;
+}
+.carousel .slide{
+    height: 80vh;
+    background-color: #333;
+}
+.carousel .slide img{
+    max-height: 100%;
+    width: auto;
+}
+.image{
+    margin: 0 auto;
+    height: 100%;
+    width:'auto'
+}
+@media only screen and(max-width:'1200px')  {
+    .carousel{
+        height: 90vh;
+    }    
+    .carousel .slide img{
+        margin: 10vh auto;
+        width: 100vw;
+    }
+}
+@media only screen and(max-width:'900px')  {
+    .carousel{
+        height: 80vh;
+    }    
+    .carousel .slide img{
+        margin: 10vh auto;
+        width: 100vw;
+    }
+}
+@media only screen and(max-width:'700px')  {
+    .carousel{
+        height: 70vh;
+    }    
+    .carousel .slide img{
+        margin: 10vh auto;
+        width: 100vw;
+    }
+}
+@media only screen and(max-width:'768px')  {
+    .carousel{
+        height: 55vh;
+    }    
+    .carousel .slide img{
+        margin: 10vh auto;
+        width: 100vw;
+    }
+}

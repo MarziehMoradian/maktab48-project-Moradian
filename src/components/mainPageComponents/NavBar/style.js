@@ -28,6 +28,12 @@ export const useStyles = makeStyles((theme) => ({
             display:'none'
         },
     },
+    show:{
+        display:''
+    },
+    notShow:{
+        display:'none'
+    },
     grow:  {
         flexGrow: 1,
     },

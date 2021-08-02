@@ -12,14 +12,15 @@ import Headers from "./components/Headers";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { BrowserRouter as Router } from "react-router-dom";
 import AdminPage from "./pages/admin/AdminPage";
-
+// import Carousel from './components/Carousel'
 function App() {
 
   return (
     <React.Fragment>
     <CssBaseline/>
        <MainPage/>
-       <AdminPage/>
+       {/* <Carousel/> */}
+       {/* <AdminPage/> */}
      
     </React.Fragment>
   );

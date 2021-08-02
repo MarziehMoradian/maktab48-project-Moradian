@@ -5,7 +5,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import { useMediaQuery,Button } from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
 import { logout} from '../utils/auth';
@@ -62,13 +61,15 @@ const useStyles = makeStyles((theme) => ({
     
   },
   exist:{
-    color:'#e0f8ed',
-    // backgroundColor:'#48d28e',
+    color:'black',
+    // backgroundColor:'black',
    height:'50px',
    width:'30px',
     
     [theme.breakpoints.between(1024,1400)]:{
-      marginRight:'200px'
+      marginRight:'200px',
+      
+      
     },
     [theme.breakpoints.up(1400)]:{
       marginRight:'700px'
@@ -117,10 +118,10 @@ const Header =(props) => {
     setAnchorEl(event.currentTarget);
   };
 
-  // const  handleMenuClick = (newPage) => {
-  //   setAnchorEl(null);
-  //   history.push(newPage)
-  // };
+  const  handleMenuClick = (newPage) => {
+    setAnchorEl(null);
+    history.push(newPage)
+  };
   
   return (
     <div className={classes.root}>
@@ -177,8 +178,10 @@ const Header =(props) => {
                  
                   
                 </MenuItem>
-                <MenuItem><Button className={classes.exist} onClick={handleGoToLogin}> خروج</Button></MenuItem>
-                 {/*<MenuItem onClick={() => handleMenuClick('/')}>My account</MenuItem> */}
+                 {/* <MenuItem onClick={(newValue) => handleMenuClick(`/adminPanel/${tabNameToIndex[newValue]}/`)}> کالاها</MenuItem>
+                 <MenuItem onClick={() => handleMenuClick('/adminPanel/PriceManagment')}> موجودی وقیمت</MenuItem>
+                 <MenuItem onClick={() => handleMenuClick('/adminPanel/OrderManagment')}> سفارش ها</MenuItem> */}
+                <MenuItem><Button variant="text" className={classes.exist} onClick={handleGoToLogin}> خروج</Button></MenuItem>
               </Menu>
               </>
              

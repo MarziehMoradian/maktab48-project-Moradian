@@ -11,7 +11,6 @@ import Cart from '../../components/mainPageComponents/cart/Cart';
 import { Route, Switch} from "react-router-dom";
 import ProductDetail from '../../components/mainPageComponents/products/ProductDetail';
 // import {removeFromCart} from '../../redux/actions/basketAction';
-import { connect } from 'react-redux';
 import ProductPage from './ProductPage';
 import CategoryList from './CategoryList';
 import { getAProduct } from '../../redux/actions/productActions';
@@ -20,6 +19,7 @@ import SuccessPayment from '../../components/mainPageComponents/CheckOut/Success
 import FailedPayment from '../../components/mainPageComponents/CheckOut/FailedPayment'
 import CheckoutForm from '../../components/mainPageComponents/CheckOut/ChackoutForm'
 import PaymentForm from '../../components/mainPageComponents/CheckOut/PaymentForm';
+
 function MainPage() {
     const dispatch = useDispatch();
     // const products = useSelector((state) => state.allProducts.products);
@@ -87,6 +87,7 @@ function MainPage() {
         <div >
 
           
+           
             <Navbar totalItems={cart.length} />
              <Switch>
                 <Route path="/" exact component={ProductPage} />
