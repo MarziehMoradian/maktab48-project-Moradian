@@ -17,7 +17,7 @@ import NavBar from "./components/mainPageComponents/NavBar/Navbar";
 function App() {
 
   return (
-    <React.Fragment>
+    <React.Fragment >
     <CssBaseline/>
     {/* <NavBar/> */}
        {/* <Carousel/> */}

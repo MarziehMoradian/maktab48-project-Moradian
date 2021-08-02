@@ -13,7 +13,7 @@ const Products = ({products,onAddToCart,onClick,categoryName,num}) => {
     return(
     <main className={classes.content}>
         <div className={classes.toolbar}/>
-        <div >
+        <div  >
         <div style={{display:"flex",justifyContent:'space-between',alignItems:'stretch'}}>
             <Link to={`/product/category/${categoryName}`} style={{textDecorationLine:'none',color:'#000'}}>
                 <Button variant="text" className={classes.type}>{categoryName}<IoIosArrowBack/></Button>
@@ -29,7 +29,7 @@ const Products = ({products,onAddToCart,onClick,categoryName,num}) => {
         </div>
         
        
-        <Grid container justify="start" spacing={4} style={{border:'2px solid red',}}>      
+        <Grid container justify="start" spacing={4} style={{ }}>      
          
             {products?.map( (product,index) => {
                 

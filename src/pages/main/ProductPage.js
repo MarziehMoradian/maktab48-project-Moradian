@@ -7,12 +7,10 @@ import { useDispatch, useSelector } from "react-redux";
 import Carousels from '../../components/Carousel';
 import Image from 'material-ui-image';
 
-import img2 from '../../assets/images/5.jpg';
-import img3 from '../../assets/images/6.jpg';
-import img4 from '../../assets/images/4.jpg';
-
+import { AutoRotatingCarousel } from 'material-auto-rotating-carousel';
+import KeySidbar from './KeySidbar'
 import { Grid, Paper, Typography } from '@material-ui/core';
-
+import Slider from './Slider';
 const ProductPage = () => {
 
     const dispatch = useDispatch();
@@ -49,10 +47,12 @@ const ProductPage = () => {
   }
 
     return (
-        <div>
-          <Grid>
-         
-          
+        <div >
+          <Grid >
+            <div >
+            <Slider/>
+            </div>
+            {/* <KeySidbar/> */}
             <Grid >
 
               <Products  products={plant_1} onAddToCart={handleAddToCard} categoryName="گل های آپارتمانی" num={4}/>

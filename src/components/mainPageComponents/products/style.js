@@ -8,10 +8,14 @@ export const useStyles = makeStyles((theme) => ({
         flexGrow:1,
         backgroundColor:theme.palette.background.default,
         padding: theme.spacing(3),
+        background:'linear-gradient(to top,#88feac,#bafecf,#ecfef2)'
+        
         
     },
     root:{
         flexGrow:1,
+        border:'2px solid gray',
+        
     },
     type:{
         fontSize:'30px',

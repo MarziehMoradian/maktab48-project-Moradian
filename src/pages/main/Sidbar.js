@@ -44,7 +44,7 @@ function Sidebar({ items }) {
         {plant_1.map((item) => (
           <ListItem key={item.id} button >
             <Link to={`/product/${item.id}`} style={{textDecorationLine:'none',color:'#000'}}>
-                <ListItemText style={{textAlign:'right'}}>{item.title}</ListItemText>
+                <ListItemText style={{textAlign:'right',fontFamily:'BYekan+'}}>{item.title}</ListItemText>
             </Link>
           </ListItem>
         ))}

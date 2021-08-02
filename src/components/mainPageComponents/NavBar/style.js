@@ -6,6 +6,7 @@ export const useStyles = makeStyles((theme) => ({
     appBar: {
         boxShadow:'none',
         borderBottom: '1px solid rgba(0,0,0,0.12)',
+        background:'linear-gradient(to right,#0c3e19,#2ec94c,white)' ,
         [theme.breakpoints.up('sm')]:{
             width: `calc(100% - ${drawerWidth}px)`,
             marginLeft: drawerWidth,
@@ -42,6 +43,7 @@ export const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.between(300,425)]: {
             display:'flex',
             flexWrap: 'nowrap',
+           
             // flexDirection: 'row'
         },
     },

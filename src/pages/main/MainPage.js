@@ -85,7 +85,7 @@ function MainPage() {
     }
 
     return (
-        <div >
+        <div   >
 
           
            <NavBar totalItems={cart.length}/>

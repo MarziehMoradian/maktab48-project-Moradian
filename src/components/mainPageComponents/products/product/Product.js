@@ -11,12 +11,12 @@ function Product({product,onAddToCart,onClick}) {
     
 
     return (
-        <div >
-        <div className={classes.root}>
+        <div  >
+        <Card className={classes.root}>
             
             {/* <CardMedia className={classes.media} image={product.image} title={product.title}/> */}
                     <Image src={product.image} alt={product.title}  title={product.title} style={{objectFit: 'fill'}}/>
-            <div>
+            {/* <div  style={{width:'350px',height:'100px'}}> */}
                 <CardContent className={classes.cardContent}>
                     <Typography variant="h5" gutterBottom>
                         <Link to={`/product/${product.id}`} style={{textDecorationLine:'none',color:'#04140d'}}>
@@ -29,7 +29,7 @@ function Product({product,onAddToCart,onClick}) {
                 </CardContent>
                 {/* <Typography dangerouslySetInnerHTML={{__html:product.description}} variant="body2" color="textSecondary"/> */}
                
-            </div>
+            {/* </div> */}
             <CardActions disableSpacing className={classes.CardActions} >
                 {/* <IconButton aria-lable="Add to Cart"onClick={() => onAddToCart(product.id)} >
                     <AddShoppingCartIcon/>
@@ -37,7 +37,7 @@ function Product({product,onAddToCart,onClick}) {
 
             </CardActions>
             
-        </div>
+        </Card>
 
         </div>
     )

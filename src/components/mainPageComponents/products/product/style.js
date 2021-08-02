@@ -5,7 +5,7 @@ export const useStyles = makeStyles((theme)=> ({
     root:{
         maxWidth:'100%',
         '&:hover':{
-            boxShadow:'5px 5px 5px 5px lightgray',
+            boxShadow:'5px 5px 3px 3px #89e69d',
         
         },
       

@@ -228,10 +228,10 @@ function NavBar({totalItems,onClick}) {
                 :
                 (
                     <div>
-                    <Button variant="text"  component={Link} to={isLoggedIn() ? "/adminPanel" : '/login'}  >مدیریت</Button>
+                    <Button variant="text"  component={Link} to={isLoggedIn() ? "/adminPanel" : '/login'} style={{color:'#cdf6d5'}}  >مدیریت</Button>
                     <IconButton >
                     <Badge component={Link} to="/basket" badgeContent={totalItems} color="secondary"  >
-                        <ShoppingCartIcon onClick={onClick} style={{color:'black',marginTop:'3.5px'}}/>
+                        <ShoppingCartIcon onClick={onClick} style={{ color:'#cdf6d5',marginTop:'3.5px'}}/>
                     </Badge>
                 </IconButton>
                 </div>
