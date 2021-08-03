@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const createOrder = async (orders) => {
-    await axios.post(`http://localhost:5000/orders`,{orders})
+    await axios.post(`http://localhost:5000/orders`,orders)
 }
 
 export const getAllOrders = async () =>{

@@ -50,7 +50,7 @@ const Cart = ({cart,onDelete,value,addValue,decValue}) => {
     // console.log(cart);
     let productSum = cart?.map((item) =>{
 
-        sum = sum + item.price * parseInt(value[parseInt(v)])
+        sum = sum + item.price * value[v]
         v=v+1
     }
        

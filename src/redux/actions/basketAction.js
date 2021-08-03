@@ -73,8 +73,8 @@ export const deleteAProduct = (id) =>{
   }
 }
 
-export const addToCart = (product) => (dispatch) => {
-  dispatch(setCartProducts(product));
+export const addToCart = (product,v) => (dispatch) => {
+  dispatch(setCartProducts(product,v));
 };
 
 export const deleteFromCart = (id) => (dispatch) =>{

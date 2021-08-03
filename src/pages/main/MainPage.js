@@ -19,7 +19,7 @@ import SuccessPayment from '../../components/mainPageComponents/CheckOut/Success
 import FailedPayment from '../../components/mainPageComponents/CheckOut/FailedPayment'
 import CheckoutForm from '../../components/mainPageComponents/CheckOut/ChackoutForm'
 import PaymentForm from '../../components/mainPageComponents/CheckOut/PaymentForm';
-import Headers from '../../components/Headers'
+import { saveState } from '../../localStorage';
 import NavBar from '../../components/mainPageComponents/NavBar/Navbar';
 function MainPage() {
     const dispatch = useDispatch();
@@ -29,25 +29,23 @@ function MainPage() {
     
     const [cart,setCart] = useState([])
     let [value, setValue] = useState([])
-
-
     // useEffect(() => {
     //     dispatch(getAProduct()); 
         
     // },[]);
 //    console.log(products);
 
-    // useEffect(() => {
-    //     dispatch(setCarts())
-    //     //dispatch(addToCart([...basket, selectedProduct]));
-    // }, [])
+    useEffect(() => {
+        // dispatch(setCarts())
+        //dispatch(addToCart([...basket, selectedProduct]));
+    }, [])
 
    
 
     const handleAddToCard = (pro,v) => {   
         console.log(basket);
         v = parseInt(v)
-        value.push(v)
+        setValue([...value,v])
         dispatch(getAProduct(pro))
         // basket.filter(item => item.if)
         dispatch(addToCart([...basket,selectedProduct]));
@@ -88,7 +86,7 @@ function MainPage() {
         <div   >
 
           
-           <NavBar totalItems={cart.length}/>
+           <NavBar totalItems={basket.length}/>
            <div style={{marginTop:'100pxs'}}>
             {/* <Headers totalItems={cart.length} /> */}
             </div>

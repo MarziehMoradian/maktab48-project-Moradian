@@ -1,16 +1,55 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import { useForm, FormProvider } from 'react-hook-form';
 import CustomTextField from './CustomTextField';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import {DatePicker, DateTimePicker, DateRangePicker, DateTimeRangePicker} from "react-advance-jalaali-datepicker";
-import { Select, MenuItem, Button, Grid, Typography, Input, TextField, InputLabel, Divider } from '@material-ui/core'
+import { Select, MenuItem, Button, Grid, Typography, Input, TextField, InputLabel, Divider, CardContent } from '@material-ui/core';
+import {createAOrder} from '../../../redux/actions/orderAction'
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { addToCart,deleteFromCart,setCarts} from '../../../redux/actions/basketAction';
+
 const AddressForm = ({next}) => {
-    const method = useForm()
-   
+    // const method = useForm()
+    const dispatch = useDispatch()
+    const history = useHistory()
+    const basket = useSelector(state => state.baskets.cardProducts)
+    const [firstName,setFirstName] = useState()
+    const [lastName,setLastName] = useState()
+    const [address,setAddress] = useState()
+    const [PhoneNumber,setPhoneNumber] = useState()
+    const [date,setDate] = useState()
+    useEffect(()=>{
+        dispatch(setCarts())
+    },[])
+    let sum = 0
+    basket.map( item => {
+        sum =sum + item.price
+    })
+   const handleSubmit = () => {
+        if(firstName && lastName && address && PhoneNumber &&date){
+            history.push('/payment')
+            dispatch(createAOrder({
+                id:Math.random(),
+                name:firstName + "  " + lastName,
+                address:address,
+                PhoneNumber:PhoneNumber,
+                orderTime:date,
+                deliveryTime:'',
+                condition:false,
+                sum:sum,
+                orderedProducts:
+                    basket
+                
+
+            }))
+        }
+
+   }
   const  DatePickerInput= (props) =>  {
     return (
        <Grid item xs={12} sm={12} >
-        <TextField   {...props}  fullWidth size="small" />
+        <TextField   {...props}  fullWidth size="small" value={date} onChange={(e) => setDate(e.target.value)} />
         </Grid>
     )
 }
@@ -18,40 +57,41 @@ const AddressForm = ({next}) => {
     return (
         <div>
             
-            <FormProvider {...method}>
-                <form onSubmit={method.handleSubmit((data)=> next({...data}))}>
+            {/* <FormProvider {...method}> */}
+                <form onSubmit={handleSubmit}>
                     <Grid container spacing={3}>
-                        <InputLabel>نام:</InputLabel>
-                        <CustomTextField required name="firstName" />
-                        <InputLabel>نام خانوادگی:</InputLabel>
-                        <CustomTextField required name="LastName"  />
-                        <InputLabel>آدرس:</InputLabel>
-                        <CustomTextField required name="address"  />
-                        <InputLabel>شماره تلفن:</InputLabel>
-                        <CustomTextField required name="phoneNumber" />
+                        <InputLabel style={{marginTop:'15px'}}>نام:</InputLabel>
+                        <TextField  value={firstName}onChange={(e)=> setFirstName(e.target.value)} required name="firstName" variant="outlined" fullWidth size="small" style={{marginTop:'15px'}} />
+                        <InputLabel style={{marginTop:'15px'}}>نام خانوادگی:</InputLabel>
+                        <TextField value={lastName}onChange={(e)=> setLastName(e.target.value)} required name="LastName" variant="outlined" fullWidth size="small" style={{marginTop:'15px'}}/>
+                        <InputLabel style={{marginTop:'15px'}}>آدرس:</InputLabel>
+                        <TextField value={address}onChange={(e)=> setAddress(e.target.value)} required name="address" variant="outlined" fullWidth size="small" style={{marginTop:'15px'}}/>
+                        <InputLabel style={{marginTop:'15px'}}>شماره تلفن:</InputLabel>
+                        <TextField value={PhoneNumber}onChange={(e)=> setPhoneNumber(e.target.value)} required name="phoneNumber" variant="outlined" fullWidth size="small" style={{marginTop:'15px'}}/>
                         <br/>
-                        <InputLabel>  تاریخ تحویل محصول یا محصولات خود را مشخص کنید:  </InputLabel>
-
+                        <InputLabel style={{marginTop:'15px'}}>  تاریخ تحویل محصول یا محصولات خود را مشخص کنید:  </InputLabel>
+                        <br/>
+                       
                         <DatePicker
                         inputComponent={DatePickerInput}
                         placeholder="انتخاب تاریخ"
                         format="jYYYY/jMM/jDD"
-                        // onChange={this.change}
                         id="datePicker"
                         preSelected="1400/05/15"
+                        
                         />
                       </Grid>
                       <br/>
                       <br/>
                       <br/>
                       <div style={{display:'flex' , justifyContent:'center'}}>
-                        <Button type="submit" style={{width:'100%',backgroundColor:'#0d5b36',color:'white',fontSize:'20px',fontWeight:'bold'}} component={Link} to="/payment" variant="contained" >پرداخت</Button>
+                        <Button type="submit" style={{width:'100%',backgroundColor:'#0d5b36',color:'white',fontSize:'20px',fontWeight:'bold'}}  variant="contained" >پرداخت</Button>
                         
 
                       </div>
                    
                 </form>
-            </FormProvider>
+            {/* </FormProvider> */}
         </div>
     )
 }

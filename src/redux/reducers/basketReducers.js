@@ -14,7 +14,7 @@ export const basketReducers = (state = initialState,{type,payload} ) => {
             console.log(state.cardProducts);
             return {
                 ...state,
-                cardProducts: state.cardProducts.filter(({ id }) => id !== payload),
+                cardProducts: state.cardProducts.filter(({id }) => id !== payload),
               };
             // return {state.cardProducts.filter((item, index) => index !== payload)};
 
