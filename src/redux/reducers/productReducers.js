@@ -6,6 +6,7 @@ const initialState = {
     products: [],
     selectedProduct: {},
     data: {},
+    searchProduct:[]
   
   
     
@@ -38,6 +39,13 @@ export const productReducers = (state = initialState, action) => {
         ...state,
         productsByCategory: state.products.filter(
           (item) => item.category === action.payload
+        ),
+      };
+        case ActionTypes.SEARCH_PRODUCT:
+      return {
+        ...state,
+        searchProduct: state.products.filter(
+          (item) => item.title === action.payload
         ),
       };
         default:

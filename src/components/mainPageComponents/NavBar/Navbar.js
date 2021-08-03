@@ -11,6 +11,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { useMediaQuery} from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import { getProducts } from '../../../redux/actions/productActions';
 
 const useStyless = makeStyles((theme) => ({
     root: {
@@ -115,7 +116,7 @@ const useStyless = makeStyles((theme) => ({
     }
     
   }));
-function NavBar({totalItems,onClick}) {
+function NavBar({totalItems,onClick,products}) {
     const classes = useStyles()
     const location = useLocation()
     const history = useHistory()
@@ -125,7 +126,8 @@ function NavBar({totalItems,onClick}) {
     const open = Boolean(anchorEl);
     const classess =useStyless()
     const pattern = /adminPanel/;
-
+    const patternCategory = /category/;
+    const resCat=patternCategory.test(location.pathname)
     const res =pattern.test(location.pathname);
     const handleGoToLogin = () => {
         logout()
@@ -240,6 +242,9 @@ function NavBar({totalItems,onClick}) {
                   }
             </div>
               )}
+
+          
+              
                 
             </div>
                 </Toolbar>

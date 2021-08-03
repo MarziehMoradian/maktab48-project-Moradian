@@ -59,6 +59,10 @@ export const removeFromCart = _id => ({
   type: "REMOVE_CART",
   _id
 });
+export const SearchAproduct = data => ({
+  type:ActionTypes.SEARCH_PRODUCT,
+  payload:data
+});
 // export const getProducts = () => (dispatch, getState) => {
 //   getAllProducts().then((res) => {
 //     console.log(res.data);
@@ -82,6 +86,10 @@ export const getAProduct = (id) => async (dispatch) => {
 export const deleteProduct = (id) => async(dispatch) => {
   await deleteProductById(id);
   dispatch(removeProduct(id))
+}
+
+export const searchProduct = (data) => async(dispatch) => {
+  dispatch(SearchAproduct(data))
 }
 
 

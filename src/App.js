@@ -14,6 +14,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import AdminPage from "./pages/admin/AdminPage";
 import Carousel from './components/Carousel'
 import NavBar from "./components/mainPageComponents/NavBar/Navbar";
+import PageSearch from "./pages/main/PageSearch";
 function App() {
 
   return (
@@ -22,7 +23,8 @@ function App() {
     {/* <NavBar/> */}
        {/* <Carousel/> */}
        <MainPage/>
-       <AdminPage/> 
+       <AdminPage/>
+       {/* <PageSearch/>  */}
        <Switch>
         <Route path="/" exact component={Carousel}/>
         <Route path="/login" exact component={Login}/>

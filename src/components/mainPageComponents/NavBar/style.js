@@ -61,5 +61,96 @@ export const useStyles = makeStyles((theme) => ({
             width:'auto'
         }
     },
+    menuButton: {
+        marginRight: theme.spacing(5),
+        [theme.breakpoints.between(320,425)]:{
+          marginRight: theme.spacing(0),
+        },
+        [theme.breakpoints.between(425,720)]:{
+          marginRight: theme.spacing(18),
+        },
+        [theme.breakpoints.between(425,720)]:{
+          marginRight: theme.spacing(18),
+        },
+      },
+      title: {
+        flexGrow: 1,
+        alignItems:'center',
+        display:'flex',
+        // textDecoration:'none',
+        fontWeight:'bold',
+        [theme.breakpoints.down('xs')]:{
+         
+          flexGrow: 1,
+        },
+      
+      },
+      headerOption:{
+        display:'flex',
+        color:'#e0f8ed',
+        flex:1,
+        fontWeight:'bold',
+        fontSize: '18px',
+        justifyContent:'center'
+      },
+      hambergur:{
+        display:'flex',
+        flexDirection:'column'
+        
+      },
+      exist:{
+        color:'white',
+        cursor:'pointer',
+        // backgroundColor:'black',
+       height:'50px',
+       width:'30px',
+    
+        
+        [theme.breakpoints.between(1024,1400)]:{
+          marginRight:'200px',
+          
+          
+        },
+        [theme.breakpoints.up(1400)]:{
+          marginRight:'700px'
+        },
+      },
+      divi:{
+        marginRight:'500px',
+        display:'flex',
+        flexWrap:'nowrap',
+        justifyContent:'space-between',
+        [theme.breakpoints.down('xs')]:{
+          marginRight:'200px',
+          
+          
+        },
+        [theme.breakpoints.up(1020,1400)]:{
+          marginRight:'600px',
+          
+          
+        },
+        [theme.breakpoints.between(425,768)]:{
+          marginRight:'100px',
+          
+          
+        },
+      },
+      btns:{
+          fontSize:'18px',
+          fontWeight:'bold',
+          marginRight:'40px',
+          [theme.breakpoints.between(768,900)]:{
+              marginRight:'0',
+  
+            },
+      },
+      parentDiv:{
+          marginLeft:'450px',
+          [theme.breakpoints.between(768,1030)]:{
+              marginLeft:'100px',
+  
+            },
+      }
 
 }))
