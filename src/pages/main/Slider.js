@@ -10,9 +10,9 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const Slider = () => (
 
   <AutoPlaySwipeableViews>
-    <div><img src={img2} style={{objectFit:'fill',width:'100%',marginTop:'80px',height:'680px'}}/></div>
-    <div><img src={img3} style={{objectFit:'fill',width:'100%',marginTop:'80px',height:'680px'}}/></div>
-    <div><img src={img4} style={{objectFit:'fill',width:'100%',marginTop:'80px',height:'680px'}}/></div>
+    <div><img src={img2} style={{objectFit:'fill',width:'100%',marginTop:'80px',height:'680px'}} alt='img' /></div>
+    <div><img src={img3} style={{objectFit:'fill',width:'100%',marginTop:'80px',height:'680px'}} alt='img' /></div>
+    <div><img src={img4} style={{objectFit:'fill',width:'100%',marginTop:'80px',height:'680px'}} alt='img' /></div>
   
   </AutoPlaySwipeableViews>
 

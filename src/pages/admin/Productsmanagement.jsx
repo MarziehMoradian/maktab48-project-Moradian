@@ -4,17 +4,15 @@ import Table from '../../components/productPageComponents/Table';
 // import Table from '../components/TableProducts';
 import ButtonModal from '../../components/productPageComponents/ButtonModal';
 import { getProducts  } from '../../redux/actions/productActions';
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 // import { useStyles } from '../assets';
 import {  makeStyles } from '@material-ui/core';
-import Form from '../../components/productPageComponents/Form';
 function ProductTable() {
 
-  const products = useSelector((state) => state.allProducts.products);
   const dispatch = useDispatch();
    useEffect(() => {
       dispatch(getProducts()); 
-    }, []);
+    });
     const [open, setOpen] = React.useState(false);
     const handleClickOpen = () => {
         

@@ -1,13 +1,9 @@
 import React from 'react'
-import { Redirect, Route, Switch} from "react-router-dom";
+import { Redirect,  Switch} from "react-router-dom";
 import { ProtectedRoute } from '../../ProtectedRoute';
-import Headers from '../../components/Headers';
-import Login from '../LoginPage';
 import ProductManagement from './Productsmanagement';
 import PriceManagment from './PriceManagement';
 import OrderManagment from './OrderManagment';
-import NavBar from '../../components/mainPageComponents/NavBar/Navbar';
-import AdminPanelPage from './AdminPanelPage';
 import { isLoggedIn } from '../../utils/auth';
 const AdminPage = () => {
     return (

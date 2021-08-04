@@ -1,8 +1,6 @@
-import React,{useState} from 'react';
-import { Paper,TextField,Grid, InputLabel,Typography,CircularProgress,Divider, Button } from '@material-ui/core';
+import React from 'react';
+import { Paper,Typography } from '@material-ui/core';
 import { useStyles } from './style';
-import {DatePicker} from "react-advance-jalaali-datepicker";
-import { Link } from 'react-router-dom';
 import AddressForm from './AddressForm';
 
 const ChackoutForm = () => {

@@ -1,14 +1,14 @@
 import React from 'react';
-import { Button, Grid, Typography} from '@material-ui/core';
+import { Button, Grid} from '@material-ui/core';
 import Product from './product/Product'
 import {useStyles} from './style';
 import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router';
+
 import { IoIosArrowBack } from "react-icons/io";
 const Products = ({products,onAddToCart,onClick,categoryName,num}) => {
        
         const classes = useStyles()
-        const location = useLocation()
+      
    
     return(
     <main className={classes.content}>
@@ -33,7 +33,7 @@ const Products = ({products,onAddToCart,onClick,categoryName,num}) => {
          
             {products?.map( (product,index) => {
                 
-                {if(index<num){
+                if(index<num){
                     return(  
                       
                     <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
@@ -44,7 +44,7 @@ const Products = ({products,onAddToCart,onClick,categoryName,num}) => {
                       
                     </Grid>
                  )}
-                    }           
+                              
             }   
                 
             )}

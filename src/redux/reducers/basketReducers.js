@@ -1,7 +1,7 @@
 import { ActionTypes } from "../constants/action-type";
 
 const initialState = {
-
+    selectedProduct: {},
     cardProducts:[]
 }
 
@@ -9,19 +9,24 @@ export const basketReducers = (state = initialState,{type,payload} ) => {
    switch (type) {
        case ActionTypes.ADD_TO_CART:
            return {...state.cardProducts,cardProducts:payload }
-           
+        case ActionTypes.SELECTED_PRODUCT_IN_BASKET:
+            return { ...state, selectedProduct: payload };
+          
         case ActionTypes.REMOVE_CART:
-            console.log(state.cardProducts);
+           
             return {
                 ...state,
                 cardProducts: state.cardProducts.filter(({id }) => id !== payload),
               };
-            // return {state.cardProducts.filter((item, index) => index !== payload)};
 
-        case ActionTypes.SET_CART:
-                return { ...state.cardProducts, cardProducts: payload };
-                
-            
+            case ActionTypes.SET_CART:
+                    return { ...state.cardProducts, cardProducts: payload };
+                    
+            case ActionTypes.EDIT_SELECTED_PRODUCT_BASKET: 
+                return {...state, products:[...state.cardProducts,payload]  }  ;
+
+            case ActionTypes.REMOVE_ALL:
+                return{...state,cardProducts:[] } ;
    
        default:
            return state;

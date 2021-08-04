@@ -1,19 +1,6 @@
 import { ActionTypes } from "../constants/action-type";
-import { addItem, getProductsInBasket } from "../../api/basket";
-// import { loadState } from "./../Store/localStorage";
-// const persistedState = loadState("shoppingCart");
 
- 
-// const defaultState = {
-//   shoppingCart: persistedState
-// };
 
-// export const addToCart = (item) => {
-//     return{
-//         type:ActionTypes.ADD_TO_CART,
-//         payload:item
-//     }
-// }
 
 export const setCarts = (product) => {
     return {
@@ -22,42 +9,12 @@ export const setCarts = (product) => {
     }
 }
 
-// // export const addItems = (item) => async(dispatch) => {
-// //   await addItem(item);
-// //   dispatch(addToCart(item))
-// // //   console.log(item);
-// // }
-
-// export const getItems = () => async(dispatch) => {
-//     let res = await getProductsInBasket();
-//     // console.log(res.data);
-//     dispatch(setBasket(res.data))
-// }
-
-// export const setCartProducts = product => ({
-//     type: "ADD_TO_CART",
-//     product
-//   });
-  
-   
-//   export const incrementCart = _id => ({
-//     type: "INCREMENT_CART",
-//     _id
-//   });
-  
-   
-//   export const decrementCart = _id => ({
-//     type: "DECREMENT_CART",
-//     _id
-//   });
-  
-   
-//   export const removeFromCart = _id => ({
-//     type: "REMOVE_CART",
-//     _id
-//   });
-
-
+export const editeProduct = (product) => {
+  return {
+    type:ActionTypes.EDIT_SELECTED_PRODUCT_BASKET,
+    payload:product,
+  }
+}
 
 export const setCartProducts = (product) => {
   return {
@@ -73,26 +30,38 @@ export const deleteAProduct = (id) =>{
   }
 }
 
+export const deleteAllProduct = (products) =>{
+  return{
+    type:ActionTypes.REMOVE_ALL,
+    payload:products
+  }
+  
+}
+
+/************************************************************ */
 export const addToCart = (product,v) => (dispatch) => {
   dispatch(setCartProducts(product,v));
 };
 
+export const deleteAll = () =>(dispatch) =>  {
+  dispatch(deleteAllProduct())
+}
+
+export const update = (product) => async (dispatch) => {
+  
+  dispatch(editeProduct(product))
+}
 export const deleteFromCart = (id) => (dispatch) =>{
 dispatch(deleteAProduct(id));
 }
-  /************************************************************ */
-  
 
-//   export function addToCart(cartItem){
-//       return {
-//           type:ActionTypes.ADD_TO_CART,
-//           payload:cartItem
-//       }
-//   }
-//   export function removeCart(id){
-//       return{
-//           type:ActionTypes.REMOVE_CART_ITEM,
-//           payload:id
-//       }
+export const selectedProduct = (product) => {
+  return {
+    type: ActionTypes.SELECTED_PRODUCT_IN_BASKET,
+    payload: product,
+  };
+};
+export const getAProductInBasket = (product) => async (dispatch) => {
+  dispatch(selectedProduct(product));
   
-//   }
+};

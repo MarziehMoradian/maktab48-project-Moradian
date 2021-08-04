@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react'
 import OrdersTable from './OrdersTable';
 import { useDispatch, useSelector } from "react-redux";
-import {setOrders,getDeliveryOrders} from '../../redux/actions/orderAction'
+import {getDeliveryOrders} from '../../redux/actions/orderAction'
 function DeliveryOrder() {
 
     const dispatch = useDispatch();
@@ -10,7 +10,7 @@ function DeliveryOrder() {
     useEffect(() => {
         dispatch(getDeliveryOrders()); 
         
-      }, []);
+      });
 
     return (
         <div>

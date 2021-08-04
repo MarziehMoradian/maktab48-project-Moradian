@@ -2,19 +2,14 @@ import React from 'react';
 import { makeStyles,useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { useMediaQuery,Button,  Badge } from '@material-ui/core';
+import { useMediaQuery,  Badge } from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
-import { logout,isLoggedIn} from '../utils/auth';
+import { logout} from '../utils/auth';
 import Menu from '@material-ui/core/Menu';
-import img from '../assets/images/R (5).png'
-import Tabs from './Tabs';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import ProductManagement from '../pages/admin/Productsmanagement';
-import PriceManagment from '../pages/admin/PriceManagement';
-import OrderManagment from '../pages/admin/OrderManagment';
 import { Link, useHistory } from 'react-router-dom';
 import { RiAccountCircleLine } from "react-icons/ri";
 // import { BsHouseDoorFill } from "react-icons/bs";

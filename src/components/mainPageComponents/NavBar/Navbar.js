@@ -1,17 +1,15 @@
 import React from 'react'
-import {AppBar, Toolbar, IconButton, Badge, Button, Typography, ListItemSecondaryAction} from '@material-ui/core';
+import {AppBar, Toolbar, IconButton, Badge, Button, Typography} from '@material-ui/core';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import logo from '../../../assets/images/R (1).png';
 import {useStyles} from './style'
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import {isLoggedIn,logout} from '../../../utils/auth'
-import { BsHouseDoorFill } from "react-icons/bs";
 import { makeStyles,useTheme } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useMediaQuery} from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import { getProducts } from '../../../redux/actions/productActions';
 
 const useStyless = makeStyles((theme) => ({
     root: {
@@ -126,8 +124,7 @@ function NavBar({totalItems,onClick,products}) {
     const open = Boolean(anchorEl);
     const classess =useStyless()
     const pattern = /adminPanel/;
-    const patternCategory = /category/;
-    const resCat=patternCategory.test(location.pathname)
+   
     const res =pattern.test(location.pathname);
     const handleGoToLogin = () => {
         logout()

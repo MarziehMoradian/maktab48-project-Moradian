@@ -1,8 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Grid,Typography, Paper, Button} from '@material-ui/core';
-import img1 from '../assets/images/5.jpg';
-import img2 from '../assets/images/10.jpg';
-import img3 from '../assets/images/8.jpg';
+import React from 'react'
+import { Grid, Button} from '@material-ui/core';
 import '../assets/sass/app.scss';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core';
@@ -82,7 +79,6 @@ const useStyles = makeStyles((theme)=>({
 }))
 const Carousels = () => {
     const classes = useStyles()
-    const imageArray = [img1,img2,img3]
     
     
  return (

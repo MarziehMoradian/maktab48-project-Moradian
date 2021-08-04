@@ -19,9 +19,7 @@ import Image from 'material-ui-image';
 export default function CustomizedTables() {
   const classes = useStyles();
   const products = useSelector((state) => state.allProducts.products);
-  const selectedProduct = useSelector(
-    (state) => state.allProducts.selectedProduct
-  );
+
   const [data,setData] = useState()
   const dispatch = useDispatch();
   const [page, setPage] = React.useState(0);
@@ -32,7 +30,7 @@ export default function CustomizedTables() {
 
   useEffect(() => {
     dispatch(getProducts()); 
-  }, []);
+  });
 
   const handleDelete = (id) => {
     dispatch(deleteProduct(id));

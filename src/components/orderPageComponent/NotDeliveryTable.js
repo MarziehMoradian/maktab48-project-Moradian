@@ -38,7 +38,7 @@ const  NotDeliveryTable = () => {
   useEffect(()=>{
       dispatch(getNotDeliveryOrders())
 
-   },[])
+   })
  
       
     return (

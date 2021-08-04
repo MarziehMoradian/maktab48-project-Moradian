@@ -1,19 +1,17 @@
 import React,{useEffect, useState} from 'react'
 import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProducts, getAProduct } from '../../redux/actions/productActions';
+import { getProducts} from '../../redux/actions/productActions';
 import Products from '../../components/mainPageComponents/products/Products';
 import Sidebar from './Sidbar';
-import { Button, Divider, Paper } from '@material-ui/core';
+import { Button,  Paper } from '@material-ui/core';
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
-import { makeStyles } from '@material-ui/core';
-import SearchBar from 'material-ui-search-bar';
 
-const useStyles = makeStyles((theme)=>({
 
-}))
+
+
 const CategoryList = () => {
     const {category} = useParams();
     
@@ -21,7 +19,6 @@ const CategoryList = () => {
     const dispatch = useDispatch();
     const [isOpen,setIsOpen] = useState(false)
     const products = useSelector((state) => state.allProducts.products);
-    const [search,setSearch] = useState('')
     let listItems=[]
     const handleOpen = () => {
         if(isOpen === false){
@@ -34,8 +31,8 @@ const CategoryList = () => {
     useEffect(() => {
         dispatch(getProducts()); 
         
-    },[]);
-    products?.map((product,index) => {
+    });
+    products?.map((product) => {
         if(product.category === category){
           listItems.push(product)
         }

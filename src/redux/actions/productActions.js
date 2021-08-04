@@ -42,23 +42,7 @@ export const addTocart = product => ({
   product
 });
 
- 
-export const incrementCart = _id => ({
-  type: "INCREMENT_CART",
-  _id
-});
 
- 
-export const decrementCart = _id => ({
-  type: "DECREMENT_CART",
-  _id
-});
-
- 
-export const removeFromCart = _id => ({
-  type: "REMOVE_CART",
-  _id
-});
 export const SearchAproduct = data => ({
   type:ActionTypes.SEARCH_PRODUCT,
   payload:data
@@ -78,7 +62,7 @@ export const getProducts = () => async (dispatch, getState) => {
 export const getAProduct = (id) => async (dispatch) => {
   let res = await getAProductById(id);
   dispatch(selectedProduct(res.data));
-  console.log(res.data);
+  
 };
 
 ///delete

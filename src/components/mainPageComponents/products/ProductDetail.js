@@ -3,7 +3,6 @@ import { getAProduct } from '../../../redux/actions/productActions'
 import { useDispatch,useSelector } from 'react-redux'
 import { useParams } from 'react-router';
 import { Box, Button, Grid, TextField, Typography } from '@material-ui/core';
-import Image from 'material-ui-image';
 import { CssBaseline } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 import { AiOutlineCaretLeft } from "react-icons/ai";
@@ -85,19 +84,18 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const ProductDetail = ({onClick}) => {
+const ProductDetail = ({onClick,valueOfTextFiled,onChange}) => {
     const { productId } = useParams();
     const dispatch = useDispatch();
     const classes = useStyles()
     const selectedProduct = useSelector(
       (state) => state.allProducts.selectedProduct
     );
-    const basket = useSelector(state => state.baskets.cardProducts)
 
-    const [value,setValue] = useState([1])
+    // const [value,setValue] = useState([1])
     useEffect(() => {
         dispatch(getAProduct(productId));
-      }, []);
+      });
 
       const imageProps = {
         smallImage: {
@@ -135,8 +133,8 @@ const ProductDetail = ({onClick}) => {
             <Typography variant="h5">توضیحات</Typography>
             <Typography variant="body1" className={classes.desc}>{selectedProduct.description}</Typography>
               <div>
-                <TextField type="number" size="small" variant="outlined" className={classes.textField} value={value} onChange={(e)=> setValue(e.target.value <= 0 ? 0 :e.target.value ) }/>
-                <Button  variant="contained"  className={classes.cart} onClick={() => onClick(selectedProduct.id,value[(value.length)-1])}>اضافه کردن به سبد خرید</Button>
+                <TextField type="number" size="small" variant="outlined" className={classes.textField} value={valueOfTextFiled} onChange={ onChange }/>
+                <Button  variant="contained"  className={classes.cart} onClick={() => onClick(selectedProduct.id,valueOfTextFiled)}>اضافه کردن به سبد خرید</Button>
             </div>
           </div>
 

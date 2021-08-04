@@ -53,25 +53,16 @@
 
 
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
-import { getProducts, deleteProduct,editeProduct } from '../../redux/actions/productActions';
-import { useDispatch, useSelector } from "react-redux";
-import DeleteIcon from '@material-ui/icons/Delete';
-import IconButton from '@material-ui/core/IconButton';
-import red from '@material-ui/core/colors/red';
-import lightBlue from '@material-ui/core/colors/lightBlue';
-import EditIcon from '@material-ui/icons/Edit';
-import { useStyles,StyledTableCell, StyledTableRow } from '../../assets';
+import { useSelector } from "react-redux";
+import { StyledTableCell, StyledTableRow } from '../../assets';
 import Dialog from '../../components/productPageComponents/edit/Dialog';
-import {updateProduct} from '../../api/products'
-import Image from 'material-ui-image';
 export default function TableInModal({orders}) {
-  const classes = useStyles();
   const products = useSelector((state) => state.allProducts.products);
   
   const [data,setData] = useState()

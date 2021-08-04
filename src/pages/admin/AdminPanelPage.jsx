@@ -1,15 +1,12 @@
 import * as React from 'react';
-import ImageLogo from '../../components/imgeLogo';
-import { isLoggedIn ,logout} from "../../utils/auth";
+import { isLoggedIn } from "../../utils/auth";
 import { makeStyles} from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Box from '@material-ui/core/Box';
 import TabComponent from '../../components/Tabs';
 import ProductManagement from '../admin/Productsmanagement';
-import { Button, CssBaseline, Toolbar } from '@material-ui/core';
+import {  CssBaseline,} from '@material-ui/core';
 import PriceManagment from './PriceManagement';
 import OrderManagment from './OrderManagment';
-import Img from '../../assets/images/1.png';
+
 
 //Styles
 const useStyles = makeStyles ((theme) => ({
@@ -117,10 +114,10 @@ const  AdminPanelPage = (props) => {
       
     }
 
-  const handleGoToLogin = () => {
-    history.push("/login");
-    logout()
-  };
+  // const handleGoToLogin = () => {
+  //   history.push("/login");
+  //   logout()
+  // };
 
 
   return (

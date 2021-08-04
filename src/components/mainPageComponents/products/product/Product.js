@@ -1,8 +1,8 @@
 import React from 'react'
-import {Card, CardMedia, CardActions, CardContent, Typography, IconButton} from '@material-ui/core';
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import {Card,  CardActions, CardContent, Typography} from '@material-ui/core';
+// import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import {useStyles} from './style';
-import { useParams } from 'react-router';
+
 import { Link } from "react-router-dom";
 import Image from 'material-ui-image';
 function Product({product,onAddToCart,onClick}) {

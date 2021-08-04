@@ -4,9 +4,8 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import { Typography } from '@material-ui/core'
 import { useDispatch,useSelector } from 'react-redux';
-import { getProducts, getAProduct } from '../../redux/actions/productActions';
+import { getProducts} from '../../redux/actions/productActions';
 import { Link } from 'react-router-dom';
-import { AiFillCarryOut } from "react-icons/ai";
 import { AiOutlineCaretDown } from "react-icons/ai";
 import { AiOutlineCaretLeft } from "react-icons/ai";
 import { makeStyles } from '@material-ui/core';;
@@ -30,7 +29,7 @@ function Sidebar({ items }) {
     const classes = useStyles()
     const dispatch = useDispatch();
     const products = useSelector((state) => state.allProducts.products);
-    const [cart,setCart] = useState([])
+
     const [isOpen,setIsOpen] = useState(false);
 
     const handleOpen = () => {
@@ -48,9 +47,9 @@ function Sidebar({ items }) {
     useEffect(() => {
         dispatch(getProducts()); 
         
-    },[]);
+    });
 
-    products?.map((product,index) => {
+    products?.map((product) => {
         if(product.category === "گل های آپارتمانی"){
           plant_1.push(product)
         }

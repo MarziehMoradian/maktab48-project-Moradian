@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container,Typography, Button,Grid, Box } from '@material-ui/core';
+import { Container,Typography, Button,Grid } from '@material-ui/core';
 import CartItem from './cartItem/CartItem';
 import { useStyles } from './Style';
 import { Link } from 'react-router-dom';
@@ -50,7 +50,7 @@ const Cart = ({cart,onDelete,value,addValue,decValue}) => {
     // console.log(cart);
     let productSum = cart?.map((item) =>{
 
-        sum = sum + item.price * value[v]
+        sum = sum + item.price * item.num
         v=v+1
     }
        

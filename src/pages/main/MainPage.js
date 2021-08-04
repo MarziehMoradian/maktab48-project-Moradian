@@ -1,8 +1,7 @@
 import React,{useState,useEffect} from 'react';
 // import Products from '../../components/mainPageComponents/products/Products';
-import Navbar from '../../components/mainPageComponents/NavBar/Navbar';
 // import { getProducts, getAProduct } from '../../redux/actions/productActions';
-import { addToCart,deleteFromCart,setCarts} from '../../redux/actions/basketAction';
+import { addToCart,deleteFromCart,setCarts,getAProductInBasket} from '../../redux/actions/basketAction';
 import { useDispatch, useSelector } from "react-redux";
 // import DetailProduct from '../../components/mainPageComponents/cart/Cart';
 import Cart from '../../components/mainPageComponents/cart/Cart';
@@ -19,16 +18,23 @@ import SuccessPayment from '../../components/mainPageComponents/CheckOut/Success
 import FailedPayment from '../../components/mainPageComponents/CheckOut/FailedPayment'
 import CheckoutForm from '../../components/mainPageComponents/CheckOut/ChackoutForm'
 import PaymentForm from '../../components/mainPageComponents/CheckOut/PaymentForm';
-import { saveState } from '../../localStorage';
 import NavBar from '../../components/mainPageComponents/NavBar/Navbar';
 function MainPage() {
     const dispatch = useDispatch();
     // const products = useSelector((state) => state.allProducts.products);
     const selectedProduct = useSelector(state => state.allProducts.selectedProduct);
     const basket = useSelector(state => state.baskets.cardProducts)
+    const basketProduct = useSelector(state => state.baskets.selectedProduct)
     
     const [cart,setCart] = useState([])
     let [value, setValue] = useState([])
+    const [valueOfTextFiled,setValueOfTextField] = useState(1)
+    const [title,setTitle] = useState();
+    const [description,setDescription] = useState()
+    const [category,setCategory] = useState();
+    const [price,setPrice] = useState();
+    const [image, setImage] = useState()
+    const [numbers, setNumbers] = useState()
     // useEffect(() => {
     //     dispatch(getAProduct()); 
         
@@ -43,12 +49,24 @@ function MainPage() {
    
 
     const handleAddToCard = (pro,v) => {   
-        console.log(basket);
+        // console.log(basket);
         v = parseInt(v)
         setValue([...value,v])
         dispatch(getAProduct(pro))
+        // console.log(value);
         // basket.filter(item => item.if)
-        dispatch(addToCart([...basket,selectedProduct]));
+        dispatch(addToCart([...basket,
+          {
+              'id':selectedProduct.id,
+            'title':selectedProduct.title,
+           'category': selectedProduct.category,
+            'descripion':selectedProduct.description,
+            'image':selectedProduct.image,
+           'price': selectedProduct.price,
+            'numbers':selectedProduct.numbers,
+            'num':valueOfTextFiled}
+
+        ]));
         
             setCart([...cart,basket])
             // setValue(v)
@@ -69,17 +87,13 @@ function MainPage() {
         dispatch(setCarts())
         console.log(cart); 
     }
-    const handleAddValue = () => {
-        value= parseInt(value)
-        setValue(value + 1)
+    const handleAddValue = (id) => {
+     
+         
     }
     
     const handleDecValue = () => {
-        value= parseInt(value)
-        setValue(value - 1)
-        if(value <= 0){
-            setValue(0)
-        }
+        
     }
 
     return (
@@ -96,8 +110,8 @@ function MainPage() {
                 <Route path="/Payment/FailedPayment" exact component={FailedPayment} />
                 <Route path="/Payment/SuccsessPayment" exact component={SuccessPayment} />
                 <Route path="/product/category/:category" exact component={CategoryList} />
-                <Route path="/product/:productId" exact render={props => <ProductDetail onClick={handleAddToCard} />}/>
-                <Route path="/basket" exact render={props => <Cart  cart={basket} onDelete={handleDelete} value={value} addValue={handleAddValue} decValue={handleDecValue}/>} />
+                <Route path="/product/:productId" exact render={props => <ProductDetail onClick={handleAddToCard} valueOfTextFiled={valueOfTextFiled} onChange={(e)=>setValueOfTextField(e.target.value)}/>}/>
+                <Route path="/basket" exact render={props => <Cart  cart={basket} onDelete={handleDelete} value={basket.num} addValue={handleAddValue} decValue={handleDecValue}/>} />
                 <Route path="/basket/checkOut" exact component={CheckoutForm} />
                 
                 </Switch> 

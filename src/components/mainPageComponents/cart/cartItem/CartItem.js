@@ -8,6 +8,12 @@ const CartItem = ({item,handleDelete,value,addValue,decValue}) => {
     // const handleDelete = () => {
     //     dispatch(removeFromCart)
     // } 
+    // const addValue = () => {
+        
+    // }
+    // const decValue = () => {
+
+    // }
   
     return (
         <Card>
@@ -20,9 +26,9 @@ const CartItem = ({item,handleDelete,value,addValue,decValue}) => {
             </CardContent>
             <CardActions className={classes.cartActions}>
                 <div className={classes.buttons}>
-                    {/* <Button type='button' size="small" onClick={addValue}>+</Button> */}
-                    <Typography>{value[(value.length)-1]}</Typography>
-                    {/* <Button type='button' size="small" onClick={decValue}>-</Button> */}
+                    <Button type='button' size="small" onClick={addValue(item.num)}>+</Button>
+                    <Typography>{item.num}</Typography>
+                    <Button type='button' size="small" onClick={decValue(item.num)}>-</Button>
                 </div>
                 <Button variant="contained" type="button" color="secondary" onClick={() => handleDelete(item.id)}>حذف</Button>
             </CardActions>

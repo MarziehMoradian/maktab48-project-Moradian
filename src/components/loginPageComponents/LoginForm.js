@@ -1,7 +1,6 @@
 import React,{useState} from 'react';
 import { useStyles} from '../../assets/index';
 import Button from '@material-ui/core/Button';
-import Image from 'material-ui-image';
 import { Grid, TextField} from '@material-ui/core';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
@@ -28,7 +27,7 @@ function LoginForm() {
      const history = useHistory()
      const [password,setPassword] = useState();
      const [userName,setUserName] = useState();
-     const { register, handleSubmit, control, errors } = useForm({
+     const { register, handleSubmit, errors } = useForm({
          mode: 'onChange',
          reValidateMode: 'onChange',
          defaultValues: {
@@ -70,7 +69,7 @@ function LoginForm() {
         <div className={classes.paper}>
                 <Grid align="center">
                     {/* <Grid className={classes.avatar}> */}
-                        <img src={img} height="200px" />
+                        <img src={img} height="200px" alt="img" />
                     {/* </Grid> */}
                     <Typography component="h1" variant="h5" >ورود به پنل مدیریت </Typography>  
                 </Grid>

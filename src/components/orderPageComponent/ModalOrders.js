@@ -11,7 +11,6 @@ import Typography from '@material-ui/core/Typography';
 import TableInModal from './TableInModal';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-import { Grid } from '@material-ui/core';
 const styles = (theme) => ({
   root: {
     margin: 0,

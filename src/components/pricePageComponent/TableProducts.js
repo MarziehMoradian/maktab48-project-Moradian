@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect} from 'react';
 import {DataGrid} from '@material-ui/data-grid'
 import { getProducts,update} from '../../redux/actions/productActions';
 import { useDispatch, useSelector } from "react-redux";
 import { makeStyles } from '@material-ui/core/styles';
-import { Button } from '@material-ui/core';
+
 const useStyles = makeStyles((theme) => ({
     
   
@@ -91,7 +91,7 @@ function TableProducts() {
         dispatch(getProducts());
         // console.log(products); 
         
-      }, []);
+      });
       //const [selectedRow, setSelectedRow] = useState({});
     ///const [row, setRow] = useState({});
     //const [selectionModel, setSelectionModel] = React.useState([]);

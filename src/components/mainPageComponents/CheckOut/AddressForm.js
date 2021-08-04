@@ -1,13 +1,11 @@
 import React,{useEffect, useState} from 'react'
-import { useForm, FormProvider } from 'react-hook-form';
-import CustomTextField from './CustomTextField';
-import { Link, useHistory } from 'react-router-dom';
-import {DatePicker, DateTimePicker, DateRangePicker, DateTimeRangePicker} from "react-advance-jalaali-datepicker";
-import { Select, MenuItem, Button, Grid, Typography, Input, TextField, InputLabel, Divider, CardContent } from '@material-ui/core';
+import {  useHistory } from 'react-router-dom';
+import {DatePicker} from "react-advance-jalaali-datepicker";
+import { Button, Grid,  TextField, InputLabel } from '@material-ui/core';
 import {createAOrder} from '../../../redux/actions/orderAction'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { addToCart,deleteFromCart,setCarts} from '../../../redux/actions/basketAction';
+import { setCarts} from '../../../redux/actions/basketAction';
 
 const AddressForm = ({next}) => {
     // const method = useForm()
@@ -21,7 +19,7 @@ const AddressForm = ({next}) => {
     const [date,setDate] = useState()
     useEffect(()=>{
         dispatch(setCarts())
-    },[])
+    })
     let sum = 0
     basket.map( item => {
         sum =sum + item.price

@@ -2,7 +2,7 @@ import { TextField, Grid, makeStyles, Button, InputLabel } from '@material-ui/co
 import React,{useState} from 'react'
 import DropDown from './DropDown';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { createNewProduct  } from '../../redux/actions/productActions';
 // import ImageUpload from 'image-upload-react';
 import { useForm } from 'react-hook-form';
@@ -72,7 +72,7 @@ function Form({addItem}) {
     const [category,setCategory] = useState("");
     const [price,setPrice] = useState("");
     const [image, setImage] = useState()
-    const { register, handleSubmit, control, errors } = useForm({
+    const { register, handleSubmit,  errors } = useForm({
         mode: 'onChange',
         reValidateMode: 'onChange',
         defaultValues: {
@@ -82,11 +82,9 @@ function Form({addItem}) {
           price:'',  
         },
       });
-    const handleImageSelect = (e) => {
-      setImage(URL.createObjectURL(e.target.files[0]))
-    }
+   
     const dispatch = useDispatch();
-    const products = useSelector((state) => state.allProducts.products);
+ 
 
     const onSubmit = (e,data) => {
         // e.preventDefault();
@@ -105,9 +103,7 @@ function Form({addItem}) {
         setDescription("")
      
     }
-      const handleChangeIamge = (e) => {
-        setImage(e.target.value)
-      }
+ 
       const onImageChange=(event)=>{
         if (event.target.files&& event.target.files[0]) {
           let img = event.target.files[0];
@@ -205,7 +201,7 @@ function Form({addItem}) {
                         
 
                     /> */}
-                     <img src={image}/>
+                     <img src={image} alt="img"/>
                     <h3>select image</h3>
                     <input type="file" name="myImage" onChange={onImageChange} style={{width: '90px'}}/>
                 </Grid>
