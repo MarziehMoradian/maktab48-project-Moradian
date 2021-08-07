@@ -56,20 +56,19 @@ export const useStyles = makeStyles((theme) => ({
       remember: {
         margin: theme.spacing(0, -1, 0),
       },
-         table: {
-        height:400,
-        width:'50%',
+      table: {
+        // height:400,
+        // width:'50%',
         margin:'30px auto',
-   
       color:'#05280e',
-      [theme.breakpoints.down('sm')]: {
-        width:'100%',
-      },
-      [theme.breakpoints.between(375,768)]: {
-        width:'100%',
+      // [theme.breakpoints.down('sm')]: {
+      //   width:'100%',
+      // },
+      [theme.breakpoints.between(300,768)]: {
+        width:'80%',
       },
      
-      [theme.breakpoints.between(768,1024)]: {
+      [theme.breakpoints.between(768,1440)]: {
         width:'75%',
         // margin:'auto',
       }
@@ -77,13 +76,30 @@ export const useStyles = makeStyles((theme) => ({
       paperinTable: {
         maxWidth:'60%',
         margin: theme.spacing(1, 'auto', 1),
+        [theme.breakpoints.between(300,768)]: {
+          maxWidth:'96%',
+          // margin:'auto',
+        },
+        [theme.breakpoints.between(768,900)]: {
+          maxWidth:'90%',
+          // margin:'auto',
+        }
       },
       icone:{
         color: "#e51f1f"
       },
     paperModal: {
-      width: 'auto'
+      [theme.breakpoints.between(200,900)]: {
+        width:'100%',
+        // margin:'auto',
+      }
     },
+    modal:{
+      [theme.breakpoints.between(200,900)]: {
+        width:'100%',
+        // margin:'auto',
+      }
+    }
   
 
   
@@ -103,11 +119,20 @@ export const defaultProps = {
       color: theme.palette.common.white,
       fontWeight:'bold',
       fontSize: 18,
+      [theme.breakpoints.between(300,768)]: {
+        fontSize:'12.9px'
+        // margin:'auto',
+      },
     },
     body: {
       fontSize: 16,
+      [theme.breakpoints.between(300,768)]: {
+        fontSize:'10px'
+        // margin:'auto',
+      },
      
     },
+   
   }))(TableCell);
   
   export const StyledTableRow = withStyles((theme) => ({

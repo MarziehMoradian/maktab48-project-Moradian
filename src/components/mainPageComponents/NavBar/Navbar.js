@@ -100,6 +100,7 @@ const useStyless = makeStyles((theme) => ({
         fontSize:'18px',
         fontWeight:'bold',
         marginRight:'40px',
+        color:'white',
         [theme.breakpoints.between(768,900)]:{
             marginRight:'0',
 
@@ -217,11 +218,11 @@ function NavBar({totalItems,onClick,products}) {
                 { res ? (
                     <>
                     <div className={classess.parentDiv} >
+                    <Button variant="text" className={classess.btns} component={Link} to="/adminPanel/productmanagement" >کالاها</Button>
                     <Button variant="text" className={classess.btns} component={Link} to="/adminPanel/PriceManagment" >موجودی و قیمت</Button>
                     <Button variant="text" className={classess.btns} component={Link} to="/adminPanel/OrderManagment"  >سفارش ها</Button>
-                    <Button variant="text" className={classess.btns} component={Link} to="/adminPanel/productmanagement" >کالاها</Button>
                     </div>
-                    <Button variant="text" onClick={handleGoToLogin} style={{fontSize:'18px',fontWeight:'bold',marginRight:'40px'}}>خروج</Button>
+                    <Button variant="text" onClick={handleGoToLogin} style={{fontSize:'18px',fontWeight:'bold',marginRight:'40px',color:'white'}}>خروج</Button>
                     </>
                 )
                 :

@@ -15,7 +15,7 @@ const PaymentForm = ({backStep}) => {
     useEffect(()=>{
         dispatch(setCarts())
         console.log(basket);
-    })
+    },[])
     const handleDelete =() => {
        dispatch(deleteAll())
        console.log( dispatch(deleteAll()));

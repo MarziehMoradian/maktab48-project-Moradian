@@ -10,7 +10,7 @@ function DeliveryOrder() {
     useEffect(() => {
         dispatch(getDeliveryOrders()); 
         
-      });
+      },[]);
 
     return (
         <div>

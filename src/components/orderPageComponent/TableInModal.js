@@ -53,7 +53,7 @@
 
 
 
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableContainer from '@material-ui/core/TableContainer';
@@ -62,17 +62,15 @@ import TablePagination from '@material-ui/core/TablePagination';
 import { useSelector } from "react-redux";
 import { StyledTableCell, StyledTableRow } from '../../assets';
 import Dialog from '../../components/productPageComponents/edit/Dialog';
+
 export default function TableInModal({orders}) {
   const products = useSelector((state) => state.allProducts.products);
-  
   const [data,setData] = useState()
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [open, setOpen] = useState(false);
   // const { productId } = useParams();
 
-  
- 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -86,7 +84,7 @@ export default function TableInModal({orders}) {
     setOpen(false);
   };
 
-
+console.log(orders);
   // const classess = useStyles()
 
   return (
@@ -113,7 +111,10 @@ export default function TableInModal({orders}) {
               <StyledTableCell style={{fontSize: '15px'}} align="right" >{item.title}</StyledTableCell>
               
               <StyledTableCell style={{fontSize: '15px'}}  align="right" >{item.price}</StyledTableCell>
-              <StyledTableCell  style={{fontSize: '15px'}} align="right">{item.number}</StyledTableCell>
+             
+                
+                <StyledTableCell  style={{fontSize: '15px'}} align="right">{ item.num}</StyledTableCell>
+             
                
               
             </StyledTableRow>

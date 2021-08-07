@@ -16,7 +16,19 @@ const Products = ({products,onAddToCart,onClick,categoryName,num}) => {
         <div  >
         <div style={{display:"flex",justifyContent:'space-between',alignItems:'stretch'}}>
             <Link to={`/product/category/${categoryName}`} style={{textDecorationLine:'none',color:'#000'}}>
-                <Button variant="text" className={classes.type}>{categoryName}<IoIosArrowBack/></Button>
+                <Button variant="text" className={classes.type}>{categoryName !== "" ? 
+                
+                (   
+                    <>
+                    <div>{categoryName}</div>
+                    {/* <IoIosArrowBack/> */}
+                    </>
+     
+                ) :(
+                   null
+                )
+              
+                 }</Button>
             </Link>
             {/* {location.pathname !== `/product/category/${categoryName}` ? (
 

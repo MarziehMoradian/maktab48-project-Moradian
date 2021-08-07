@@ -11,6 +11,8 @@ import Typography from '@material-ui/core/Typography';
 import TableInModal from './TableInModal';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
+import lightBlue from '@material-ui/core/colors/lightBlue';
+
 const styles = (theme) => ({
   root: {
     margin: 0,
@@ -61,10 +63,12 @@ export default function ModalOrders({open,handleClose,order}) {
       }; 
       
     }, []);
-
+    const d = new Date();
+const n = d.toLocaleDateString();;
+   //console.log(n);
   const handleDelivery = () => {
-    dispatch(delivery({...order,condition:true}))
-     console.log(dispatch(delivery({...order,condition:true})));
+    dispatch(delivery({...order,condition:true,deliveryTime:`${n}`}))
+    //console.log(dispatch(delivery({...order,condition:true,deliveryTime:n})));
     handleClose()
   }
  
@@ -85,13 +89,13 @@ export default function ModalOrders({open,handleClose,order}) {
            آدرس:{order.address}
           </Typography>
           <Typography gutterBottom>
-            تلفن: {order.phoneNumber}
+            تلفن: {order.PhoneNumber}
           </Typography>
           <Typography gutterBottom>
             زمان ثبت سفارش: {order.orderTime}
           </Typography>
           <Typography gutterBottom>
-            زمان تحویل سفارش: {order.deliveryTime}
+            زمان تحویل سفارش:{ order.deliveryTime===""?'نامشخص':order.deliveryTime}
           </Typography>
           <Typography gutterBottom>
               مبلغ کل: {order.sum}
@@ -103,7 +107,7 @@ export default function ModalOrders({open,handleClose,order}) {
         </DialogContent>
         <DialogActions>
         {option && (
-          <Button autoFocus onClick={handleDelivery} color="primary" style={{margin:'auto'}}>
+          <Button autoFocus onClick={handleDelivery} style={{margin:'auto',backgroundColor:lightBlue[800],color:'white'}}>
             تحویل شد
           </Button>)}
         </DialogActions>

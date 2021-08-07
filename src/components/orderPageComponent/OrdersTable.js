@@ -8,7 +8,7 @@ import ModalOrders from './ModalOrders'
 import { Button } from '@material-ui/core';
 import { StyledTableCell, StyledTableRow } from '../../assets';
 import { makeStyles } from '@material-ui/core';
-  
+import lightBlue from '@material-ui/core/colors/lightBlue';
 const useStyles = makeStyles((theme) => ({
     
   
@@ -93,7 +93,7 @@ const  OrdersTable = ({orders}) => {
                         <StyledTableCell align="right">{order.sum}</StyledTableCell>
                         <StyledTableCell align="right">{order.orderTime}</StyledTableCell>
                         <StyledTableCell align="right" >
-                          <Button onClick={(e) => handleOpen(order)} variant="text" >بررسی سفارش</Button>
+                          <Button onClick={(e) => handleOpen(order)} variant="contained" style={{backgroundColor:lightBlue[800],color:'white'}} >بررسی سفارش</Button>
                         </StyledTableCell>
                       </StyledTableRow>
                     );

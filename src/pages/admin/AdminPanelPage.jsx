@@ -114,29 +114,13 @@ const  AdminPanelPage = (props) => {
       
     }
 
-  // const handleGoToLogin = () => {
-  //   history.push("/login");
-  //   logout()
-  // };
 
 
   return (
     
     < >
     <CssBaseline/>
-       {/* <AppBar  className={classes.appBar} position="static">
-         
-         <img src={Img} alt='' className={classes.img}/>
-         <Toolbar >
-            {isLoggedIn() && (
-              <>
-             
-              <Button className={classes.exist} onClick={handleGoToLogin} >  خروج</Button>
-            </>
-           
-           )}
-          </Toolbar>
-        </AppBar> */}
+     
         {isLoggedIn() && (
               <>
               <TabComponent selectedTab={setSelectedTab} onChange={handleChange} className={classes.tabs}/></>

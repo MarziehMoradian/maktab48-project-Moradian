@@ -53,19 +53,18 @@ export default function CustomizedDialogs({open,handleClose,data}) {
   const classess = useStyles()
  
   return (
-    <div >
-    
-    <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open} >
+ 
+    <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open} className={classess.modal} >
         <DialogTitle id="customized-dialog-title" onClose={handleClose} style={{background:'#0f6c40',color:'#c2c6bb'}}>
           افزودن کالا
         </DialogTitle>
-        <DialogContent >
+        <DialogContent className={classess.paperModal}>
           
-            <Form className={classess.paperModal} action={data} />
+            <Form  action={data} />
            
         </DialogContent>
        
       </Dialog>
-    </div>
+
   );
 }

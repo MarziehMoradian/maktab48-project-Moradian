@@ -19,7 +19,7 @@ const AddressForm = ({next}) => {
     const [date,setDate] = useState()
     useEffect(()=>{
         dispatch(setCarts())
-    })
+    },[])
     let sum = 0
     basket.map( item => {
         sum =sum + item.price
@@ -28,7 +28,7 @@ const AddressForm = ({next}) => {
         if(firstName && lastName && address && PhoneNumber &&date){
             history.push('/payment')
             dispatch(createAOrder({
-                id:Math.random(),
+                id:((Math.random()+1).toFixed(2)),
                 name:firstName + "  " + lastName,
                 address:address,
                 PhoneNumber:PhoneNumber,

@@ -107,10 +107,7 @@ import { MdClose } from "react-icons/md";
                 <div className={classes.sidbarInMobileSize}>
                
                     <Button vatiant="text" onClick={handleOpen} className={classes.btn} >{!isOpen? <GiHamburgerMenu style={{color:'white',transitionDuration:'5ms'}}/>: <MdClose style={{color:'white', transition: 'color 8s linear 4s'}}/>}دسته بندی ها</Button>
-                  
-                    
-                
-                      {isOpen && <Paper className={classes.paper} onClick={()=>setIsOpen(false)}> <Sidebar/></Paper>}
+                    {isOpen && <Paper className={classes.paper} onClick={()=>setIsOpen(false)}> <Sidebar/></Paper>}
                 </div>
                 ):
                 (

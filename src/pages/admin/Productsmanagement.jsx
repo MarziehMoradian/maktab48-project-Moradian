@@ -6,7 +6,8 @@ import ButtonModal from '../../components/productPageComponents/ButtonModal';
 import { getProducts  } from '../../redux/actions/productActions';
 import { useDispatch} from 'react-redux';
 // import { useStyles } from '../assets';
-import {  makeStyles } from '@material-ui/core';
+import { BsPlus } from "react-icons/bs";
+import {  makeStyles,Button } from '@material-ui/core';
 function ProductTable() {
 
   const dispatch = useDispatch();
@@ -29,9 +30,9 @@ function ProductTable() {
             background:'#48a27a',
             color:'#fcfdfd',
             border:'none',
-            padding:'7px 18px',
-            fontSize:'18px',
-            margin:theme.spacing(7,4),
+            padding:'5px 18px',
+            fontSize:'15px',
+            margin:theme.spacing(2,2),
             [theme.breakpoints.down('xs')]:{
                
                 // height: '30px',
@@ -47,19 +48,38 @@ function ProductTable() {
             display:'flex',
             // background:'#f6f9f9',
             
+          },
+          parenBtn:{
+            display:'flex',
+            justifyContent: 'space-around'
+          },
+          title:{
+            marginTop:'20px',
+            [theme.breakpoints.down('xs')]:{
+               
+              // height: '30px',
+              fontSize: '15px',
+              fontWeight: 'bold'
+          },
+
           }
      }))
       const classess = useStyles()
 
     return (
-      <div style={{textAlign:'center',marginTop:'120px'}}>
-            <h1 style={{textAlign:'center',marginTop:'20px'}}>صفحه مدیریت کالا ها</h1>
-         <div style={{display:'flex',justifyContent: 'space-around'}}>
-                <Dialog open={open} handleClose={handleClose} />
-                <Table />
-                <ButtonModal onClick={handleClickOpen} className={classess.btnAdd}  />
+      <div style={{marginTop:'120px',width:'100%'}}>
+        <div className={classess.parenBtn}>
+          <h1 className={classess.title}>صفحه مدیریت کالا ها</h1>
+            <Button onClick={handleClickOpen} className={classess.btnAdd}>اضافه کردن<BsPlus style={{height:'20px',width:'30px'}}/></Button>
+          
+          </div>
+         <div style={{display:'flex',justifyContent: 'space-around',width:'100%'}}>
+            <Dialog open={open} handleClose={handleClose} />
+            <Table />
+          </div>
+              
       
-        </div>
+        
         </div>
         
     )

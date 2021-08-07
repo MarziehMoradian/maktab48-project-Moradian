@@ -70,7 +70,7 @@ function Sidebar({ items }) {
         }
         else if(product.category === " کاکتوس"){
 
-            plant_3.push(product)
+          plant_3.push(product)
         }
       })
 
@@ -79,13 +79,13 @@ function Sidebar({ items }) {
    
       <List disablePadding dense className={classes.list} >
       <div>
-      <Link to={`/product/category/گل های آپارتمانی`} style={{textDecorationLine:'none',color:'#000' }}>
+      <Link to={`/product/category/گل های آپارتمانی`} className={classes.link}>
           <Typography variant="h5" className={classes.title}>گل های آپارتمانی</Typography>
         </Link>
         {plant_1.map((item) => (
           <ListItem key={item.id} button >
             <Link to={`/product/${item.id}`} className={classes.link}>
-                <ListItemText style={{textAlign:'right',fontFamily:'BYekan+'}} >{item.title}</ListItemText>
+                <ListItemText style={{textAlign:'right'}} >{item.title}</ListItemText>
             </Link>
           </ListItem>
         ))}

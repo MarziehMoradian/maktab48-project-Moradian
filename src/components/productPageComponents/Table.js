@@ -4,19 +4,23 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
+import { Button } from '@material-ui/core';
 import TablePagination from '@material-ui/core/TablePagination';
 import { getProducts, deleteProduct,editeProduct } from '../../redux/actions/productActions';
 import { useDispatch, useSelector } from "react-redux";
-import DeleteIcon from '@material-ui/icons/Delete';
+// import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
 import red from '@material-ui/core/colors/red';
 import lightBlue from '@material-ui/core/colors/lightBlue';
-import EditIcon from '@material-ui/icons/Edit';
-import { useStyles,StyledTableCell, StyledTableRow } from '../../assets';
+// import EditIcon from '@material-ui/icons/Edit';
+import { useStyles,StyledTableCell, StyledTableRow } from '../../assets/index';
 import Dialog from '../../components/productPageComponents/edit/Dialog';
 import {updateProduct} from '../../api/products'
 import Image from 'material-ui-image';
+
+
 export default function CustomizedTables() {
+
   const classes = useStyles();
   const products = useSelector((state) => state.allProducts.products);
 
@@ -93,7 +97,7 @@ export default function CustomizedTables() {
         {products?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item) => (
             <StyledTableRow key={item.id}>
               
-              <StyledTableCell align="right" component="th" scope="row" style={{borderRadius: '10px'}}><Image src={item.image} /></StyledTableCell>
+              <StyledTableCell align="right" component="th" scope="row" ><Image src={item.image} /></StyledTableCell>
              
               <StyledTableCell  align="right" >{item.title}</StyledTableCell>
               
@@ -101,10 +105,14 @@ export default function CustomizedTables() {
               
               <StyledTableCell align="right" component="th" scope="row" >
                 <IconButton aria-label="delete" >
-                    <DeleteIcon fontSize="default" style={{ color: red['A700'] }} onClick={(e)=>handleDelete(item.id)}/>
+                    {/* <DeleteIcon fontSize="default" style={{ color: red['A700'] }} onClick={(e)=>handleDelete(item.id)}/> */}
+                    <Button fontSize="default" style={{ backgroundColor: red['A700'],color:'white' }} onClick={(e)=>handleDelete(item.id)} >حذف</Button>
                 </IconButton >
                 <IconButton aria-label="delete" >
-                    <EditIcon fontSize="default" style={{ color: lightBlue[800] }} onClick={e => handleEdit(item)}  />
+                  <Button style={{ backgroundColor:lightBlue[800],color:'white' }} onClick={e => handleEdit(item)}>
+                    ویرایش
+                    {/* <EditIcon fontSize="default" /> */}
+                    </Button>
                 </IconButton >
                 
                 </StyledTableCell>
