@@ -95,7 +95,7 @@ const ProductDetail = ({onClick,valueOfTextFiled,onChange}) => {
     // const [value,setValue] = useState([1])
     useEffect(() => {
         dispatch(getAProduct(productId));
-      });
+      },[]);
 
       const imageProps = {
         smallImage: {

@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useEffect} from 'react'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
@@ -6,22 +6,41 @@ import { Typography } from '@material-ui/core'
 import { useDispatch,useSelector } from 'react-redux';
 import { getProducts} from '../../redux/actions/productActions';
 import { Link } from 'react-router-dom';
-import { AiOutlineCaretDown } from "react-icons/ai";
-import { AiOutlineCaretLeft } from "react-icons/ai";
 import { makeStyles } from '@material-ui/core';;
 
 const useStyles = makeStyles((theme)=>({
   list:{
     display:'flex',
-    flexDirection:'row',
+    flexDirection:'column',
     flexWrap:'nowrap',
     justifyContent:'space-around',
     padding:'10px',
-    [theme.breakpoints.between(200,768)]:{
+    [theme.breakpoints.between(200,600)]:{
       display:'flex',
-    flexDirection:'column',
-    }
+     flexDirection:'column',
+    },
+    [theme.breakpoints.between(600,1400)]:{
+      display: 'flex',
+      flexDirection:'row',
+      justifyContent: 'space-around'
+      
+
+  }
     
+  },
+  title:{
+    backgroundColor:'darkgreen',
+    color:'white',
+    border:'none',
+    borderRadius:'5px',
+    padding:'5px'
+  },
+  [theme.breakpoints.between(200,600)]:{
+    // fontSize:'10px'
+  },
+  link:{
+    textDecorationLine:'none',
+    color:'#000'
   }
 
 }))
@@ -30,15 +49,8 @@ function Sidebar({ items }) {
     const dispatch = useDispatch();
     const products = useSelector((state) => state.allProducts.products);
 
-    const [isOpen,setIsOpen] = useState(false);
 
-    const handleOpen = () => {
-      if(isOpen){
-        setIsOpen(false)
-      }else{
-        setIsOpen(true)
-      }
-    }
+ 
 
     let plant_1 = []
     let plant_2 = []
@@ -67,37 +79,37 @@ function Sidebar({ items }) {
    
       <List disablePadding dense className={classes.list} >
       <div>
-      <Link to={`/product/category/گل های آپارتمانی`} style={{textDecorationLine:'none',color:'#000'}}>
-          <Typography variant="h5" className="menu-item">گل های آپارتمانی{!isOpen ? <AiOutlineCaretDown onClick={handleOpen} style={{padding:'5px'}}/>:<AiOutlineCaretLeft onClick={handleOpen} style={{padding:'5px'}}/>}</Typography>
+      <Link to={`/product/category/گل های آپارتمانی`} style={{textDecorationLine:'none',color:'#000' }}>
+          <Typography variant="h5" className={classes.title}>گل های آپارتمانی</Typography>
         </Link>
         {plant_1.map((item) => (
           <ListItem key={item.id} button >
-            <Link to={`/product/${item.id}`} style={{textDecorationLine:'none',color:'#000'}}>
-                <ListItemText style={{textAlign:'right',fontFamily:'BYekan+'}} className="menu-item">{item.title}</ListItemText>
+            <Link to={`/product/${item.id}`} className={classes.link}>
+                <ListItemText style={{textAlign:'right',fontFamily:'BYekan+'}} >{item.title}</ListItemText>
             </Link>
           </ListItem>
         ))}
         </div>
         <div>
-        <Link to={`/product/category/گل های زینتی`} style={{textDecorationLine:'none',color:'#000'}}>
-          <Typography variant="h5" className="menu-item">گل های زینتی{!isOpen ? <AiOutlineCaretDown onClick={handleOpen} style={{padding:'5px'}}/>:<AiOutlineCaretLeft onClick={handleOpen} style={{padding:'5px'}}/>}</Typography>
+        <Link to={`/product/category/گل های زینتی`} className={classes.link}>
+          <Typography variant="h5"  className={classes.title}>گل های زینتی</Typography>
           </Link>
         {plant_2.map((item) => (
           <ListItem key={item.id} button >
-            <Link to={`/product/${item.id}`} style={{textDecorationLine:'none',color:'#000'}}>
-                <ListItemText style={{textAlign:'right'}} className="menu-item">{item.title}</ListItemText>
+            <Link to={`/product/${item.id}`} className={classes.link}>
+                <ListItemText style={{textAlign:'right'}} >{item.title}</ListItemText>
             </Link>
           </ListItem>
         ))}
         </div>
         <div>
-        <Link to={`/product/category/ کاکتوس`} style={{textDecorationLine:'none',color:'#000'}}>
-          <Typography variant="h5" className="menu-item">کاکتوس{!isOpen ? <AiOutlineCaretDown onClick={handleOpen} style={{padding:'5px'}}/>:<AiOutlineCaretLeft onClick={handleOpen} style={{padding:'5px'}}/>}</Typography>
+        <Link to={`/product/category/ کاکتوس`} className={classes.link}>
+          <Typography variant="h5" className={classes.title}>کاکتوس</Typography>
           </Link>
         {plant_3.map((item) => (
           <ListItem key={item.id} button >
-            <Link to={`/product/${item.id}`} style={{textDecorationLine:'none',color:'#000'}}>
-                <ListItemText style={{textAlign:'right'}} className="menu-item">{item.title}</ListItemText>
+            <Link to={`/product/${item.id}`} className={classes.link}>
+                <ListItemText style={{textAlign:'right'}} >{item.title}</ListItemText>
             </Link>
           </ListItem>
         ))}
