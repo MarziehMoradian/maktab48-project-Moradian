@@ -47,7 +47,7 @@ function Sidebar({ items }) {
     useEffect(() => {
         dispatch(getProducts()); 
         
-    });
+    },[]);
 
     products?.map((product) => {
         if(product.category === "گل های آپارتمانی"){
@@ -64,8 +64,7 @@ function Sidebar({ items }) {
 
   return (
     <div className="sidebar"   >
-      {/* <Menu pageWrapId={ "page-wrap" } >
-      <main id="page-wrap"> */}
+   
       <List disablePadding dense className={classes.list} >
       <div>
       <Link to={`/product/category/گل های آپارتمانی`} style={{textDecorationLine:'none',color:'#000'}}>
