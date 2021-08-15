@@ -13,7 +13,7 @@ function ProductTable() {
   const dispatch = useDispatch();
    useEffect(() => {
       dispatch(getProducts()); 
-    });
+    },[]);
     const [open, setOpen] = React.useState(false);
     const handleClickOpen = () => {
         

@@ -186,7 +186,7 @@ function NavBar({totalItems,onClick,products}) {
                 color="inherit" 
                 // style={{marginLeft:'100px'}}
                 aria-label="menu">
-                    <MenuIcon />
+                    <MenuIcon style={{color:'white'}} />
                 </IconButton>
               <Menu
                 id="menu-appbar"
@@ -228,7 +228,7 @@ function NavBar({totalItems,onClick,products}) {
                 :
                 (
                     <div>
-                    <Button variant="text"  component={Link} to={isLoggedIn() ? "/adminPanel" : '/login'} style={{color:'#cdf6d5'}}  >مدیریت</Button>
+                    <Button variant="containe"  component={Link} to={isLoggedIn() ? "/adminPanel" : '/login'} style={{color:'#cdf6d5'}}  >مدیریت</Button>
                     <IconButton >
                     <Badge component={Link} to="/basket" badgeContent={totalItems} color="secondary"  >
                         <ShoppingCartIcon onClick={onClick} style={{ color:'#cdf6d5',marginTop:'3.5px'}}/>

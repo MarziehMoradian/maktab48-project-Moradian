@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 // import Products from '../../components/mainPageComponents/products/Products';
 // import { getProducts, getAProduct } from '../../redux/actions/productActions';
-import { addToCart,deleteFromCart,setCarts,getAProductInBasket} from '../../redux/actions/basketAction';
+import { addToCart,deleteFromCart,setCarts,getAProductInBasket, update} from '../../redux/actions/basketAction';
 import { useDispatch, useSelector } from "react-redux";
 // import DetailProduct from '../../components/mainPageComponents/cart/Cart';
 import Cart from '../../components/mainPageComponents/cart/Cart';
@@ -29,12 +29,12 @@ function MainPage() {
     const [cart,setCart] = useState([])
     let [value, setValue] = useState([])
     const [valueOfTextFiled,setValueOfTextField] = useState(1)
-    const [title,setTitle] = useState();
-    const [description,setDescription] = useState()
-    const [category,setCategory] = useState();
-    const [price,setPrice] = useState();
-    const [image, setImage] = useState()
-    const [numbers, setNumbers] = useState()
+    // const [title,setTitle] = useState();
+    // const [description,setDescription] = useState()
+    // const [category,setCategory] = useState();
+    // const [price,setPrice] = useState();
+    // const [image, setImage] = useState()
+    // const [numbers, setNumbers] = useState()
     // useEffect(() => {
     //     dispatch(getAProduct()); 
         
@@ -85,10 +85,15 @@ function MainPage() {
     const handleDelete = (id) => {
         dispatch(deleteFromCart(id));
         dispatch(setCarts())
-        console.log(cart); 
+       
+         
     }
     const handleAddValue = (id) => {
-     
+        {basket.map((item)=>{
+            if(item.id === id){
+                dispatch(update({'num':(parseInt(item.num)+1)}))
+            }
+        })}
          
     }
     

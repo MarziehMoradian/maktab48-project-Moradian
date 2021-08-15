@@ -1,6 +1,6 @@
 
 import Login from "./pages/LoginPage";
-import { Route, Switch} from "react-router-dom";
+import { Redirect, Route, Switch} from "react-router-dom";
 import React from "react";
 import MainPage from "./pages/main/MainPage";
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -16,7 +16,7 @@ function App() {
        <MainPage/>
        <AdminPage/>
        <Switch>
-        <Route path="/" exact component={Carousel}/>
+        <Redirect from="/" to='/product'/>
         <Route path="/login" exact component={Login}/>
        </Switch>
      

@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
-// import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineSearch } from "react-icons/ai";
 const useStyles = makeStyles((theme)=>({
     input:{
         width: '30%',
@@ -11,23 +11,25 @@ const useStyles = makeStyles((theme)=>({
         outline:'none',
         fontSize:'15px',
         marginRight: '5%',
-        // position:'relative',
+        position:'relative',
         padding:'10px',
         [theme.breakpoints.down('xs')]:{
             width:'70%',
             marginTop: '8px',
             marginRight: '0'
         },
+       
       
     },
-    // icone:{
-    //     position:'absolute',
-    //     marginTop: '15px',
-    //     height:'20px',
-    //     width: '40px',
-    //     color:'white',
-    //     marginLeft:'30px',
-    // }
+    icone:{
+        position:'absolute',
+        marginTop: '15px',
+        height:'26px',
+        width: '40px',
+        color:'gray',
+        // marginLeft:'30px',
+        transform: 'translate(100%,-5%)',
+    }
 
    
 
@@ -42,7 +44,7 @@ function Search({search,onSearch}) {
             value={search}
             placeholder="جست و جو...."  
             onChange={(e)=>onSearch(e.target.value)}/>
-            {/* <AiOutlineSearch className={classes.icone}/> */}
+            <AiOutlineSearch className={classes.icone}/> 
         </>
     )
 }

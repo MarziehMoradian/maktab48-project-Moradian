@@ -55,7 +55,7 @@ const ProductPage = () => {
         if(product.category === "گل های آپارتمانی"){
           plant_1.push(product)
         }
-        else if(product.category === "گل های زینتی"){
+        else if(product.category === "دسته گل"){
           plant_2.push(product);
         }
         else if(product.category === " کاکتوس"){
@@ -91,7 +91,7 @@ const ProductPage = () => {
             </Grid>
             <div>
         
-                <Products  products={plant_2} onAddToCart={handleAddToCard}  categoryName="گل های زینتی" num={4}/>
+                <Products  products={plant_2} onAddToCart={handleAddToCard}  categoryName="دسته گل" num={4}/>
             </div>
             <div>
           

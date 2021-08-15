@@ -65,7 +65,7 @@ function Sidebar({ items }) {
         if(product.category === "گل های آپارتمانی"){
           plant_1.push(product)
         }
-        else if(product.category === "گل های زینتی"){
+        else if(product.category === "دسته گل"){
           plant_2.push(product);
         }
         else if(product.category === " کاکتوس"){
@@ -91,8 +91,8 @@ function Sidebar({ items }) {
         ))}
         </div>
         <div>
-        <Link to={`/product/category/گل های زینتی`} className={classes.link}>
-          <Typography variant="h5"  className={classes.title}>گل های زینتی</Typography>
+        <Link to={`/product/category/دسته گل`} className={classes.link}>
+          <Typography variant="h5"  className={classes.title}>دسته گل</Typography>
           </Link>
         {plant_2.map((item) => (
           <ListItem key={item.id} button >

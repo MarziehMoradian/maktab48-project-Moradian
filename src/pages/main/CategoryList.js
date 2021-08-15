@@ -7,6 +7,7 @@ import Sidebar from './Sidbar';
 import { Button,  Paper ,useTheme ,useMediaQuery,makeStyles} from '@material-ui/core';
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
+import Pagination from 'rc-pagination';
 
  const useStyles = makeStyles((theme)=>({
     root:{
@@ -73,11 +74,22 @@ import { MdClose } from "react-icons/md";
     const {category} = useParams();
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.between(290,1400))
-    
+    const [page, setPage] = React.useState(0);
+    const [rowsPerPage, setRowsPerPage] = React.useState(5);
     const dispatch = useDispatch();
     const [isOpen,setIsOpen] = useState(false)
     const products = useSelector((state) => state.allProducts.products);
     let listItems=[]
+
+    const handleChangePage = (event, newPage) => {
+        setPage(newPage);
+      };
+      
+      const handleChangeRowsPerPage = (event) => {
+        setRowsPerPage(event.target.value);
+        setPage(0);
+      };
+
     const handleOpen = () => {
         if(isOpen === false){
 
@@ -123,6 +135,9 @@ import { MdClose } from "react-icons/md";
             
             <main className={classes.main}>
             <Products products={listItems} categoryName={category} num={listItems.length}/>
+            
+         
+
             </main>
         </div>
       

@@ -23,7 +23,7 @@ export const basketReducers = (state = initialState,{type,payload} ) => {
                     return { ...state.cardProducts, cardProducts: payload };
                     
             case ActionTypes.EDIT_SELECTED_PRODUCT_BASKET: 
-                return {...state, products:[...state.cardProducts,payload]  }  ;
+                return {...state, cardProducts:[...state.cardProducts,payload]  }  ;
 
             case ActionTypes.REMOVE_ALL:
                 return{...state,cardProducts:[] } ;

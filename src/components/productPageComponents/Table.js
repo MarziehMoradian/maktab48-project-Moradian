@@ -34,7 +34,7 @@ export default function CustomizedTables() {
 
   useEffect(() => {
     dispatch(getProducts()); 
-  });
+  },[]);
 
   const handleDelete = (id) => {
     dispatch(deleteProduct(id));

@@ -11,7 +11,6 @@ import { StylesProvider, jssPreset } from '@material-ui/core/styles';
 import { createMuiTheme} from '@material-ui/core/styles';
 import { BrowserRouter as Router } from "react-router-dom";
  import { PersistGate } from 'redux-persist/integration/react';
- import { saveState } from './localStorage';
 //  store.subscribe(()=>{
 //    let state=store.getState().cartItems;
  
