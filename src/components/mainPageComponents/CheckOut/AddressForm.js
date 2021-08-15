@@ -47,7 +47,7 @@ const AddressForm = ({next}) => {
   const  DatePickerInput= (props) =>  {
     return (
        <Grid item xs={12} sm={12} >
-        <TextField   {...props}  fullWidth size="small" value={date} onChange={(e) => setDate(e.target.value)} />
+        <TextField   {...props}  fullWidth size="small" required />
         </Grid>
     )
 }

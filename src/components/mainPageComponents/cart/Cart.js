@@ -18,7 +18,6 @@ const Cart = ({cart,onDelete,value,addValue,decValue}) => {
 
     const FilledCard = ({value,addValue,decValue,productSum}) => (
         
-        
         <>
 
             <Grid item container spacing={3}>
