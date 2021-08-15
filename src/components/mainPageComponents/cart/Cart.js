@@ -12,7 +12,7 @@ const Cart = ({cart,onDelete,value,addValue,decValue}) => {
     const EmptyCard = () => (
         <div  >
         <Typography  variant="h6">سبد خرید شما خالیست  </Typography>
-            <Button component={Link} to="/" className={classes.link} variant="contained">اضافه کردن محصول</Button>
+            <Button component={Link} to="/product" className={classes.link} variant="contained">اضافه کردن محصول</Button>
        </div>
     );
 

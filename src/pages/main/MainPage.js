@@ -111,13 +111,13 @@ function MainPage() {
             </div>
              <Switch>
                 <Route path="/product" exact component={ProductPage} />
+                <Route path="/basket/checkOut" exact component={CheckoutForm} />
                 <Route path="/Payment" exact component={PaymentForm} />
                 <Route path="/Payment/FailedPayment" exact component={FailedPayment} />
                 <Route path="/Payment/SuccsessPayment" exact component={SuccessPayment} />
                 <Route path="/product/category/:category" exact component={CategoryList} />
                 <Route path="/product/:productId" exact render={props => <ProductDetail onClick={handleAddToCard} valueOfTextFiled={valueOfTextFiled} onChange={(e)=>setValueOfTextField(e.target.value)}/>}/>
                 <Route path="/basket" exact render={props => <Cart  cart={basket} onDelete={handleDelete} value={basket.num} addValue={handleAddValue} decValue={handleDecValue}/>} />
-                <Route path="/basket/checkOut" exact component={CheckoutForm} />
                 
                 </Switch> 
              {/* <Products products={products} onAddToCart={handleAddToCard}/> */}

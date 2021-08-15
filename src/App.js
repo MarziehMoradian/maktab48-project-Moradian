@@ -16,7 +16,7 @@ function App() {
        <MainPage/>
        <AdminPage/>
        <Switch>
-        <Redirect from="/" to='/product'/>
+        {/* <Redirect to='/product'/> */}
         <Route path="/login" exact component={Login}/>
        </Switch>
      

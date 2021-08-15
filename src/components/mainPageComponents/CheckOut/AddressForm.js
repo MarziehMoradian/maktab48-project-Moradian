@@ -26,7 +26,7 @@ const AddressForm = ({next}) => {
     })
    const handleSubmit = () => {
         if(firstName && lastName && address && PhoneNumber &&date){
-            history.push('/payment')
+           
             dispatch(createAOrder({
                 id:((Math.random()+1).toFixed(2)),
                 name:firstName + "  " + lastName,
@@ -41,19 +41,20 @@ const AddressForm = ({next}) => {
                 
 
             }))
+            history.push('/Payment')
         }
 
    }
   const  DatePickerInput= (props) =>  {
     return (
        <Grid item xs={12} sm={12} >
-        <TextField   {...props}  fullWidth size="small" value={date} onChange={(e) => setDate(e.target.value)} />
+        <TextField   {...props}  fullWidth size="small" required value={date} onChange={(e)=>setDate(e.target.value)}/>
         </Grid>
     )
 }
 
     return (
-        <div>
+        <>
             
             {/* <FormProvider {...method}> */}
                 <form onSubmit={handleSubmit}>
@@ -90,7 +91,7 @@ const AddressForm = ({next}) => {
                    
                 </form>
             {/* </FormProvider> */}
-        </div>
+        </>
     )
 }
 export default AddressForm
