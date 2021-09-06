@@ -12,8 +12,7 @@ function Product({product,onAddToCart,onClick}) {
     return (
         <div  >
         <Card className={classes.root}>
-            
-            {/* <CardMedia className={classes.media} image={product.image} title={product.title}/> */}
+             {/* <CardMedia className={classes.media} image={product.image} title={product.title}/> */}
                     <Image src={product.image} alt={product.title}  title={product.title} style={{objectFit: 'fill'}}/>
             {/* <div  style={{width:'350px',height:'100px'}}> */}
                 <CardContent className={classes.cardContent}>
